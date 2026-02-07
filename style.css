@@ -210,3 +210,12 @@ img {
     margin-right: 4px;
 }
 
+/* モバイル対応の追加例 */
+@media (max-width: 767px) {
+    .plan.featured {
+        transform: scale(1);
+        margin: 20px 0;
+    }
+}
+
+
