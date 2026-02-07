@@ -197,3 +197,16 @@ img {
     background-color: rgba(255,255,255,0.1);
     color: var(--accent-color);
 }
+
+.plan-spec {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 13px;
+    color: var(--accent-color); /* ゴールドでアイコンを表示 */
+    margin-bottom: 20px;
+}
+.plan-spec i {
+    margin-right: 4px;
+}
+
