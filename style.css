@@ -501,6 +501,46 @@ img {
     }
 }
 
+/* ==========================================
+   ヒーローセクション（中央配置への調整）
+   ========================================== */
+.hero {
+    height: 600px;
+    background: linear-gradient(rgba(26, 41, 51, 0.5), rgba(26, 41, 51, 0.5)), 
+                url(https://i.imgur.com/mIAguTt.jpeg);
+    background-position: center;
+    background-size: cover;
+    color: var(--white);
+    display: flex;            /* gridからflexに変更（中央揃えの制御がしやすいため） */
+    flex-direction: column;   /* 縦に並べる */
+    justify-content: center;  /* 垂直方向中央 */
+    align-items: center;      /* 水平方向中央 */
+    text-align: center;       /* テキスト自体を中央揃え */
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+    margin-bottom: 20px;      /* サブコピーとの間隔 */
+}
+
+.hero p {
+    font-size: clamp(16px, 2vw, 20px);
+    letter-spacing: 0.15em;
+    margin-bottom: 40px;      /* ボタンとの間隔 */
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* ボタンは .btn クラスで既に中央配置に対応していますが、
+   ヒーロー内での見栄えを調整する場合 */
+.hero .btn {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3); /* 背景画像の上でも目立つよう影を強調 */
+}
+
+
 
 
 
