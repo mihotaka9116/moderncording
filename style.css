@@ -469,4 +469,42 @@ img {
 	width: auto;
 }
 
+:root {
+  --bg-color: #f7f6f2;      /* 背景：生成り */
+  --main-color: #2c3e3f;    /* メイン：深い森 */
+  --accent-color: #a63d2d;  /* アクセント：茜色 */
+  --text-color: #333333;    /* 文字：墨色 */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Noto Serif JP", serif; /* 明朝体がおすすめ */
+}
+
+/* ヘッダーやヒーローセクションを深く落ち着いた色に */
+.header, .hero {
+  background-color: var(--main-color);
+  color: #ffffff;
+}
+
+/* 予約ボタンをアクセントカラーに */
+.btn {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border-radius: 0; /* 角を丸くせず、シャープにするとモダン */
+  transition: opacity 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* 見出しの装飾（左側の棒など） */
+.heading-decoration {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 15px;
+}
+
+
 
