@@ -98,6 +98,7 @@ img {
     letter-spacing: 0.2em;
     font-weight: 700;
     text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+    text-align: center;
 }
 
 /* ==========================================
@@ -499,6 +500,7 @@ img {
         display: inline-block;
     }
 }
+
 
 
 
