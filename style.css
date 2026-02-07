@@ -108,7 +108,7 @@ img {
     min-width: 200px;
     padding: 16px 32px;
     background: linear-gradient(135deg, #c2a05d 0%, #ad8a42 100%);
-    color: var(--white) !important;
+    color: var(--white);
     text-align: center;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -499,6 +499,7 @@ img {
         display: inline-block;
     }
 }
+
 
 
 
