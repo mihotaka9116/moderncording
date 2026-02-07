@@ -136,7 +136,7 @@ img {
 /* ヒーロー */
 .hero {
 	height: 650px;
-	background-image: url(img/hero.jpg);
+	background-image: url(img/uma.jpg);
 	background-position: center;
 	background-size: cover;
 }
@@ -468,3 +468,4 @@ img {
 .plan .btn {
 	width: auto;
 }
+
