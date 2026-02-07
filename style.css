@@ -506,5 +506,51 @@ body {
   padding-left: 15px;
 }
 
+/* 基本設定 */
+body {
+    background-color: #f7f6f2; /* 生成り色 */
+    color: #333333;           /* 墨色 */
+    font-family: 'Noto Serif JP', serif;
+    line-height: 1.8;         /* 行間を広げて読みやすく */
+}
+
+/* ヒーローセクションを印象的に */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(img/hero.jpg);
+    background-size: cover;
+    color: #fff;
+    padding: 120px 0; /* 余白を多めにとる */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    letter-spacing: 0.2em; /* 文字間隔を広げて高級感を出す */
+    margin-bottom: 20px;
+}
+
+/* 予約ボタンを茜色（アクセント）に */
+.btn {
+    background-color: #a63d2d;
+    color: #fff;
+    padding: 15px 40px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+    border-radius: 2px; /* 少しだけ丸めるのがモダン */
+}
+
+.btn:hover {
+    background-color: #8a3225;
+    transform: translateY(-2px); /* 少し浮かせる */
+}
+
+/* 縦書きのアクセント（お好みでh2などに） */
+.heading-decoration {
+    border-left: 2px solid #a63d2d;
+    padding-left: 15px;
+    font-weight: 700;
+}
+
+
 
 
