@@ -314,5 +314,192 @@ img {
     opacity: 0.6;
 }
 
+/* ==========================================
+   下層ページ共通：エントリーセクション
+   ========================================== */
+.entry-img {
+    width: 100%;
+    height: 400px; /* 固定高にすることで安定感を出します */
+    margin-bottom: 60px;
+}
+
+.entry-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像を中央で綺麗にクロップ */
+}
+
+.entry .w-container {
+    max-width: 800px; /* 読み物としての可読性を高めるため幅を絞る */
+    margin-bottom: var(--v-space);
+}
+
+.entry h1.heading-decoration {
+    margin-bottom: 5px;
+}
+
+.entry h1 + p { /* Rooms & Plans のサブタイトル部分 */
+    font-size: 14px;
+    color: var(--accent-color);
+    letter-spacing: 0.2em;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.entry-container p {
+    margin-bottom: 1.8em;
+    text-align: justify; /* 日本語を美しく見せる */
+}
+
+/* ==========================================
+   スマホ用ハンバーガーメニューの挙動
+   ========================================== */
+.navbtn {
+    display: none; /* デスクトップでは隠す */
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+@media (max-width: 767px) {
+    .navbtn {
+        display: block;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* 通常時は画面外 */
+        width: 80%;
+        height: 100vh;
+        background: var(--main-color);
+        transition: 0.4s;
+        padding-top: 120px;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    /* メニューが開いた状態（HTMLに.openクラスがついた時） */
+    html.open .nav {
+        right: 0;
+    }
+    
+    html.open .navbtn .fa-bars { display: none; }
+    html.open .navbtn .fa-times { display: inline-block; }
+    html.open { overflow: hidden; } /* 背景スクロール防止 */
+}
+
+/* ==========================================
+   下層ページ共通：エントリーセクション
+   ========================================== */
+.entry-img {
+    width: 100%;
+    height: clamp(300px, 40vh, 470px); /* 画面サイズに合わせつつ上限を指定 */
+    margin-bottom: 60px;
+    overflow: hidden;
+}
+
+.entry-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像の比率を保ったまま領域を埋める */
+}
+
+.entry .w-container {
+    max-width: 800px; /* 読み物として心地よい横幅に制限 */
+    margin-bottom: var(--v-space);
+}
+
+.entry h1.heading-decoration {
+    margin-bottom: 5px;
+}
+
+.entry h1 + p { /* Rooms & Plans の英字部分 */
+    font-size: 14px;
+    color: var(--accent-color);
+    letter-spacing: 0.2em;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.entry-container p {
+    margin-bottom: 1.8em;
+    text-align: justify; /* 日本語の行末を揃えて美しく */
+}
+
+/* ==========================================
+   ナビゲーション・モバイル対応（詳細版）
+   ========================================== */
+.navbtn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
+    padding: 10px;
+}
+
+.navbtn .fa-times {
+    display: none; /* 初期状態では×ボタンを隠す */
+}
+
+@media (max-width: 767px) {
+    .navbtn {
+        display: block;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* 画面外に待機 */
+        width: 100%;
+        height: 100vh;
+        background-color: var(--main-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 90;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .nav ul li a {
+        font-size: 20px;
+        letter-spacing: 0.1em;
+    }
+
+    /* メニューが開いている時 */
+    html.open {
+        overflow: hidden; /* 背景スクロールを止める */
+    }
+
+    html.open .nav {
+        right: 0;
+    }
+
+    html.open .navbtn .fa-bars {
+        display: none;
+    }
+
+    html.open .navbtn .fa-times {
+        display: inline-block;
+    }
+}
+
+
 
 
