@@ -412,6 +412,84 @@ img { display: block; max-width: 100%; height: auto; }
     }
 }
 
+/* ==========================================
+   ボタン設定（暗いゴールドへ変更）
+   ========================================== */
+.btn, .btn-search, .contact-form .btn {
+    display: inline-block;
+    min-width: 200px;
+    padding: 16px 32px;
+    /* より落ち着いた暗いゴールド（真鍮色）へ変更 */
+    background: linear-gradient(135deg, #a68549 0%, #8e6d35 100%);
+    color: var(--white) !important;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    border: 1px solid #8e6d35;
+    border-radius: 2px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+.btn:hover, .btn-search:hover, .contact-form .btn:hover {
+    background: linear-gradient(135deg, #8e6d35 0%, #a68549 100%);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   ナビゲーション・ハンバーガーメニュー修正
+   ========================================== */
+
+/* PC版では三本線ボタンを隠す */
+.navbtn {
+    display: none; /* ←ここが重要です */
+}
+
+/* スマホ版（画面幅767px以下）の設定 */
+@media (max-width: 767px) {
+    .navbtn {
+        display: block; /* スマホの時だけ表示 */
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1000;
+        position: relative;
+    }
+    
+    /* スマホ用メニューの表示切り替え（html.open時） */
+    .nav {
+        display: none; /* 通常は隠す */
+    }
+    
+    .open .nav {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--main-color);
+        z-index: 999;
+        padding-top: 100px;
+    }
+    
+    .open .nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+/* PC版（768px以上）のメニュー表示を確定させる */
+@media (min-width: 768px) {
+    .nav {
+        display: block !important;
+    }
+}
+
+
 
 
 
