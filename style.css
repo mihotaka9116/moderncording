@@ -741,6 +741,92 @@ img {
     opacity: 1;
 }
 
+/* ==========================================
+   予約・コンタクトフォームの美化
+   ========================================== */
+#contact {
+    padding: var(--v-space) 0;
+    background-color: var(--white); /* フォーム周りを白くして清潔感を */
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+/* 各項目の間隔 */
+.contact-form .item {
+    margin-bottom: 25px;
+}
+
+/* ラベルの装飾 */
+.contact-form label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--main-color);
+    font-size: 0.95rem;
+}
+
+/* 入力欄（input/textarea/select）の共通スタイル */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="date"],
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d1cdbc; /* シャンパンゴールド系の薄い枠線 */
+    border-radius: 4px;
+    background-color: #fafafa;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+/* フォーカスした時（入力中）の色 */
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(194, 160, 93, 0.2);
+}
+
+/* 日付選択欄の調整 */
+.contact-form input[type="date"] {
+    color: #555;
+    cursor: pointer;
+}
+
+/* チェックボックス部分 */
+.contact-form .agree-check {
+    text-align: center;
+    margin: 40px 0 20px;
+}
+
+.contact-form a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* 送信ボタンのセンター配置と調整 */
+.contact-form .btn-submit-wrap {
+    text-align: center;
+}
+
+/* 既存の .btn クラスを上書き、またはボタンに適用 */
+.contact-form .btn {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+}
+
+
 
 
 
