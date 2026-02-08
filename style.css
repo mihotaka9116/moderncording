@@ -296,3 +296,60 @@ img { display: block; max-width: 100%; height: auto; }
     font-size: 0.9rem;
 }
 
+/* ==========================================
+   フェードスライドショー設定
+   ========================================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: sliderFade 15s infinite; /* 15秒で1サイクル */
+}
+
+/* 画像の指定 */
+.slide1 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("hosizora.jpg"); }
+.slide2 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("wasitsu.jpg"); animation-delay: 5s; }
+.slide3 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("kominka.jpg"); animation-delay: 10s; }
+
+/* テキストを一番上に表示 */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* フェードアニメーション */
+@keyframes sliderFade {
+    0% { opacity: 0; transform: scale(1.0); }
+    10% { opacity: 1; }
+    33% { opacity: 1; }
+    43% { opacity: 0; transform: scale(1.1); } /* 少しズームしながら消える */
+    100% { opacity: 0; }
+}
+
+
