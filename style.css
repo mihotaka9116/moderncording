@@ -592,6 +592,62 @@ img {
     font-weight: bold;
 }
 
+/* --- FACILITIES（旧SKILL）の横並び設定 --- */
+
+/* 親要素：PCでは2列または3列に並べる */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 幅に応じて自動調整 */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* 子要素：1つの項目内のアイコンとテキストを横に並べる */
+.skill-item {
+    display: flex;         /* 横並びにする */
+    align-items: center;   /* 上下中央揃え */
+    text-align: left;      /* テキストは左寄せ */
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #e5d8b1; /* シャンパンゴールドの枠線 */
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+/* アイコン（左側）の調整 */
+.skill-item .img {
+    flex-shrink: 0;        /* アイコンが潰れないように固定 */
+    width: 60px;
+    margin: 0 25px 0 0;    /* 右側に余白を作ってテキストと離す */
+    display: flex;
+    justify-content: center;
+}
+
+/* テキスト（右側）の調整 */
+.skill-item .text-content {
+    flex: 1;
+}
+
+.skill-item p:first-of-type {
+    font-weight: bold;
+    color: var(--main-color);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.skill-item p:last-of-type {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* ホバー時の動き */
+.skill-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+
 
 
 
