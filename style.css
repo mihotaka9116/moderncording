@@ -807,6 +807,16 @@ img {
     max-width: 300px;
 }
 
+/* 基本設定の最後あたり */
+html {
+    scroll-behavior: smooth;
+}
+
+} /* ←この余分な } を削除してください */
+
+h1, h2, h3...
+
+
 
 
 
