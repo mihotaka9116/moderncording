@@ -547,6 +547,15 @@ img {
     object-fit: cover; /* 縦横比を維持して切り抜く */
 }
 
+/* お問い合わせフォームのレスポンシブ調整 */
+@media screen and (max-width: 600px) {
+    .contact-form div[style*="display: flex"] {
+        flex-direction: column !important; /* スマホでは縦に並べる */
+        gap: 0 !important;
+    }
+}
+
+
 
 
 
