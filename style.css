@@ -88,12 +88,48 @@ img {
     }
 }
 
-.hero h1 {
-    font-size: clamp(36px, 5vw, 56px);
-    letter-spacing: 0.2em;
-    font-weight: 700;
-    text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+/* ==========================================
+   ヒーローセクション（中央配置と色の修正）
+   ========================================== */
+.hero {
+    height: 100vh; /* 画面いっぱいの高さにする場合は 100vh、固定なら 600px */
+    min-height: 600px;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url(https://i.imgur.com/mIAguTt.jpeg); /* 画像URLは適宜変更してください */
+    background-position: center;
+    background-size: cover;
+    
+    /* 中央配置のための設定 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    
+    /* 全体の文字色を白に統一 */
+    color: #ffffff; 
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 56px);
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffffff; /* メインコピーを白に */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* 文字を見やすくするための影 */
+}
+
+.hero p {
+    font-size: clamp(16px, 2vw, 20px);
+    letter-spacing: 0.1em;
+    margin-bottom: 40px;
+    color: #ffffff; /* サブコピーを白に */
+    opacity: 1; /* 透明度をなくしてハッキリ白くする */
+}
+
+/* 検索ボタンの調整（.hero 内にある場合） */
+.hero .btn-search {
+    margin-top: 10px;
 }
 
 /* ==========================================
@@ -497,31 +533,47 @@ img {
 }
 
 /* ==========================================
-   ヒーローセクション（中央配置への調整）
+   ヒーローセクション（中央配置と色の修正）
    ========================================== */
 .hero {
-    height: 600px;
-    background: linear-gradient(rgba(26, 41, 51, 0.5), rgba(26, 41, 51, 0.5)), 
-                url(kominka.jpg); /* ←ここを修正 */
+    height: 100vh; /* 画面いっぱいの高さにする場合は 100vh、固定なら 600px */
+    min-height: 600px;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url(https://i.imgur.com/mIAguTt.jpeg); /* 画像URLは適宜変更してください */
     background-position: center;
     background-size: cover;
-    /* ...以下省略... */
+    
+    /* 中央配置のための設定 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    /* 全体の文字色を白に統一 */
+    color: #ffffff; 
 }
 
 .hero h1 {
-    font-size: clamp(36px, 5vw, 56px);
-    letter-spacing: 0.2em;
+    font-size: clamp(32px, 5vw, 56px);
+    letter-spacing: 0.15em;
     font-weight: 700;
-    text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
-    margin-bottom: 20px;      /* サブコピーとの間隔 */
+    margin-bottom: 20px;
+    color: #ffffff; /* メインコピーを白に */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* 文字を見やすくするための影 */
 }
 
 .hero p {
     font-size: clamp(16px, 2vw, 20px);
-    letter-spacing: 0.15em;
-    margin-bottom: 40px;      /* ボタンとの間隔 */
-    font-weight: 400;
-    opacity: 0.9;
+    letter-spacing: 0.1em;
+    margin-bottom: 40px;
+    color: #ffffff; /* サブコピーを白に */
+    opacity: 1; /* 透明度をなくしてハッキリ白くする */
+}
+
+/* 検索ボタンの調整（.hero 内にある場合） */
+.hero .btn-search {
+    margin-top: 10px;
 }
 
 /* ボタンは .btn クラスで既に中央配置に対応していますが、
@@ -815,6 +867,7 @@ html {
 } /* ←この余分な } を削除してください */
 
 h1, h2, h3...
+
 
 
 
