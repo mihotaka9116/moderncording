@@ -99,29 +99,71 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 /* ==========================================
-   News / Posts セクション（横並び復活）
+   News / Posts セクション（横並び・サイズ固定）
    ========================================== */
-.posts { padding: var(--v-space) 0; }
+.posts { 
+    padding: var(--v-space) 0; 
+}
 
+/* 親コンテナをグリッドにして、横並びを強制 */
 .posts-container {
     display: grid;
-    /* ここで横並びを指定。300px以上のカードを並べる */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     margin-top: 40px;
 }
 
+/* 各記事カードの幅を制限し、巨大化を防ぐ */
+.post {
+    width: 100%;
+    max-width: 400px; /* カードの最大幅を設定 */
+    margin: 0 auto;  /* スマホ時に中央にくるように */
+}
+
 .post figure {
+    width: 100%;
+    height: 220px; /* 写真の高さを一定に揃える */
     overflow: hidden;
     margin-bottom: 15px;
 }
 
 .post figure img {
     width: 100%;
-    height: 250px; /* 画像のサイズを固定して揃える */
-    object-fit: cover;
+    height: 100%;
+    object-fit: cover; /* 比率を保って切り抜き */
 }
 
+.post h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--main-color);
+}
+
+/* ==========================================
+   フッター全体の中央配置
+   ========================================== */
+.footer-menu {
+    padding: 60px 20px;
+    background-color: var(--main-color);
+    color: var(--white);
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center; /* 横方向の中央 */
+    align-items: center;     /* 縦方向の中央 */
+    gap: 30px;
+    margin: 0;
+    text-align: center;
+}
+
+.footer-menu li {
+    display: inline-block;
+}
+
+.footer-menu li a { 
+    font-size: 14px; 
+    color: var(--sub-accent);
+    letter-spacing: 0.1em;
+}
 /* ==========================================
    共通見出し
    ========================================== */
@@ -176,3 +218,4 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 .footer-menu li a { font-size: 14px; color: var(--sub-accent); }
+
