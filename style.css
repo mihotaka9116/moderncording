@@ -26,6 +26,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-underline-offset: 0.3em; /* リンクの下線の位置を少し下げて美しく */
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 }
 
 h1, h2, h3, h4, h5, h6, p, figure, ul {
@@ -700,6 +705,11 @@ img {
 .skill-item:hover {
     transform: translateY(-5px);
     border-color: var(--accent-color);
+}
+
+#contact {
+    /* ヘッダーの高さ分（例: 80px）だけ位置をずらす */
+    scroll-margin-top: 80px;
 }
 
 
