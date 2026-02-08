@@ -219,3 +219,49 @@ img { display: block; max-width: 100%; height: auto; }
 
 .footer-menu li a { font-size: 14px; color: var(--sub-accent); }
 
+/* ==========================================
+   ヒーローセクション（画像パス修正版）
+   ========================================== */
+.hero {
+    height: 100vh;
+    min-height: 600px;
+    /* パスを .jpg に修正し、引用符 "" で囲むのが安全です */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                      url("kominka.jpg"); 
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+}
+
+/* もし画像が「img」フォルダの中にある場合は、url("img/kominka.jpg") にしてください */
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 64px);
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--white) !important;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+}
+
+.hero p {
+    font-size: clamp(16px, 2vw, 24px);
+    letter-spacing: 0.15em;
+    margin-bottom: 40px;
+    color: var(--white) !important;
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.6);
+}
+
+
