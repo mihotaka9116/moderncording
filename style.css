@@ -5,9 +5,9 @@
    ========================================== */
 :root {
     --v-space: clamp(80px, 8vw, 110px);
-    --bg-color: #faf9f6;      /* 背景：胡粉色（温かみのある白） */
-    --main-color: #1a2933;    /* メイン：鉄紺（深い紺） */
-    --accent-color: #c2a05d;  /* アクセント：真鍮（マットな金） */
+    --bg-color: #faf9f6;      /* 背景：胡粉色 */
+    --main-color: #1a2933;    /* メイン：鉄紺 */
+    --accent-color: #c2a05d;  /* アクセント：真鍮 */
     --sub-accent: #e5d8b1;    /* サブ：シャンパンゴールド */
     --text-color: #222222;    /* 文字：墨色 */
     --white: #ffffff;
@@ -20,17 +20,13 @@ body {
     margin: 0;
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: "Noto Serif JP", serif; /* 常に明朝体 */
+    font-family: "Noto Serif JP", serif;
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-underline-offset: 0.3em; /* リンクの下線の位置を少し下げて美しく */
 }
 
 html {
     scroll-behavior: smooth;
-}
-
 }
 
 h1, h2, h3, h4, h5, h6, p, figure, ul {
@@ -66,7 +62,7 @@ img {
    ========================================== */
 .header {
     height: 100px;
-    background-color: var(--main-color); /* 紺色背景 */
+    background-color: var(--main-color);
     color: var(--white);
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
@@ -78,7 +74,6 @@ img {
     height: 100%;
 }
 
-/* ナビゲーション PC */
 @media (min-width: 768px) {
     .nav ul {
         display: flex;
@@ -89,25 +84,21 @@ img {
 }
 
 /* ==========================================
-   ヒーローセクション（中央配置と色の修正）
+   ヒーローセクション（中央配置と白文字）
    ========================================== */
 .hero {
-    height: 100vh; /* 画面いっぱいの高さにする場合は 100vh、固定なら 600px */
+    height: 100vh;
     min-height: 600px;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url(kominka.jpg); /* 画像URLは適宜変更してください */
+                url(https://i.imgur.com/mIAguTt.jpeg); /* 画像パス */
     background-position: center;
     background-size: cover;
-    
-    /* 中央配置のための設定 */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    
-    /* 全体の文字色を白に統一 */
-    color: #ffffff; 
+    color: var(--white);
 }
 
 .hero h1 {
@@ -115,645 +106,62 @@ img {
     letter-spacing: 0.15em;
     font-weight: 700;
     margin-bottom: 20px;
-    color: #ffffff; /* メインコピーを白に */
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* 文字を見やすくするための影 */
+    color: var(--white);
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
 .hero p {
     font-size: clamp(16px, 2vw, 20px);
     letter-spacing: 0.1em;
     margin-bottom: 40px;
-    color: #ffffff; /* サブコピーを白に */
-    opacity: 1; /* 透明度をなくしてハッキリ白くする */
-}
-
-/* 検索ボタンの調整（.hero 内にある場合） */
-.hero .btn-search {
-    margin-top: 10px;
-}
-
-/* ==========================================
-   ボタン（ゴールド）
-   ========================================== */
-.btn {
-    display: inline-block;
-    min-width: 200px;
-    padding: 16px 32px;
-    background: linear-gradient(135deg, #c2a05d 0%, #ad8a42 100%);
     color: var(--white);
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    border: 1px solid var(--sub-accent);
-    border-radius: 2px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.btn:hover {
-    background: linear-gradient(135deg, #ad8a42 0%, #c2a05d 100%);
-    transform: translateY(-2px);
     opacity: 1;
 }
 
 /* ==========================================
-   装飾・見出し
+   ROOMSセクション（中央配置）
    ========================================== */
-.heading-decoration {
-    font-size: clamp(26px, 3vw, 34px);
-    border-left: 2px solid var(--accent-color); /* 金色の縦線 */
-    padding-left: 18px;
-    margin-bottom: 0.8em;
-}
-
-/* 元の赤い下線を消して金色のラインへ */
-.heading-decoration::after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 1px;
-    background-color: var(--accent-color);
-    margin-top: 15px;
-}
-
-/* ==========================================
-   プランセクション
-   ========================================== */
-.plans {
+#rooms {
     padding: var(--v-space) 0;
-    background-color: #eeeae0; /* 砂色 */
-}
-
-.plan {
-    background: var(--white);
-    padding: 50px 30px;
-    border-radius: 0; /* 四角くして高級感を出す */
-    border: 1px solid #d1cdbc;
-    display: flex;
-    flex-direction: column;
-}
-
-/* おすすめプラン（真ん中） */
-.plan.featured {
-    border: 2px solid var(--accent-color);
-    transform: scale(1.03);
-    z-index: 10;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-
-.plan h3 {
-    font-size: 22px;
-    color: var(--main-color);
-    margin-bottom: 25px;
     text-align: center;
 }
 
-.plan .price {
-    font-size: 26px;
-    color: var(--text-color);
-    margin: 30px 0;
-    text-align: center;
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-}
-
-/* ==========================================
-   フッター
-   ========================================== */
-.footer {
-    padding: 80px 0;
-    background-color: var(--main-color);
-    color: var(--sub-accent);
-}
-
-.footer-sns a {
-    background-color: rgba(255,255,255,0.1);
-    color: var(--accent-color);
-}
-
-.plan-spec {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    font-size: 13px;
-    color: var(--accent-color); /* ゴールドでアイコンを表示 */
-    margin-bottom: 20px;
-}
-.plan-spec i {
-    margin-right: 4px;
-}
-
-/* モバイル対応の追加例 */
-@media (max-width: 767px) {
-    .plan.featured {
-        transform: scale(1);
-        margin: 20px 0;
-    }
-}
-
-/* ==========================================
-   News (Posts) セクション
-   ========================================== */
-.posts {
-    padding: var(--v-space) 0;
-}
-
-/* 見出しの微調整 */
-.heading {
-    font-size: 28px;
-    letter-spacing: 0.1em;
-    margin-bottom: 50px;
-    border-bottom: 1px solid var(--accent-color);
-    padding-bottom: 15px;
-    display: flex;
-    align-items: baseline;
-    gap: 15px;
-}
-
-.heading span {
-    font-size: 14px;
-    font-weight: normal;
-    color: var(--accent-color);
-}
-
-/* 投稿一覧のグリッド */
-.posts-container {
+.goods-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 400px)); 
     gap: 40px;
-}
-
-.post a {
-    display: block;
-}
-
-.post figure {
-    overflow: hidden;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-/* 画像にうっすらと和の質感を出すオーバーレイ */
-.post figure::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(26, 41, 51, 0.05); /* メインカラーを薄く */
-    transition: 0.3s;
-}
-
-.post:hover figure img {
-    transform: scale(1.05);
-}
-
-.post:hover figure::after {
-    background: transparent;
-}
-
-.post h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: var(--main-color);
-    position: relative;
-}
-
-.post p {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.6;
-}
-
-/* ==========================================
-   フッターの調整
-   ========================================== */
-.footer-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    text-align: center;
-}
-
-.footer-menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    font-size: 13px;
-}
-
-.footer-copy {
-    font-size: 12px;
-    opacity: 0.6;
-}
-
-/* ==========================================
-   下層ページ共通：エントリーセクション
-   ========================================== */
-.entry-img {
-    width: 100%;
-    height: 400px; /* 固定高にすることで安定感を出します */
-    margin-bottom: 60px;
-}
-
-.entry-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 画像を中央で綺麗にクロップ */
-}
-
-.entry .w-container {
-    max-width: 800px; /* 読み物としての可読性を高めるため幅を絞る */
-    margin-bottom: var(--v-space);
-}
-
-.entry h1.heading-decoration {
-    margin-bottom: 5px;
-}
-
-.entry h1 + p { /* Rooms & Plans のサブタイトル部分 */
-    font-size: 14px;
-    color: var(--accent-color);
-    letter-spacing: 0.2em;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-}
-
-.entry-container p {
-    margin-bottom: 1.8em;
-    text-align: justify; /* 日本語を美しく見せる */
-}
-
-/* ==========================================
-   スマホ用ハンバーガーメニューの挙動
-   ========================================== */
-.navbtn {
-    display: none; /* デスクトップでは隠す */
-    background: none;
-    border: none;
-    color: var(--white);
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 100;
-}
-
-@media (max-width: 767px) {
-    .navbtn {
-        display: block;
-    }
-
-    .nav {
-        position: fixed;
-        top: 0;
-        right: -100%; /* 通常時は画面外 */
-        width: 80%;
-        height: 100vh;
-        background: var(--main-color);
-        transition: 0.4s;
-        padding-top: 120px;
-    }
-
-    .nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-
-    /* メニューが開いた状態（HTMLに.openクラスがついた時） */
-    html.open .nav {
-        right: 0;
-    }
-    
-    html.open .navbtn .fa-bars { display: none; }
-    html.open .navbtn .fa-times { display: inline-block; }
-    html.open { overflow: hidden; } /* 背景スクロール防止 */
-}
-
-/* ==========================================
-   下層ページ共通：エントリーセクション
-   ========================================== */
-.entry-img {
-    width: 100%;
-    height: clamp(300px, 40vh, 470px); /* 画面サイズに合わせつつ上限を指定 */
-    margin-bottom: 60px;
-    overflow: hidden;
-}
-
-.entry-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 画像の比率を保ったまま領域を埋める */
-}
-
-.entry .w-container {
-    max-width: 800px; /* 読み物として心地よい横幅に制限 */
-    margin-bottom: var(--v-space);
-}
-
-.entry h1.heading-decoration {
-    margin-bottom: 5px;
-}
-
-.entry h1 + p { /* Rooms & Plans の英字部分 */
-    font-size: 14px;
-    color: var(--accent-color);
-    letter-spacing: 0.2em;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-}
-
-.entry-container p {
-    margin-bottom: 1.8em;
-    text-align: justify; /* 日本語の行末を揃えて美しく */
-}
-
-/* ==========================================
-   ナビゲーション・モバイル対応（詳細版）
-   ========================================== */
-.navbtn {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--white);
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 100;
-    padding: 10px;
-}
-
-.navbtn .fa-times {
-    display: none; /* 初期状態では×ボタンを隠す */
-}
-
-@media (max-width: 767px) {
-    .navbtn {
-        display: block;
-    }
-
-    .nav {
-        position: fixed;
-        top: 0;
-        right: -100%; /* 画面外に待機 */
-        width: 100%;
-        height: 100vh;
-        background-color: var(--main-color);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 90;
-    }
-
-    .nav ul {
-        flex-direction: column;
-        text-align: center;
-        gap: 40px;
-    }
-
-    .nav ul li a {
-        font-size: 20px;
-        letter-spacing: 0.1em;
-    }
-
-    /* メニューが開いている時 */
-    html.open {
-        overflow: hidden; /* 背景スクロールを止める */
-    }
-
-    html.open .nav {
-        right: 0;
-    }
-
-    html.open .navbtn .fa-bars {
-        display: none;
-    }
-
-    html.open .navbtn .fa-times {
-        display: inline-block;
-    }
-}
-
-/* ==========================================
-   ヒーローセクション（中央配置と色の修正）
-   ========================================== */
-.hero {
-    height: 100vh; /* 画面いっぱいの高さにする場合は 100vh、固定なら 600px */
-    min-height: 600px;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url(https://i.imgur.com/mIAguTt.jpeg); /* 画像URLは適宜変更してください */
-    background-position: center;
-    background-size: cover;
-    
-    /* 中央配置のための設定 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    
-    /* 全体の文字色を白に統一 */
-    color: #ffffff; 
-}
-
-.hero h1 {
-    font-size: clamp(32px, 5vw, 56px);
-    letter-spacing: 0.15em;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #ffffff; /* メインコピーを白に */
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* 文字を見やすくするための影 */
-}
-
-.hero p {
-    font-size: clamp(16px, 2vw, 20px);
-    letter-spacing: 0.1em;
-    margin-bottom: 40px;
-    color: #ffffff; /* サブコピーを白に */
-    opacity: 1; /* 透明度をなくしてハッキリ白くする */
-}
-
-/* 検索ボタンの調整（.hero 内にある場合） */
-.hero .btn-search {
-    margin-top: 10px;
-}
-
-/* ボタンは .btn クラスで既に中央配置に対応していますが、
-   ヒーロー内での見栄えを調整する場合 */
-.hero .btn {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3); /* 背景画像の上でも目立つよう影を強調 */
-}
-
-/* Newsカードの画像を揃える */
-.post figure img {
-    width: 100%;
-    height: 200px; /* 任意の高さ */
-    object-fit: cover; /* 縦横比を維持して切り抜く */
-}
-
-/* お問い合わせフォームのレスポンシブ調整 */
-@media screen and (max-width: 600px) {
-    .contact-form div[style*="display: flex"] {
-        flex-direction: column !important; /* スマホでは縦に並べる */
-        gap: 0 !important;
-    }
-}
-
-/* プランを横並びにするためのコンテナ */
-.plans-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    justify-content: center; /* カード全体を中央へ */
     margin-top: 50px;
 }
 
-/* プラン内のリスト（食事付き、Wi-Fi完備など）を整える */
-.plan ul {
-    margin-bottom: 30px;
+.goods-item {
     text-align: left;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
+    background: var(--white);
+    border: 1px solid var(--sub-accent);
+    padding-bottom: 20px;
+    transition: transform 0.3s;
 }
 
-.plan ul li {
-    font-size: 15px;
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 20px;
+.goods-item:hover {
+    transform: translateY(-5px);
 }
 
-/* リストの先頭に金のポッチをつける */
-.plan ul li::before {
-    content: '・';
-    color: var(--accent-color);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
+.image-wrap img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
-/* --- FACILITIES（旧SKILL）の横並び設定 --- */
-
-/* 親要素：PCでは2列または3列に並べる */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 幅に応じて自動調整 */
-    gap: 30px;
-    margin-top: 40px;
-}
-
-/* 子要素：1つの項目内のアイコンとテキストを横に並べる */
-.skill-item {
-    display: flex;         /* 横並びにする */
-    align-items: center;   /* 上下中央揃え */
-    text-align: left;      /* テキストは左寄せ */
-    padding: 25px;
-    background: #ffffff;
-    border: 1px solid #e5d8b1; /* シャンパンゴールドの枠線 */
-    border-radius: 4px;
-    transition: transform 0.3s ease;
-}
-
-/* アイコン（左側）の調整 */
-.skill-item .img {
-    flex-shrink: 0;        /* アイコンが潰れないように固定 */
-    width: 60px;
-    margin: 0 25px 0 0;    /* 右側に余白を作ってテキストと離す */
-    display: flex;
-    justify-content: center;
-}
-
-/* テキスト（右側）の調整 */
-.skill-item .text-content {
-    flex: 1;
-}
-
-.skill-item p:first-of-type {
-    font-weight: bold;
-    color: var(--main-color);
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-}
-
-.skill-item p:last-of-type {
+.item-caption {
+    padding: 15px;
     font-size: 0.9rem;
     color: #666;
-    margin-bottom: 0;
 }
 
-/* ホバー時の動き */
-.skill-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
-}
-
-/* --- FACILITIES（旧SKILL）の横並び設定 --- */
-
-/* 親要素：PCでは2列または3列に並べる */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 幅に応じて自動調整 */
-    gap: 30px;
-    margin-top: 40px;
-}
-
-/* 子要素：1つの項目内のアイコンとテキストを横に並べる */
-.skill-item {
-    display: flex;         /* 横並びにする */
-    align-items: center;   /* 上下中央揃え */
-    text-align: left;      /* テキストは左寄せ */
-    padding: 25px;
-    background: #ffffff;
-    border: 1px solid #e5d8b1; /* シャンパンゴールドの枠線 */
-    border-radius: 4px;
-    transition: transform 0.3s ease;
-}
-
-/* アイコン（左側）の調整 */
-.skill-item .img {
-    flex-shrink: 0;        /* アイコンが潰れないように固定 */
-    width: 60px;
-    margin: 0 25px 0 0;    /* 右側に余白を作ってテキストと離す */
-    display: flex;
-    justify-content: center;
-}
-
-/* テキスト（右側）の調整 */
-.skill-item .text-content {
-    flex: 1;
-}
-
-.skill-item p:first-of-type {
-    font-weight: bold;
-    color: var(--main-color);
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-}
-
-.skill-item p:last-of-type {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0;
-}
-
-/* ホバー時の動き */
-.skill-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
-}
-
-#contact {
-    /* ヘッダーの高さ分（例: 80px）だけ位置をずらす */
-    scroll-margin-top: 80px;
-}
-
-/* contact.html のCSSに追加 */
-#contact {
-    scroll-margin-top: 100px; /* ヘッダーの高さに合わせて調整してください */
-}
-
-
-/* style.css の「ボタン」セクション付近に追加 */
-.btn-search {
-    /* 既存の .btn と同じ設定を継承 */
+/* ==========================================
+   ボタン設定
+   ========================================== */
+.btn, .btn-search {
     display: inline-block;
     min-width: 200px;
     padding: 16px 32px;
@@ -765,170 +173,36 @@ img {
     border: 1px solid var(--sub-accent);
     border-radius: 2px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: 0.3s ease;
 }
 
-.btn-search:hover {
+.btn:hover, .btn-search:hover {
     background: linear-gradient(135deg, #ad8a42 0%, var(--accent-color) 100%);
     transform: translateY(-2px);
-    opacity: 1;
 }
 
 /* ==========================================
-   予約・コンタクトフォームの美化
+   その他（装飾・共通）
    ========================================== */
-#contact {
-    padding: var(--v-space) 0;
-    background-color: var(--white); /* フォーム周りを白くして清潔感を */
+.heading-decoration {
+    font-size: clamp(26px, 3vw, 34px);
+    border-left: 2px solid var(--accent-color);
+    padding-left: 18px;
+    margin-bottom: 0.8em;
 }
 
-.contact-form {
-    max-width: 700px;
-    margin: 0 auto;
-    background: #fff;
-}
-
-/* 各項目の間隔 */
-.contact-form .item {
-    margin-bottom: 25px;
-}
-
-/* ラベルの装飾 */
-.contact-form label {
+.heading-decoration::after {
+    content: '';
     display: block;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--main-color);
-    font-size: 0.95rem;
+    width: 100px;
+    height: 1px;
+    background-color: var(--accent-color);
+    margin-top: 15px;
 }
 
-/* 入力欄（input/textarea/select）の共通スタイル */
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form input[type="date"],
-.contact-form select,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #d1cdbc; /* シャンパンゴールド系の薄い枠線 */
-    border-radius: 4px;
-    background-color: #fafafa;
-    font-family: inherit;
-    font-size: 1rem;
-    box-sizing: border-box;
-    transition: all 0.3s;
-}
-
-/* フォーカスした時（入力中）の色 */
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    background-color: #fff;
-    box-shadow: 0 0 8px rgba(194, 160, 93, 0.2);
-}
-
-/* 日付選択欄の調整 */
-.contact-form input[type="date"] {
-    color: #555;
-    cursor: pointer;
-}
-
-/* チェックボックス部分 */
-.contact-form .agree-check {
-    text-align: center;
-    margin: 40px 0 20px;
-}
-
-.contact-form a {
-    color: var(--accent-color);
-    text-decoration: underline;
-}
-
-/* 送信ボタンのセンター配置と調整 */
-.contact-form .btn-submit-wrap {
+/* フッター */
+.footer {
+    padding: 80px 0;
+    background-color: var(--main-color);
+    color: var(--sub-accent);
     text-align: center;
 }
-
-/* 既存の .btn クラスを上書き、またはボタンに適用 */
-.contact-form .btn {
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    max-width: 300px;
-}
-
-/* 基本設定の最後あたり */
-html {
-    scroll-behavior: smooth;
-}
-
-/* ROOMSセクション全体の調整 */
-#rooms {
-    padding: var(--v-space) 0;
-    text-align: center; /* タイトルなどを中央へ */
-}
-
-/* グリッドコンテナの中央配置 */
-.goods-grid {
-    display: grid;
-    /* 画面幅に合わせて自動で列数を調整しつつ、中央に寄せる */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 400px)); 
-    gap: 40px;
-    justify-content: center; /* これでカード全体が中央に寄ります */
-    margin-top: 50px;
-}
-
-/* 各アイテム（カード）の調整 */
-.goods-item {
-    text-align: left; /* カード内のテキストは左寄せが見やすいです */
-    background: #fff;
-    border: 1px solid #e5d8b1; /* 他のセクションと合わせたシャンパンゴールド */
-    padding-bottom: 20px;
-    transition: transform 0.3s;
-}
-
-.goods-item:hover {
-    transform: translateY(-5px);
-}
-
-/* 画像のサイズを統一する */
-.image-wrap img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover; /* 画像の比率を保ったまま枠に収める */
-}
-
-.item-caption {
-    padding: 15px;
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.6;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
