@@ -639,6 +639,47 @@ img { display: block; max-width: 100%; height: auto; }
     max-width: 300px;
 }
 
+/* ==========================================
+   宿泊プランカードのバランス調整
+   ========================================== */
+.plan-image {
+    position: relative;
+    width: 100%;
+    /* 画像を横 4 : 縦 3 の比率で固定する */
+    aspect-ratio: 4 / 3; 
+    overflow: hidden; /* はみ出た部分を隠す */
+}
+
+.plan-image img {
+    width: 100%;
+    height: 100%;
+    /* 重要：画像を縦横に引き延ばさず、枠いっぱいに切り抜く */
+    object-fit: cover; 
+    transition: transform 0.5s ease;
+}
+
+/* ホバー時に画像が少しズームする演出（お好みで） */
+.plan-card:hover .plan-image img {
+    transform: scale(1.1);
+}
+
+/* プラン内容の高さも揃える */
+.plan-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* 中身の量に関わらずカードの高さを揃える */
+}
+
+/* プラン一覧のグリッド間隔を調整 */
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+
 
 
 
