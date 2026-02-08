@@ -555,6 +555,40 @@ img {
     }
 }
 
+/* プランを横並びにするためのコンテナ */
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* プラン内のリスト（食事付き、Wi-Fi完備など）を整える */
+.plan ul {
+    margin-bottom: 30px;
+    text-align: left;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plan ul li {
+    font-size: 15px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* リストの先頭に金のポッチをつける */
+.plan ul li::before {
+    content: '・';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+
 
 
 
