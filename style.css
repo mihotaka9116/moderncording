@@ -479,6 +479,70 @@ img { display: block; max-width: 100%; height: auto; }
     }
 }
 
+/* ==========================================
+   スライドショー（最後に静止する設定）
+   ========================================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    background-color: var(--main-color); /* 読み込み前の背景色 */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    /* infiniteを消し、forwardsを追加 */
+    animation: sliderOnce 12s ease-in-out forwards; 
+}
+
+/* 画像と開始タイミングの指定 */
+.slide1 { 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("hosizora.jpg"); 
+    animation-delay: 0s; 
+}
+.slide2 { 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("living.jpg"); 
+    animation-delay: 4s; 
+}
+.slide3 { 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("kominka.jpg"); 
+    animation-delay: 8s; 
+    z-index: 2; /* 最後に一番上に残るように */
+}
+
+/* 1回だけ流れるアニメーション */
+@keyframes sliderOnce {
+    0% { opacity: 0; transform: scale(1.05); }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { opacity: 1; transform: scale(1); } /* 最後は不透明度1で維持 */
+}
+
+/* スライド1と2は次のスライドが来たら消えるように調整 */
+.slide1, .slide2 {
+    animation: sliderFadeOut 8s ease-in-out forwards;
+}
+
+@keyframes sliderFadeOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; } /* 次のスライドのために消える */
+}
+
+
 
 
 
