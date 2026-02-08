@@ -263,5 +263,91 @@ img { display: block; max-width: 100%; height: auto; }
     color: var(--white) !important;
     text-shadow: 1px 1px 10px rgba(0,0,0,0.6);
 }
+/* ==========================================
+   予約・コンタクトフォーム（以前の仕様に復元）
+   ========================================== */
+#contact {
+    padding: var(--v-space) 0;
+    background-color: var(--white); /* フォーム周りを白くして清潔感を */
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px; /* 内側に少し余白を追加 */
+}
+
+/* 各項目の間隔：ここを縦並び（block）に固定します */
+.contact-form .item {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column; /* 常に縦並びにする */
+    align-items: flex-start;
+}
+
+/* ラベルの装飾 */
+.contact-form label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--main-color);
+    font-size: 0.95rem;
+}
+
+/* 入力欄（input/textarea/select）の共通スタイル */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="date"],
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #d1cdbc; /* シャンパンゴールド系の薄い枠線 */
+    border-radius: 4px;
+    background-color: #fafafa;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box; /* 幅100%からはみ出さないように */
+    transition: all 0.3s;
+}
+
+/* フォーカスした時（入力中）の色 */
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(194, 160, 93, 0.2);
+}
+
+/* チェックボックス部分 */
+.contact-form .agree-check {
+    text-align: center;
+    margin: 40px 0 20px;
+}
+
+/* 送信ボタンのセンター配置 */
+.contact-form .btn-submit-wrap {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 送信ボタン（.btn クラスを適用） */
+.contact-form .btn {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px; /* ボタンが広がりすぎないように */
+}
+
+/* スマホ対応：さらに余白を調整 */
+@media screen and (max-width: 600px) {
+    .contact-form {
+        padding: 10px;
+    }
+}
+
 
 
