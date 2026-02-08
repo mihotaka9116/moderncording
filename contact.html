@@ -50,4 +50,22 @@
             <input type="submit" value="送信する" class="btn">
         </form>
     </div>
+    <script>
+      // 今日の日付を取得（YYYY-MM-DD形式）
+      const today = new Date().toISOString().split("T")[0];
+
+      // 「チェックイン希望日」の選択肢を今日以降にする
+      const checkinInput = document.getElementsByName('checkin')[0];
+      if (checkinInput) {
+          checkinInput.min = today;
+      }
+
+      // 「チェックアウト希望日」の選択肢を今日以降にする
+      const checkoutInput = document.getElementsByName('checkout')[0];
+      if (checkoutInput) {
+          checkoutInput.min = today;
+      }
+    </script>
+</body>
+</html>
 </section>
