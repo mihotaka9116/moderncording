@@ -209,3 +209,90 @@ img { display: block; max-width: 100%; height: auto; }
     
     .policy-table th, .policy-table td { display: block; width: 100%; }
 }
+
+/* ==========================================
+   宿泊プランカードの詳細装飾
+   ========================================== */
+.plan-card {
+    background: var(--white);
+    border: 1px solid var(--sub-accent);
+    text-align: left !important; /* カードの中身は左寄せが見やすい */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.plan-image {
+    position: relative;
+}
+
+.plan-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--accent-color);
+    color: var(--white);
+    padding: 4px 12px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+}
+
+.plan-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.plan-title {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: var(--main-color);
+}
+
+.plan-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.plan-details {
+    margin-bottom: 25px;
+    border-top: 1px dashed var(--sub-accent);
+    padding-top: 15px;
+}
+
+.plan-details li {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.plan-details i {
+    color: var(--accent-color);
+    font-size: 12px;
+}
+
+.plan-footer {
+    margin-top: auto; /* 価格とボタンを下に固定 */
+}
+
+.plan-price {
+    margin-bottom: 15px;
+}
+
+.price-label { font-size: 0.8rem; }
+.price-amount { font-size: 1.6rem; font-weight: 700; color: var(--main-color); }
+.price-unit { font-size: 0.8rem; }
+
+.btn-small {
+    width: 100% !important;
+    min-width: auto !important;
+    padding: 12px !important;
+    font-size: 0.9rem;
+}
+
