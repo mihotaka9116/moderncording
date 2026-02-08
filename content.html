@@ -1,212 +1,171 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>お部屋・プラン | 遠野モダンホテル</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お部屋・プラン | 遠野モダンホテル</title>
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
-
-	<link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-	
-	<link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
 <header class="header">
-	<div class="header-container w-container">
-		<div class="site">
-			<a href="index.html">
-				<img src="img/logo.svg" alt="遠野モダンホテル" width="135" height="26">
-			</a>
-		</div>
+    <div class="header-container w-container">
+        <div class="site">
+            <a href="index.html">
+                <img src="img/logo.svg" alt="遠野モダンホテル" width="135" height="26">
+            </a>
+        </div>
 
-		<button class="navbtn" onClick="document.querySelector('html').classList.toggle('open')">
-			<i class="fas fa-bars"></i>
-			<i class="fas fa-times"></i>
-			<span class="sr-only">MENU</span>
-		</button>
+        <button class="navbtn" onClick="document.querySelector('html').classList.toggle('open')">
+            <i class="fas fa-bars"></i>
+            <span class="sr-only">MENU</span>
+        </button>
 
-		<nav class="nav">
-			<ul>
-				<li><a href="index.html">ホーム</a></li>
-				<li><a href="content.html">お部屋・プラン</a></li>
-				<li><a href="#">お問い合わせ</a></li>				
-			</ul>
-		</nav>
-	</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="content.html">お部屋・プラン</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>                
+            </ul>
+        </nav>
+    </div>
 </header>
 
 <main>
-	<article class="entry">
-		<figure class="entry-img">
-			<img src="bedroom.jpg" alt="遠野の静寂に包まれる客室" width="1600" height="470">
-		</figure>
-		
-		<div class="w-container">
-			<h1 class="heading-decoration">お部屋・プラン</h1>
-			<p>Rooms & Plans</p>
-
-		<div class="entry-container">
-    <p>「Tohno Modern Retreat」は、遠野の静かな集落に佇む、一棟貸しの隠れ家です。</p>
-    <p>かつての暮らしを感じさせる古民家の趣はそのままに、薪ストーブやモダンなキッチンを備え、現代のリトリートにふさわしい快適な空間に仕上げました。</p>
-    <p>時計を外し、地元の市場で手に入れた旬の野菜を料理したり、テラスで星空を眺めながら「遠野物語」をめくったり。誰にも邪魔されない、あなただけの物語の続きをお楽しみください。</p>
-</div>
-		</div>
-	</article>
-
-<section id="rooms" class="js-fade-up">
-    <div class="container">
-        <h2 class="section-title">ROOMS</h2>
-        <div class="goods-grid">
-            <div class="goods-item">
-                <div class="image-wrap"><img src="bedroom.jpg" alt="寝室"></div>
-                <p class="item-caption">最大4名まで宿泊可能な広々とした寝室</p>
-            </div>
-            <div class="goods-item">
-                <div class="image-wrap"><img src="kitchen.jpg" alt="キッチン"></div>
-                <p class="item-caption">自炊に必要な調理器具も完備</p>
-            </div>
-        </div>
-    </div>
-
-	<section class="plans">
-    <div class="w-container">
-        <h2 class="heading-decoration">宿泊プラン</h2>
-        <div class="plans-grid">
-            <article class="plan">
-                <h3>スタンダードプラン</h3>
-                <ul>
-                    <li>遠野の旬を味わう朝食付き</li>
-                    <li>薪ストーブ利用可（冬期）</li>
-                    <li>チェックアウト 11:00</li>
-                </ul>
-                <p class="price">¥15,000<span>〜 / 名</span></p>
-                <a href="contact.html" class="btn">予約・問い合わせ</a>
-            </article>
-
-			<article class="post plan-card">
-    <div class="plan-image">
-        <figure>
-            <img src="img/breakfast.jpg" alt="遠野の発酵美膳朝食" width="1000" height="750">
+    <article class="entry">
+        <figure class="entry-img">
+            <img src="bedroom.jpg" alt="遠野の静寂に包まれる客室" width="1600" height="470" style="width:100%; height:400px; object-fit:cover;">
         </figure>
-        <span class="plan-tag">一番人気</span>
-    </div>
-    
-    <div class="plan-content">
-        <h3 class="plan-title">【基本】遠野の静寂を愉しむ・発酵美膳朝食付きプラン</h3>
-        <p class="plan-description">
-            築百年の静寂に包まれ、心身をリセットするスタンダードな滞在プランです。
-            朝には、地元の味噌や麹、旬の野菜をふんだんに使った「発酵美膳」をご用意いたします。
-        </p>
         
-        <ul class="plan-details">
-            <li><i class="fas fa-check"></i> 遠野産ミルクの焼き立てパンと発酵食の朝食</li>
-            <li><i class="fas fa-check"></i> 蔵のライブラリーラウンジ利用無料</li>
-            <li><i class="fas fa-check"></i> 南部鉄器で愉しむ地茶セット（客室完備）</li>
-        </ul>
-
-        <div class="plan-footer">
-            <div class="plan-price">
-                <span class="price-label">1名様 </span>
-                <span class="price-amount">¥18,500</span>
-                <span class="price-unit">〜（税込）</span>
+        <div class="w-container" style="padding-top: 60px; text-align: center;">
+            <h1 class="heading">ROOMS & PLANS <span>お部屋・プラン</span></h1>
+            <div class="entry-container" style="max-width: 800px; margin: 0 auto 80px;">
+                <p>「Tohno Modern Retreat」は、遠野の静かな集落に佇む、一棟貸しの隠れ家です。</p>
+                <p>かつての暮らしを感じさせる古民家の趣はそのままに、薪ストーブやモダンなキッチンを備え、現代のリトリートにふさわしい快適な空間に仕上げました。</p>
             </div>
-            <a href="contact.html#contact" class="btn btn-small">このプランを予約する</a>
         </div>
-    </div>
-</article>
+    </article>
 
-            <article class="plan featured">
-                <h3>【一棟貸切】リトリートプラン</h3>
-                <ul>
-                    <li>地元シェフによる出張ディナー</li>
-                    <li>「遠野物語」読み聞かせ体験</li>
-                    <li>最寄り駅からの送迎付き</li>
-                </ul>
-                <p class="price">¥35,000<span>〜 / 名</span></p>
-                <a href="contact.html" class="btn">予約・問い合わせ</a>
-            </article>
-
-			<article class="post">
-    <figure><img src="img/plan_fire.jpg" alt="薪ストーブプラン"></figure>
-    <h3>【冬限定】薪ストーブの火を眺める贅沢プラン</h3>
-    <p>揺らめく炎を眺めながら、岩手産ワインを片手に。日常を忘れる「何もしない」贅沢な時間を提供します。</p>
-    <div class="price">1名様 22,000円〜</div>
-</article>
-        </div>
-    </div>
-</section>
-</section>
-	<section id="facilities">
-    <div class="w-container">
-        <h2 class="heading">FACILITIES <span>館内設備</span></h2>
-        
-        <div class="facilities-grid">
-            <div class="facility-item">
-                <i class="fas fa-book-open" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px;"></i>
-                <h3>蔵のライブラリー</h3>
-                <p>築百年の蔵を改装。遠野の歴史や民話、旅のインスピレーションを刺激する書籍を自由にお読みいただけます。</p>
+    <section id="rooms">
+        <div class="w-container">
+            <h2 class="heading">ROOMS <span>客室のご紹介</span></h2>
+            <div class="goods-grid">
+                <div class="post">
+                    <figure><img src="bedroom.jpg" alt="寝室"></figure>
+                    <h3>主寝室（Master Bedroom）</h3>
+                    <p>最大4名まで宿泊可能な広々とした寝室。上質な寝具が深い眠りを誘います。</p>
+                </div>
+                <div class="post">
+                    <figure><img src="kitchen.jpg" alt="キッチン"></figure>
+                    <h3>ダイニングキッチン</h3>
+                    <p>最新家電と地元の職人が作った器を完備。地場産の食材を自由に調理いただけます。</p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section id="plans" style="padding: var(--v-space) 0; background-color: #f0ede9;">
+        <div class="w-container">
+            <h2 class="heading">PLANS <span>宿泊プラン</span></h2>
             
-            <div class="facility-item">
-                <i class="fas fa-fire" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px;"></i>
-                <h3>共有ラウンジ</h3>
-                <p>大きな薪ストーブを囲むメインラウンジ。セルフサービスのコーヒーを片手に、静かな時間をお過ごしください。</p>
-            </div>
-            
-            <div class="facility-item">
-                <i class="fas fa-wifi" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px;"></i>
-                <h3>全館高速Wi-Fi</h3>
-                <p>古民家の情緒はそのままに、全館に最新の無線LANを完備。ワーケーション利用にも最適です。</p>
+            <div class="goods-grid">
+                <article class="post plan-card">
+                    <div class="plan-image">
+                        <figure><img src="img/breakfast.jpg" alt="遠野の発酵美膳朝食"></figure>
+                        <span class="plan-tag">一番人気</span>
+                    </div>
+                    <div class="plan-content">
+                        <h3 class="plan-title">【基本】遠野の静寂を愉しむ・発酵美膳朝食付きプラン</h3>
+                        <p class="plan-description">地元の味噌や麹、旬の野菜をふんだんに使った「発酵美膳」で身体の内側から整う朝を。</p>
+                        <ul class="plan-details">
+                            <li><i class="fas fa-check"></i> 遠野産ミルクの焼き立てパンと発酵食</li>
+                            <li><i class="fas fa-check"></i> 蔵のライブラリー利用無料</li>
+                        </ul>
+                        <div class="plan-footer">
+                            <div class="plan-price"><span class="price-amount">¥18,500</span><span class="price-unit">〜（税込）</span></div>
+                            <a href="contact.html" class="btn btn-small">このプランを予約する</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post plan-card">
+                    <div class="plan-image">
+                        <figure><img src="img/plan_fire.jpg" alt="薪ストーブプラン"></figure>
+                        <span class="plan-tag">冬季限定</span>
+                    </div>
+                    <div class="plan-content">
+                        <h3 class="plan-title">【冬限定】薪ストーブの火を眺める贅沢おこもりプラン</h3>
+                        <p class="plan-description">揺らめく炎を眺めながら、岩手産ワインを片手に。冬だけの特別な時間を提供します。</p>
+                        <ul class="plan-details">
+                            <li><i class="fas fa-check"></i> 客室薪ストーブ用の薪 使い放題</li>
+                            <li><i class="fas fa-check"></i> 岩手県産ワイン（ハーフボトル）付</li>
+                        </ul>
+                        <div class="plan-footer">
+                            <div class="plan-price"><span class="price-amount">¥22,000</span><span class="price-unit">〜（税込）</span></div>
+                            <a href="contact.html" class="btn btn-small">このプランを予約する</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post plan-card">
+                    <div class="plan-image">
+                        <figure><img src="kominka.jpg" alt="一棟貸切"></figure>
+                        <span class="plan-tag">特別体験</span>
+                    </div>
+                    <div class="plan-content">
+                        <h3 class="plan-title">【完全貸切】地元シェフによる出張料理リトリートプラン</h3>
+                        <p class="plan-description">地元の名シェフを招き、あなただけのために腕を振るう贅沢。特別な記念日に。</p>
+                        <ul class="plan-details">
+                            <li><i class="fas fa-check"></i> 地元シェフの特別ディナーコース</li>
+                            <li><i class="fas fa-check"></i> 遠野物語の読み聞かせ体験</li>
+                        </ul>
+                        <div class="plan-footer">
+                            <div class="plan-price"><span class="price-amount">¥35,000</span><span class="price-unit">〜（税込）</span></div>
+                            <a href="contact.html" class="btn btn-small">このプランを予約する</a>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section id="facilities">
+        <div class="w-container">
+            <h2 class="heading">FACILITIES <span>館内設備</span></h2>
+            <div class="facilities-grid">
+                <div class="facility-item">
+                    <i class="fas fa-book-open" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px;"></i>
+                    <h3>蔵のライブラリー</h3>
+                    <p>遠野の歴史や民話を収集。静かな蔵の中で物語に没入するひとときを。</p>
+                </div>
+                <div class="facility-item">
+                    <i class="fas fa-fire" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px;"></i>
+                    <h3>共有ラウンジ</h3>
+                    <p>大きな薪ストーブを囲む空間。セルフサービスのコーヒーをご用意しています。</p>
+                </div>
+                <div class="facility-item">
+                    <i class="fas fa-wifi" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px;"></i>
+                    <h3>全館高速Wi-Fi</h3>
+                    <p>歴史ある空間と現代の利便性を両立。ワーケーションにも対応可能です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
-<footer class="footer">
-	<div class="footer-container w-container">
-		<div class="footer-site">
-			<a href="index.html">
-				<img src="img/logo.svg" alt="遠野モダンホテル" width="135" height="26">
-			</a>
-		</div>
-
-		<ul class="footer-sns">
-			<li><a href="#"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a></li>
-			<li><a href="#"><i class="fab fa-facebook-f"></i><span class="sr-only">Facebook</span></a></li>
-			<li><a href="#"><i class="fab fa-instagram"></i><span class="sr-only">Instagram</span></a></li>
-		</ul>
-
-		<ul class="footer-menu">
-			<li><a href="#">宿の紹介</a></li>
-			<li><a href="#">アクセス</a></li>
-			<li><a href="#">プライバシーポリシー</a></li>
-			<li><a href="content.html">お部屋・プラン</a></li>
-			<li><a href="#">お問い合わせ</a></li>
-		</ul>
-
-		<div class="footer-copy">
-			&copy; Tohno Modern Hotel.
-		</div>
-	</div>
+<footer class="footer-menu">
+    <li><a href="about.html">宿の紹介</a></li> 
+    <li><a href="policy.html">特定商取引法</a></li>
+    <li><a href="privacy.html">個人情報の取り扱い</a></li> 
+    <li><a href="content.html">お部屋・プラン</a></li>
+    <li><a href="contact.html">お問い合わせ</a></li>
 </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
