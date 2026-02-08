@@ -533,6 +533,43 @@ img { display: block; max-width: 100%; height: auto; }
     }
 }
 
+/* ==========================================
+   プライバシーポリシー専用スタイル
+   ========================================== */
+.privacy-content {
+    background: var(--white);
+    padding: 40px;
+    margin-top: 40px;
+    border: 1px solid var(--sub-accent);
+    line-height: 2;
+}
+
+.privacy-content h3 {
+    font-size: 1.2rem;
+    color: var(--main-color);
+    margin: 40px 0 20px;
+    padding-left: 10px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.privacy-content p, .privacy-content ul {
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.privacy-content ul li {
+    margin-bottom: 10px;
+}
+
+.contact-box {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+    border: 1px dashed var(--accent-color);
+}
+
+
 
 
 
