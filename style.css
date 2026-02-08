@@ -90,7 +90,7 @@ img {
     height: 100vh;
     min-height: 600px;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url(https://i.imgur.com/mIAguTt.jpeg); /* 画像パス */
+                url(kominka.jpeg); /* 画像パス */
     background-position: center;
     background-size: cover;
     display: flex;
@@ -206,3 +206,4 @@ img {
     color: var(--sub-accent);
     text-align: center;
 }
+
