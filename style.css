@@ -297,7 +297,7 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 /* ==========================================
-   フェードスライドショー設定
+   フェードスライドショー（最後に静止）
    ========================================== */
 .hero {
     position: relative;
@@ -308,6 +308,7 @@ img { display: block; max-width: 100%; height: auto; }
     justify-content: center;
     align-items: center;
     color: var(--white);
+    background-color: #000;
 }
 
 .hero-slider {
@@ -328,37 +329,58 @@ img { display: block; max-width: 100%; height: auto; }
     background-size: cover;
     background-position: center;
     opacity: 0;
-    animation: sliderFade 15s infinite; /* 15秒で1サイクル */
+    animation-fill-mode: forwards; /* アニメーション終了時の状態を維持 */
 }
 
-/* 画像の指定：2枚目をliving.jpgに変更 */
-.slide1 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("hosizora.jpg"); }
-.slide2 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("living.jpg"); animation-delay: 5s; }
-.slide3 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("kominka.jpg"); animation-delay: 10s; }
+/* 各スライドの画像とタイミング */
+.slide1 { 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("hosizora.jpg"); 
+    animation: sliderFadeOut 5s ease-in-out forwards;
+    animation-delay: 0s;
+    z-index: 3;
+}
 
-/* テキストを一番上に表示 */
+.slide2 { 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("living.jpg"); 
+    animation: sliderFadeOut 5s ease-in-out forwards;
+    animation-delay: 4s;
+    z-index: 2;
+}
+
+.slide3 { 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("kominka.jpg"); 
+    animation: sliderFadeIn 2s ease-in-out forwards;
+    animation-delay: 8s;
+    z-index: 1;
+}
+
+/* アニメーション：1、2枚目用（出て、消える） */
+@keyframes sliderFadeOut {
+    0% { opacity: 0; transform: scale(1.05); }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+/* アニメーション：3枚目用（出て、そのまま止まる） */
+@keyframes sliderFadeIn {
+    0% { opacity: 0; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 10;
     text-align: center;
 }
 
-/* フェードアニメーション */
-@keyframes sliderFade {
-    0% { opacity: 0; transform: scale(1.0); }
-    10% { opacity: 1; }
-    33% { opacity: 1; }
-    43% { opacity: 0; transform: scale(1.1); } /* 少しズームしながら消える */
-    100% { opacity: 0; }
-}
-
 /* ==========================================
-   予約バー（空室検索）
+   予約バー・ギャラリー（重複を削除し整理）
    ========================================== */
 .booking-bar {
     position: relative;
-    z-index: 10;
-    margin-top: -50px; /* ヒーローセクションに少し重ねる */
+    z-index: 11; /* hero-contentより上に */
+    margin-top: -50px;
     padding-bottom: 40px;
 }
 
@@ -367,93 +389,35 @@ img { display: block; max-width: 100%; height: auto; }
     display: grid;
     grid-template-columns: repeat(3, 1fr) auto;
     gap: 1px;
-    background-color: var(--sub-accent); /* 境界線として表示 */
+    background-color: var(--sub-accent);
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     border: 1px solid var(--sub-accent);
 }
 
-.form-item {
-    background: #fff;
-    padding: 15px 25px;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-item label {
-    font-size: 11px;
-    color: var(--accent-color);
-    font-weight: 700;
-    margin-bottom: 5px;
-    letter-spacing: 0.1em;
-}
-
-.form-item input, 
-.form-item select {
-    border: none;
-    font-family: inherit;
-    font-size: 15px;
-    color: var(--main-color);
-    outline: none;
-    cursor: pointer;
-}
+.form-item { background: #fff; padding: 15px 25px; display: flex; flex-direction: column; }
+.form-item label { font-size: 11px; color: var(--accent-color); font-weight: 700; margin-bottom: 5px; letter-spacing: 0.1em; }
+.form-item input, .form-item select { border: none; font-family: inherit; font-size: 15px; color: var(--main-color); outline: none; }
 
 .btn-search {
     background: var(--main-color);
     color: #fff;
     border: none;
-    height: 100%;
     padding: 0 40px;
     font-weight: 700;
-    font-size: 15px;
     cursor: pointer;
     transition: 0.3s;
 }
+.btn-search:hover { background: var(--accent-color); }
 
-.btn-search:hover {
-    background: var(--accent-color);
-}
-
-/* スマホ対応 */
-@media (max-width: 900px) {
-    .booking-bar { margin-top: 0; padding: 20px 0; }
-    .booking-form {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-    .form-item {
-        border-bottom: 1px solid var(--sub-accent);
-    }
-    .btn-search {
-        padding: 20px;
-        width: 100%;
-    }
-}
-
-/* ==========================================
-   フォトギャラリー
-   ========================================== */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-top: 40px;
 }
-
-.gallery-item {
-    aspect-ratio: 1 / 1; /* 正方形に統一 */
-    overflow: hidden;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1); /* ホバーで少しズーム */
-}
+.gallery-item { aspect-ratio: 1 / 1; overflow: hidden; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.gallery-item:hover img { transform: scale(1.1); }
 
 .btn-outline {
     display: inline-block;
@@ -462,160 +426,16 @@ img { display: block; max-width: 100%; height: auto; }
     color: var(--accent-color);
     font-size: 14px;
     letter-spacing: 0.1em;
-    transition: 0.3s;
 }
+.btn-outline:hover { background: var(--accent-color); color: #fff; }
 
-.btn-outline:hover {
-    background: var(--accent-color);
-    color: #fff;
-    opacity: 1;
+@media (max-width: 900px) {
+    .booking-bar { margin-top: 0; padding: 20px 0; }
+    .booking-form { grid-template-columns: 1fr; }
+    .form-item { border-bottom: 1px solid var(--sub-accent); }
+    .btn-search { padding: 20px; width: 100%; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-/* スマホ対応 */
-@media (max-width: 767px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-}
-
-/* ==========================================
-   スライドショー（最後に静止する設定）
-   ========================================== */
-.hero {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--white);
-    background-color: var(--main-color); /* 読み込み前の背景色 */
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    /* infiniteを消し、forwardsを追加 */
-    animation: sliderOnce 12s ease-in-out forwards; 
-}
-
-/* 画像と開始タイミングの指定 */
-.slide1 { 
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("hosizora.jpg"); 
-    animation-delay: 0s; 
-}
-.slide2 { 
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("living.jpg"); 
-    animation-delay: 4s; 
-}
-.slide3 { 
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("kominka.jpg"); 
-    animation-delay: 8s; 
-    z-index: 2; /* 最後に一番上に残るように */
-}
-
-/* 1回だけ流れるアニメーション */
-@keyframes sliderOnce {
-    0% { opacity: 0; transform: scale(1.05); }
-    15% { opacity: 1; }
-    85% { opacity: 1; }
-    100% { opacity: 1; transform: scale(1); } /* 最後は不透明度1で維持 */
-}
-
-/* スライド1と2は次のスライドが来たら消えるように調整 */
-.slide1, .slide2 {
-    animation: sliderFadeOut 8s ease-in-out forwards;
-}
-
-@keyframes sliderFadeOut {
-    0% { opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; } /* 次のスライドのために消える */
-}
-/* ==========================================
-   スライドショー（最後に kominka.jpg で静止）
-   ========================================== */
-.hero {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--white);
-    background-color: #000; /* 念のための背景黒 */
-}
-
-/* スライドの基本設定 */
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    /* infiniteを削除し、forwards（終了状態維持）を指定 */
-    animation-fill-mode: forwards;
-}
-
-/* 各スライドの画像とアニメーション設定 */
-/* 1枚目: 星空 (0秒〜4秒) */
-.slide1 { 
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("hosizora.jpg"); 
-    animation: sliderFadeOut 5s ease-in-out forwards;
-    animation-delay: 0s;
-    z-index: 3;
-}
-
-/* 2枚目: リビング (4秒〜8秒) */
-.slide2 { 
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("living.jpg"); 
-    animation: sliderFadeOut 5s ease-in-out forwards;
-    animation-delay: 4s;
-    z-index: 2;
-}
-
-/* 3枚目: 古民家 (8秒〜 永続) */
-.slide3 { 
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("kominka.jpg"); 
-    animation: sliderFadeIn 2s ease-in-out forwards;
-    animation-delay: 8s;
-    z-index: 1;
-}
-
-/* アニメーション定義: フェードインして消える（1, 2枚目用） */
-@keyframes sliderFadeOut {
-    0% { opacity: 0; transform: scale(1.05); }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0; transform: scale(1); }
-}
-
-/* アニメーション定義: フェードインして止まる（3枚目用） */
-@keyframes sliderFadeIn {
-    0% { opacity: 0; transform: scale(1.05); }
-    100% { opacity: 1; transform: scale(1); }
-}
-
-/* テキストコンテンツを最前面に */
-.hero-content {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-}
-
 
 
 
