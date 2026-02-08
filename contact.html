@@ -40,12 +40,14 @@
                 <textarea name="message" rows="5" placeholder="アレルギーの有無や、到着予定時刻などをご記入ください。"></textarea>
             </div>
 
-            <div style="text-align: center; margin-top: 20px;">
-                <label style="display: inline-flex; align-items: center; cursor: pointer;">
-                    <input type="checkbox" name="agree" required style="width: auto; margin-right: 10px;">
-                    <span style="font-size: 0.9rem;"><a href="privacy.html" target="_blank" style="color: #4682b4;">個人情報の取り扱い</a>に同意する</span>
-                </label>
-            </div>
+            <div class="item agree-check"> <label style="display: inline-flex; align-items: center; cursor: pointer;">
+        <input type="checkbox" name="agree" required style="width: auto; margin-right: 10px;">
+        <span style="font-size: 0.9rem;"><a href="privacy.html" target="_blank">個人情報の取り扱い</a>に同意する</span>
+    </label>
+</div>
+
+<div class="btn-submit-wrap"> <input type="submit" value="送信する" class="btn">
+</div>
 
             <input type="submit" value="送信する" class="btn">
         </form>
