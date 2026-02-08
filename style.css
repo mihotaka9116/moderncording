@@ -555,6 +555,75 @@ img { display: block; max-width: 100%; height: auto; }
     .content-hero h1 { font-size: 2rem; }
 }
 
+/* ==========================================
+   content.html の微調整
+   ========================================== */
+
+/* 1. 見出しの Rooms と お部屋 の間に隙間を作る */
+.heading span {
+    display: block;
+    margin-top: 10px; /* span（日本語側）を少し下げる */
+}
+
+/* 2. お部屋詳細（Room Detail）の余白とバランス */
+.section {
+    padding: var(--v-space) 0;
+}
+
+.room-detail {
+    display: flex;
+    gap: 60px; /* 画像とテキストの距離 */
+    align-items: center;
+    margin-bottom: 80px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.room-slider {
+    flex: 1.2; /* 画像を少し大きく */
+}
+
+.room-info {
+    flex: 1;
+}
+
+.room-info h3 {
+    font-size: 24px;
+    color: var(--main-color);
+    margin-bottom: 15px;
+}
+
+/* 3. プラン一覧（Plans Grid）の調整 */
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* カードを少し大きく */
+    gap: 40px;
+}
+
+.plan-card {
+    background: #fff;
+    transition: transform 0.3s;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px); /* ホバー時に少し浮かす */
+}
+
+/* スマホ対応の微調整 */
+@media (max-width: 900px) {
+    .room-detail {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+    .plans-grid {
+        grid-template-columns: 1fr; /* スマホでは1列 */
+    }
+}
+
+
 
 
 
