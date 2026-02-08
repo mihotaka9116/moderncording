@@ -349,5 +349,69 @@ img { display: block; max-width: 100%; height: auto; }
     }
 }
 
+/* ==========================================
+   新設セクション（About & Concept）
+   ========================================== */
+
+/* 共通：セクションの余白 */
+.about-section, .concept-section {
+    padding: var(--v-space) 0;
+}
+
+/* 1. Aboutセクション：横並びレイアウト */
+.about-flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap; /* スマホで縦並びにする */
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 20px 20px 0 var(--sub-accent); /* ゴールドの飾り枠 */
+}
+
+/* 2. Conceptセクション：中央配置の読み物 */
+.concept-section {
+    background-color: var(--main-color); /* 紺色背景で雰囲気を変える */
+    color: var(--white);
+    text-align: center;
+}
+
+.concept-title {
+    font-size: clamp(24px, 4vw, 36px);
+    margin-bottom: 40px;
+    letter-spacing: 0.3em;
+}
+
+.concept-text p {
+    margin-bottom: 2em;
+    line-height: 2.2;
+    opacity: 0.9;
+}
+
+/* スマホ対応：Aboutの画像飾りを調整 */
+@media (max-width: 767px) {
+    .about-flex {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .about-image img {
+        box-shadow: 10px 10px 0 var(--sub-accent);
+    }
+}
+
+
 
 
