@@ -87,19 +87,23 @@ img {
         letter-spacing: 0.05em;
     }
 }
-
 /* ==========================================
-   ヒーローセクション
+   ヒーローセクション（ここを修正します）
    ========================================== */
 .hero {
     height: 600px;
+    /* 1. ここの url( ) の中身を書き換える */
     background: linear-gradient(rgba(26, 41, 51, 0.5), rgba(26, 41, 51, 0.5)), 
-                <img src="free space.jpg>" /* 宿の画像推奨 */
+                url(freespace.jpg); 
+    
     background-position: center;
     background-size: cover;
     color: var(--white);
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .hero h1 {
@@ -825,6 +829,7 @@ img {
     width: 100%;
     max-width: 300px;
 }
+
 
 
 
