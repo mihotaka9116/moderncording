@@ -1,15 +1,15 @@
 @charset "UTF-8";
 
 /* ==========================================
-   変数設定（紺×ゴールド）
+   変数設定
    ========================================== */
 :root {
     --v-space: clamp(80px, 8vw, 110px);
-    --bg-color: #faf9f6;      /* 背景：胡粉色 */
-    --main-color: #1a2933;    /* メイン：鉄紺 */
-    --accent-color: #c2a05d;  /* アクセント：真鍮 */
-    --sub-accent: #e5d8b1;    /* サブ：シャンパンゴールド */
-    --text-color: #222222;    /* 文字：墨色 */
+    --bg-color: #faf9f6;
+    --main-color: #1a2933;
+    --accent-color: #c2a05d;
+    --sub-accent: #e5d8b1;
+    --text-color: #222222;
     --white: #ffffff;
 }
 
@@ -25,31 +25,11 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-h1, h2, h3, h4, h5, h6, p, figure, ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-    transition: 0.3s ease;
-}
-
-a:hover {
-    opacity: 0.7;
-}
-
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
+html { scroll-behavior: smooth; }
+h1, h2, h3, h4, h5, h6, p, figure, ul { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; transition: 0.3s ease; }
+a:hover { opacity: 0.7; }
+img { display: block; max-width: 100%; height: auto; }
 
 .w-container {
     width: min(92%, 1100px);
@@ -75,62 +55,19 @@ img {
 }
 
 @media (min-width: 768px) {
-    .nav ul {
-        display: flex;
-        gap: 35px;
-        font-weight: 500;
-        letter-spacing: 0.05em;
-    }
+    .nav ul { display: flex; gap: 35px; font-weight: 500; letter-spacing: 0.05em; }
 }
 
 /* ==========================================
-   ヒーローセクション（中央配置と白文字）
+   ヒーローセクション（中央配置・白文字）
    ========================================== */
 .hero {
     height: 100vh;
     min-height: 600px;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url(kominka.jpeg); /* 画像パス */
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--white);
-}
-
-.hero h1 {
-    font-size: clamp(32px, 5vw, 56px);
-    letter-spacing: 0.15em;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--white);
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-}
-
-.hero p {
-    font-size: clamp(16px, 2vw, 20px);
-    letter-spacing: 0.1em;
-    margin-bottom: 40px;
-    color: var(--white);
-    opacity: 1;
-}
-
-/* ==========================================
-   ヒーローセクション（最新修正版）
-   ========================================== */
-.hero {
-    height: 100vh;
-    min-height: 600px;
-    /* 背景画像と暗めのフィルター */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url(kominka.jpeg); 
     background-position: center;
     background-size: cover;
-    
-    /* 親要素をFlexboxにして中央へ */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,12 +75,10 @@ img {
     color: var(--white);
 }
 
-/* HTMLにあるコンテナ要素を中央に固定する */
 .hero-container {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center; /* 子要素（h1, p, btn）を水平中央に */
+    align-items: center;
 }
 
 .hero h1 {
@@ -151,7 +86,7 @@ img {
     letter-spacing: 0.2em;
     font-weight: 700;
     margin-bottom: 20px;
-    color: var(--white); /* 確実に白く */
+    color: var(--white) !important;
     text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
 }
 
@@ -159,48 +94,56 @@ img {
     font-size: clamp(16px, 2vw, 24px);
     letter-spacing: 0.15em;
     margin-bottom: 40px;
-    color: var(--white); /* 確実に白く */
+    color: var(--white) !important;
     text-shadow: 1px 1px 10px rgba(0,0,0,0.6);
 }
 
 /* ==========================================
-   ROOMSセクション（中央配置）
+   News / Posts セクション（横並び復活）
    ========================================== */
-#rooms {
-    padding: var(--v-space) 0;
-    text-align: center;
+.posts { padding: var(--v-space) 0; }
+
+.posts-container {
+    display: grid;
+    /* ここで横並びを指定。300px以上のカードを並べる */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
 }
 
+.post figure {
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.post figure img {
+    width: 100%;
+    height: 250px; /* 画像のサイズを固定して揃える */
+    object-fit: cover;
+}
+
+/* ==========================================
+   共通見出し
+   ========================================== */
+.heading {
+    font-size: 28px;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+
+.heading span { font-size: 14px; font-weight: normal; color: var(--accent-color); margin-left: 10px; }
+
+/* ==========================================
+   ROOMS（content.html用）
+   ========================================== */
+#rooms { padding: var(--v-space) 0; text-align: center; }
 .goods-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 400px)); 
     gap: 40px;
-    justify-content: center; /* カード全体を中央へ */
-    margin-top: 50px;
-}
-
-.goods-item {
-    text-align: left;
-    background: var(--white);
-    border: 1px solid var(--sub-accent);
-    padding-bottom: 20px;
-    transition: transform 0.3s;
-}
-
-.goods-item:hover {
-    transform: translateY(-5px);
-}
-
-.image-wrap img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.item-caption {
-    padding: 15px;
-    font-size: 0.9rem;
-    color: #666;
+    justify-content: center;
 }
 
 /* ==========================================
@@ -211,45 +154,25 @@ img {
     min-width: 200px;
     padding: 16px 32px;
     background: linear-gradient(135deg, var(--accent-color) 0%, #ad8a42 100%);
-    color: var(--white);
+    color: var(--white) !important;
     text-align: center;
     font-weight: 700;
-    letter-spacing: 0.1em;
     border: 1px solid var(--sub-accent);
-    border-radius: 2px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.btn:hover, .btn-search:hover {
-    background: linear-gradient(135deg, #ad8a42 0%, var(--accent-color) 100%);
-    transform: translateY(-2px);
-}
-
 /* ==========================================
-   その他（装飾・共通）
+   フッター（中央配置）
    ========================================== */
-.heading-decoration {
-    font-size: clamp(26px, 3vw, 34px);
-    border-left: 2px solid var(--accent-color);
-    padding-left: 18px;
-    margin-bottom: 0.8em;
-}
-
-.heading-decoration::after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 1px;
-    background-color: var(--accent-color);
-    margin-top: 15px;
-}
-
-/* フッター */
-.footer {
-    padding: 80px 0;
+.footer-menu {
+    padding: 60px 0;
     background-color: var(--main-color);
-    color: var(--sub-accent);
-    text-align: center;
+    color: var(--white);
+    display: flex; /* 横並び */
+    flex-wrap: wrap;
+    justify-content: center; /* 中央寄せ */
+    gap: 20px;
+    margin: 0;
 }
 
-
+.footer-menu li a { font-size: 14px; color: var(--sub-accent); }
