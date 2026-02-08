@@ -864,9 +864,49 @@ html {
     scroll-behavior: smooth;
 }
 
-} /* ←この余分な } を削除してください */
+/* ROOMSセクション全体の調整 */
+#rooms {
+    padding: var(--v-space) 0;
+    text-align: center; /* タイトルなどを中央へ */
+}
 
-h1, h2, h3...
+/* グリッドコンテナの中央配置 */
+.goods-grid {
+    display: grid;
+    /* 画面幅に合わせて自動で列数を調整しつつ、中央に寄せる */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 400px)); 
+    gap: 40px;
+    justify-content: center; /* これでカード全体が中央に寄ります */
+    margin-top: 50px;
+}
+
+/* 各アイテム（カード）の調整 */
+.goods-item {
+    text-align: left; /* カード内のテキストは左寄せが見やすいです */
+    background: #fff;
+    border: 1px solid #e5d8b1; /* 他のセクションと合わせたシャンパンゴールド */
+    padding-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.goods-item:hover {
+    transform: translateY(-5px);
+}
+
+/* 画像のサイズを統一する */
+.image-wrap img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* 画像の比率を保ったまま枠に収める */
+}
+
+.item-caption {
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
 
 
 
