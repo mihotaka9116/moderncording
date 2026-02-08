@@ -94,7 +94,7 @@ img {
 .hero {
     height: 600px;
     background: linear-gradient(rgba(26, 41, 51, 0.5), rgba(26, 41, 51, 0.5)), 
-                url(freespace.jpg); /* 宿の画像推奨 */
+                <img src="free space.jpg>" /* 宿の画像推奨 */
     background-position: center;
     background-size: cover;
     color: var(--white);
