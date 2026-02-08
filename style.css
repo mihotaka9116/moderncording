@@ -155,7 +155,7 @@ img { display: block; max-width: 100%; height: auto; }
     min-width: 200px;
     padding: 16px 32px;
     background: linear-gradient(135deg, #a68549 0%, #8e6d35 100%);
-    color: var(--white) !important;
+    color: var(--white);
     text-align: center;
     font-weight: 700;
     border: 1px solid #8e6d35;
@@ -216,7 +216,7 @@ img { display: block; max-width: 100%; height: auto; }
 .plan-card {
     background: var(--white);
     border: 1px solid var(--sub-accent);
-    text-align: left !important; /* カードの中身は左寄せが見やすい */
+    text-align: left; /* カードの中身は左寄せが見やすい */
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -290,9 +290,9 @@ img { display: block; max-width: 100%; height: auto; }
 .price-unit { font-size: 0.8rem; }
 
 .btn-small {
-    width: 100% !important;
-    min-width: auto !important;
-    padding: 12px !important;
+    width: 100%;
+    min-width: auto;
+    padding: 12px;
     font-size: 0.9rem;
 }
 
@@ -351,5 +351,6 @@ img { display: block; max-width: 100%; height: auto; }
     43% { opacity: 0; transform: scale(1.1); } /* 少しズームしながら消える */
     100% { opacity: 0; }
 }
+
 
 
