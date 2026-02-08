@@ -541,6 +541,80 @@ img { display: block; max-width: 100%; height: auto; }
     80% { opacity: 1; }
     100% { opacity: 0; } /* 次のスライドのために消える */
 }
+/* ==========================================
+   スライドショー（最後に kominka.jpg で静止）
+   ========================================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    background-color: #000; /* 念のための背景黒 */
+}
+
+/* スライドの基本設定 */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    /* infiniteを削除し、forwards（終了状態維持）を指定 */
+    animation-fill-mode: forwards;
+}
+
+/* 各スライドの画像とアニメーション設定 */
+/* 1枚目: 星空 (0秒〜4秒) */
+.slide1 { 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("hosizora.jpg"); 
+    animation: sliderFadeOut 5s ease-in-out forwards;
+    animation-delay: 0s;
+    z-index: 3;
+}
+
+/* 2枚目: リビング (4秒〜8秒) */
+.slide2 { 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("living.jpg"); 
+    animation: sliderFadeOut 5s ease-in-out forwards;
+    animation-delay: 4s;
+    z-index: 2;
+}
+
+/* 3枚目: 古民家 (8秒〜 永続) */
+.slide3 { 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("kominka.jpg"); 
+    animation: sliderFadeIn 2s ease-in-out forwards;
+    animation-delay: 8s;
+    z-index: 1;
+}
+
+/* アニメーション定義: フェードインして消える（1, 2枚目用） */
+@keyframes sliderFadeOut {
+    0% { opacity: 0; transform: scale(1.05); }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+/* アニメーション定義: フェードインして止まる（3枚目用） */
+@keyframes sliderFadeIn {
+    0% { opacity: 0; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* テキストコンテンツを最前面に */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
 
 
 
