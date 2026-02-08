@@ -1,0 +1,53 @@
+<section id="contact" class="js-fade-up">
+    <div class="container">
+        <h2 class="section-title">RESERVATION / CONTACT</h2>
+        <p class="section-title-en">ご予約・お問い合わせ</p>
+
+        <form action="#" class="contact-form">
+            <div class="item">
+                <label>お名前</label>
+                <input type="text" name="name" placeholder="遠野 太郎" required>
+            </div>
+
+            <div class="item">
+                <label>メールアドレス</label>
+                <input type="email" name="email" placeholder="example@mail.com" required>
+            </div>
+
+            <div style="display: flex; gap: 20px;">
+                <div class="item" style="flex: 1;">
+                    <label>チェックイン希望日</label>
+                    <input type="date" name="checkin">
+                </div>
+                <div class="item" style="flex: 1;">
+                    <label>チェックアウト希望日</label>
+                    <input type="date" name="checkout">
+                </div>
+            </div>
+
+            <div class="item">
+                <label>ご宿泊人数</label>
+                <select name="guests" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #bcd9f5; color: #4682b4;">
+                    <option value="1">1名</option>
+                    <option value="2">2名</option>
+                    <option value="3">3名</option>
+                    <option value="4">4名以上</option>
+                </select>
+            </div>
+
+            <div class="item">
+                <label>ご要望・ご質問</label>
+                <textarea name="message" rows="5" placeholder="アレルギーの有無や、到着予定時刻などをご記入ください。"></textarea>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <label style="display: inline-flex; align-items: center; cursor: pointer;">
+                    <input type="checkbox" name="agree" required style="width: auto; margin-right: 10px;">
+                    <span style="font-size: 0.9rem;"><a href="privacy.html" target="_blank" style="color: #4682b4;">個人情報の取り扱い</a>に同意する</span>
+                </label>
+            </div>
+
+            <input type="submit" value="送信する" class="btn">
+        </form>
+    </div>
+</section>
