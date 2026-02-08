@@ -712,6 +712,12 @@ img {
     scroll-margin-top: 80px;
 }
 
+/* contact.html のCSSに追加 */
+#contact {
+    scroll-margin-top: 100px; /* ヘッダーの高さに合わせて調整してください */
+}
+
+
 
 
 
