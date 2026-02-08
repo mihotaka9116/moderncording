@@ -623,6 +623,23 @@ img { display: block; max-width: 100%; height: auto; }
     }
 }
 
+/* フォームの微調整 */
+.contact-form input[type="date"] {
+    font-family: inherit;
+}
+
+.contact-form select {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.contact-form .btn {
+    border: none;
+    width: 100%;
+    max-width: 300px;
+}
+
+
 
 
 
