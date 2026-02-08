@@ -7,7 +7,7 @@
     --v-space: clamp(80px, 8vw, 110px);
     --bg-color: #faf9f6;
     --main-color: #1a2933;
-    --accent-color: #c2a05d;
+    --accent-color: #a68549; /* 暗めのゴールドに統一 */
     --sub-accent: #e5d8b1;
     --text-color: #222222;
     --white: #ffffff;
@@ -38,6 +38,36 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 /* ==========================================
+   共通見出し（すべて中央寄せに統一）
+   ========================================== */
+.heading {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
+    margin: 15px auto 0;
+}
+
+.heading span {
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--accent-color);
+    margin-top: 10px;
+    display: block;
+    letter-spacing: 0.2em;
+}
+
+/* ==========================================
    ヘッダー
    ========================================== */
 .header {
@@ -56,182 +86,19 @@ img { display: block; max-width: 100%; height: auto; }
 
 @media (min-width: 768px) {
     .nav ul { display: flex; gap: 35px; font-weight: 500; letter-spacing: 0.05em; }
+    .navbtn { display: none; } /* PCでは隠す */
 }
 
 /* ==========================================
-   ヒーローセクション（中央配置・白文字）
+   ヒーローセクション
    ========================================== */
 .hero {
     height: 100vh;
     min-height: 600px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url(kominka.jpeg); 
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--white);
-}
-
-.hero-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.hero h1 {
-    font-size: clamp(32px, 5vw, 64px);
-    letter-spacing: 0.2em;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--white) !important;
-    text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
-}
-
-.hero p {
-    font-size: clamp(16px, 2vw, 24px);
-    letter-spacing: 0.15em;
-    margin-bottom: 40px;
-    color: var(--white) !important;
-    text-shadow: 1px 1px 10px rgba(0,0,0,0.6);
-}
-
-/* ==========================================
-   News / Posts セクション（横並び・サイズ固定）
-   ========================================== */
-.posts { 
-    padding: var(--v-space) 0; 
-}
-
-/* 親コンテナをグリッドにして、横並びを強制 */
-.posts-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 40px;
-}
-
-/* 各記事カードの幅を制限し、巨大化を防ぐ */
-.post {
-    width: 100%;
-    max-width: 400px; /* カードの最大幅を設定 */
-    margin: 0 auto;  /* スマホ時に中央にくるように */
-}
-
-.post figure {
-    width: 100%;
-    height: 220px; /* 写真の高さを一定に揃える */
-    overflow: hidden;
-    margin-bottom: 15px;
-}
-
-.post figure img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 比率を保って切り抜き */
-}
-
-.post h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: var(--main-color);
-}
-
-/* ==========================================
-   フッター全体の中央配置
-   ========================================== */
-.footer-menu {
-    padding: 60px 20px;
-    background-color: var(--main-color);
-    color: var(--white);
-    display: flex; 
-    flex-wrap: wrap;
-    justify-content: center; /* 横方向の中央 */
-    align-items: center;     /* 縦方向の中央 */
-    gap: 30px;
-    margin: 0;
-    text-align: center;
-}
-
-.footer-menu li {
-    display: inline-block;
-}
-
-.footer-menu li a { 
-    font-size: 14px; 
-    color: var(--sub-accent);
-    letter-spacing: 0.1em;
-}
-/* ==========================================
-   共通見出し
-   ========================================== */
-.heading {
-    font-size: 28px;
-    letter-spacing: 0.1em;
-    border-bottom: 1px solid var(--accent-color);
-    padding-bottom: 15px;
-    margin-bottom: 40px;
-}
-
-.heading span { font-size: 14px; font-weight: normal; color: var(--accent-color); margin-left: 10px; }
-
-/* ==========================================
-   ROOMS（content.html用）
-   ========================================== */
-#rooms { padding: var(--v-space) 0; text-align: center; }
-.goods-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 400px)); 
-    gap: 40px;
-    justify-content: center;
-}
-
-/* ==========================================
-   ボタン設定
-   ========================================== */
-.btn, .btn-search {
-    display: inline-block;
-    min-width: 200px;
-    padding: 16px 32px;
-    background: linear-gradient(135deg, var(--accent-color) 0%, #ad8a42 100%);
-    color: var(--white) !important;
-    text-align: center;
-    font-weight: 700;
-    border: 1px solid var(--sub-accent);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-/* ==========================================
-   フッター（中央配置）
-   ========================================== */
-.footer-menu {
-    padding: 60px 0;
-    background-color: var(--main-color);
-    color: var(--white);
-    display: flex; /* 横並び */
-    flex-wrap: wrap;
-    justify-content: center; /* 中央寄せ */
-    gap: 20px;
-    margin: 0;
-}
-
-.footer-menu li a { font-size: 14px; color: var(--sub-accent); }
-
-/* ==========================================
-   ヒーローセクション（画像パス修正版）
-   ========================================== */
-.hero {
-    height: 100vh;
-    min-height: 600px;
-    /* パスを .jpg に修正し、引用符 "" で囲むのが安全です */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                      url("kominka.jpg"); 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("kominka.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -239,418 +106,106 @@ img { display: block; max-width: 100%; height: auto; }
     color: var(--white);
 }
 
-/* もし画像が「img」フォルダの中にある場合は、url("img/kominka.jpg") にしてください */
-
-.hero-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .hero h1 {
     font-size: clamp(32px, 5vw, 64px);
     letter-spacing: 0.2em;
-    font-weight: 700;
     margin-bottom: 20px;
-    color: var(--white) !important;
     text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
 }
 
-.hero p {
-    font-size: clamp(16px, 2vw, 24px);
-    letter-spacing: 0.15em;
-    margin-bottom: 40px;
-    color: var(--white) !important;
-    text-shadow: 1px 1px 10px rgba(0,0,0,0.6);
-}
 /* ==========================================
-   予約・コンタクトフォーム（以前の仕様に復元）
+   About & Concept
    ========================================== */
-#contact {
-    padding: var(--v-space) 0;
-    background-color: var(--white); /* フォーム周りを白くして清潔感を */
-}
+.about-section, .concept-section { padding: var(--v-space) 0; }
 
-.contact-form {
-    max-width: 700px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px; /* 内側に少し余白を追加 */
-}
-
-/* 各項目の間隔：ここを縦並び（block）に固定します */
-.contact-form .item {
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column; /* 常に縦並びにする */
-    align-items: flex-start;
-}
-
-/* ラベルの装飾 */
-.contact-form label {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--main-color);
-    font-size: 0.95rem;
-}
-
-/* 入力欄（input/textarea/select）の共通スタイル */
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form input[type="date"],
-.contact-form select,
-.contact-form textarea {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #d1cdbc; /* シャンパンゴールド系の薄い枠線 */
-    border-radius: 4px;
-    background-color: #fafafa;
-    font-family: inherit;
-    font-size: 1rem;
-    box-sizing: border-box; /* 幅100%からはみ出さないように */
-    transition: all 0.3s;
-}
-
-/* フォーカスした時（入力中）の色 */
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    background-color: #fff;
-    box-shadow: 0 0 8px rgba(194, 160, 93, 0.2);
-}
-
-/* チェックボックス部分 */
-.contact-form .agree-check {
-    text-align: center;
-    margin: 40px 0 20px;
-}
-
-/* 送信ボタンのセンター配置 */
-.contact-form .btn-submit-wrap {
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* 送信ボタン（.btn クラスを適用） */
-.contact-form .btn {
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    max-width: 300px; /* ボタンが広がりすぎないように */
-}
-
-/* スマホ対応：さらに余白を調整 */
-@media screen and (max-width: 600px) {
-    .contact-form {
-        padding: 10px;
-    }
-}
-
-/* ==========================================
-   新設セクション（About & Concept）
-   ========================================== */
-
-/* 共通：セクションの余白 */
-.about-section, .concept-section {
-    padding: var(--v-space) 0;
-}
-
-/* 1. Aboutセクション：横並びレイアウト */
 .about-flex {
     display: flex;
     align-items: center;
     gap: 60px;
-    flex-wrap: wrap; /* スマホで縦並びにする */
+    flex-wrap: wrap;
 }
 
-.about-text {
-    flex: 1;
-    min-width: 300px;
-}
+.about-text, .about-image { flex: 1; min-width: 300px; }
+.about-image img { border-radius: 4px; box-shadow: 20px 20px 0 var(--sub-accent); }
 
-.about-image {
-    flex: 1;
-    min-width: 300px;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 4px;
-    box-shadow: 20px 20px 0 var(--sub-accent); /* ゴールドの飾り枠 */
-}
-
-/* 2. Conceptセクション：中央配置の読み物 */
-.concept-section {
-    background-color: var(--main-color); /* 紺色背景で雰囲気を変える */
-    color: var(--white);
-    text-align: center;
-}
-
-.concept-title {
-    font-size: clamp(24px, 4vw, 36px);
-    margin-bottom: 40px;
-    letter-spacing: 0.3em;
-}
-
-.concept-text p {
-    margin-bottom: 2em;
-    line-height: 2.2;
-    opacity: 0.9;
-}
-
-/* スマホ対応：Aboutの画像飾りを調整 */
-@media (max-width: 767px) {
-    .about-flex {
-        flex-direction: column;
-        gap: 40px;
-    }
-    .about-image img {
-        box-shadow: 10px 10px 0 var(--sub-accent);
-    }
-}
+.concept-section { background-color: var(--main-color); color: var(--white); text-align: center; }
+.concept-title { font-size: clamp(24px, 4vw, 36px); margin-bottom: 40px; letter-spacing: 0.3em; }
 
 /* ==========================================
-   ボタン設定（暗いゴールドへ変更）
+   News / ROOMS / FACILITIES (グリッド中央寄せ)
+   ========================================== */
+.posts-container, .goods-grid, .facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.post, .facility-item { text-align: center; margin: 0 auto; width: 100%; max-width: 400px; }
+
+.post figure { height: 220px; overflow: hidden; margin-bottom: 15px; }
+.post figure img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ==========================================
+   ボタン設定
    ========================================== */
 .btn, .btn-search, .contact-form .btn {
     display: inline-block;
     min-width: 200px;
     padding: 16px 32px;
-    /* より落ち着いた暗いゴールド（真鍮色）へ変更 */
     background: linear-gradient(135deg, #a68549 0%, #8e6d35 100%);
     color: var(--white) !important;
     text-align: center;
     font-weight: 700;
-    letter-spacing: 0.1em;
     border: 1px solid #8e6d35;
-    border-radius: 2px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.btn:hover, .btn-search:hover, .contact-form .btn:hover {
-    background: linear-gradient(135deg, #8e6d35 0%, #a68549 100%);
-    transform: translateY(-2px);
-}
+.btn:hover { transform: translateY(-2px); opacity: 1; }
 
 /* ==========================================
-   ナビゲーション・ハンバーガーメニュー修正
+   フォーム・リーガルページ
    ========================================== */
-
-/* PC版では三本線ボタンを隠す */
-.navbtn {
-    display: none; /* ←ここが重要です */
+#contact { padding: var(--v-space) 0; background: var(--white); }
+.contact-form { max-width: 700px; margin: 0 auto; padding: 20px; }
+.contact-form .item { margin-bottom: 30px; display: flex; flex-direction: column; }
+.contact-form label { font-weight: 700; margin-bottom: 10px; }
+.contact-form input, .contact-form select, .contact-form textarea {
+    width: 100%; padding: 15px; border: 1px solid #d1cdbc; box-sizing: border-box;
 }
 
-/* スマホ版（画面幅767px以下）の設定 */
-@media (max-width: 767px) {
-    .navbtn {
-        display: block; /* スマホの時だけ表示 */
-        background: none;
-        border: none;
-        color: var(--white);
-        font-size: 24px;
-        cursor: pointer;
-        z-index: 1000;
-        position: relative;
-    }
-    
-    /* スマホ用メニューの表示切り替え（html.open時） */
-    .nav {
-        display: none; /* 通常は隠す */
-    }
-    
-    .open .nav {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--main-color);
-        z-index: 999;
-        padding-top: 100px;
-    }
-    
-    .open .nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-}
-
-/* PC版（768px以上）のメニュー表示を確定させる */
-@media (min-width: 768px) {
-    .nav {
-        display: block !important;
-    }
-}
+.policy-table { width: 100%; border-collapse: collapse; background: var(--white); }
+.policy-table th, .policy-table td { border: 1px solid var(--sub-accent); padding: 20px; }
+.policy-table th { background: var(--main-color); color: var(--white); width: 30%; }
 
 /* ==========================================
-   特定商取引法ページ専用スタイル
+   フッター
    ========================================== */
-.legal-page {
-    padding: var(--v-space) 0;
-    background-color: var(--bg-color);
-}
-
-.policy-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 40px;
-    background-color: var(--white);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-}
-
-.policy-table th, .policy-table td {
-    border: 1px solid var(--sub-accent);
-    padding: 20px;
-    text-align: left;
-    font-size: 0.95rem;
-}
-
-.policy-table th {
+.footer-menu {
+    padding: 60px 20px;
     background-color: var(--main-color);
-    color: var(--white);
-    width: 30%;
-    font-weight: 500;
-}
-
-/* スマホ対応：表を縦に並べる */
-@media (max-width: 600px) {
-    .policy-table th, .policy-table td {
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .policy-table th {
-        background-color: var(--sub-accent);
-        color: var(--main-color);
-        border-bottom: none;
-    }
-}
-
-/* ==========================================
-   プライバシーポリシー専用スタイル
-   ========================================== */
-.privacy-content {
-    background: var(--white);
-    padding: 40px;
-    margin-top: 40px;
-    border: 1px solid var(--sub-accent);
-    line-height: 2;
-}
-
-.privacy-content h3 {
-    font-size: 1.2rem;
-    color: var(--main-color);
-    margin: 40px 0 20px;
-    padding-left: 10px;
-    border-left: 4px solid var(--accent-color);
-}
-
-.privacy-content p, .privacy-content ul {
-    margin-bottom: 20px;
-    color: #444;
-}
-
-.privacy-content ul li {
-    margin-bottom: 10px;
-}
-
-.contact-box {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 4px;
-    margin-top: 20px;
-    border: 1px dashed var(--accent-color);
-}
-
-/* ==========================================
-   共通見出し・セクションタイトルの統一（中央寄せ）
-   ========================================== */
-.heading, 
-#rooms .heading, 
-#facilities .heading, 
-.posts .heading {
-    text-align: center; /* 文字を中央へ */
-    width: 100%;
-    border-bottom: none; /* 下線を一度消す（中央配置に合わないため） */
-    padding-bottom: 0;
-    margin-bottom: 60px; /* 下の要素との間隔 */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* 見出しの下に短いアクセント線を引く（中央寄せデザインの定番） */
-.heading::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 2px;
-    background-color: var(--accent-color);
-    margin: 15px auto 0;
-}
-
-/* 日本語の副題（span）の調整 */
-.heading span {
-    font-size: 14px;
-    font-weight: normal;
-    color: var(--accent-color);
-    margin-left: 0; /* 左余白を消す */
-    margin-top: 10px;
-    display: block;
-    letter-spacing: 0.2em;
-}
-
-/* ==========================================
-   FACILITIES セクションの調整
-   ========================================== */
-#facilities {
-    padding: var(--v-space) 0;
-    text-align: center;
-}
-
-.facilities-grid {
-    display: grid;
-    /* スマホでは1列、PCでは3列などに自動調整 */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    justify-content: center; /* グリッド全体を中央へ */
-    margin-top: 40px;
-}
-
-.facility-item {
-    text-align: center; /* 中のアイコンや文字も中央へ */
-    padding: 20px;
-}
-
-/* ==========================================
-   ROOMS セクションの調整
-   ========================================== */
-#rooms {
-    padding: var(--v-space) 0;
-    text-align: center;
-}
-
-.goods-grid {
-    display: grid;
-    /* minmaxの400pxを少し調整し、画面幅に合わせて柔軟に並ぶように */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    max-width: 1000px; /* 広がりすぎないよう制限 */
-    margin: 50px auto 0; /* 左右autoで中央配置 */
-    gap: 40px;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 30px;
+    text-align: center;
 }
+.footer-menu li a { font-size: 14px; color: var(--sub-accent); }
 
-
-
-
-
-
-
-
+/* ==========================================
+   スマホ対応
+   ========================================== */
+@media (max-width: 767px) {
+    .navbtn { display: block; color: var(--white); font-size: 24px; background: none; border: none; cursor: pointer; }
+    .nav { display: none; }
+    .open .nav { 
+        display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+        background: var(--main-color); z-index: 999; padding-top: 100px; 
+    }
+    .open .nav ul { flex-direction: column; align-items: center; gap: 30px; }
+    
+    .policy-table th, .policy-table td { display: block; width: 100%; }
+}
