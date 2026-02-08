@@ -502,7 +502,7 @@ img {
 .hero {
     height: 600px;
     background: linear-gradient(rgba(26, 41, 51, 0.5), rgba(26, 41, 51, 0.5)), 
-                url(freespace.jpg); /* ←ここを修正 */
+                url(kominka.jpg); /* ←ここを修正 */
     background-position: center;
     background-size: cover;
     /* ...以下省略... */
@@ -806,6 +806,7 @@ img {
     width: 100%;
     max-width: 300px;
 }
+
 
 
 
