@@ -87,24 +87,6 @@ img {
         letter-spacing: 0.05em;
     }
 }
-/* ==========================================
-   ヒーローセクション（ここを修正します）
-   ========================================== */
-.hero {
-    height: 600px;
-    /* 1. ここの url( ) の中身を書き換える */
-    background: linear-gradient(rgba(26, 41, 51, 0.5), rgba(26, 41, 51, 0.5)), 
-                url(freespace.jpg); 
-    
-    background-position: center;
-    background-size: cover;
-    color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
 
 .hero h1 {
     font-size: clamp(36px, 5vw, 56px);
@@ -520,15 +502,10 @@ img {
 .hero {
     height: 600px;
     background: linear-gradient(rgba(26, 41, 51, 0.5), rgba(26, 41, 51, 0.5)), 
-                url(https://i.imgur.com/mIAguTt.jpeg);
+                url(freespace.jpg); /* ←ここを修正 */
     background-position: center;
     background-size: cover;
-    color: var(--white);
-    display: flex;            /* gridからflexに変更（中央揃えの制御がしやすいため） */
-    flex-direction: column;   /* 縦に並べる */
-    justify-content: center;  /* 垂直方向中央 */
-    align-items: center;      /* 水平方向中央 */
-    text-align: center;       /* テキスト自体を中央揃え */
+    /* ...以下省略... */
 }
 
 .hero h1 {
@@ -829,6 +806,7 @@ img {
     width: 100%;
     max-width: 300px;
 }
+
 
 
 
