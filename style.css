@@ -331,9 +331,9 @@ img { display: block; max-width: 100%; height: auto; }
     animation: sliderFade 15s infinite; /* 15秒で1サイクル */
 }
 
-/* 画像の指定 */
+/* 画像の指定：2枚目をliving.jpgに変更 */
 .slide1 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("hosizora.jpg"); }
-.slide2 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("wasitsu.jpg"); animation-delay: 5s; }
+.slide2 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("living.jpg"); animation-delay: 5s; }
 .slide3 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("kominka.jpg"); animation-delay: 10s; }
 
 /* テキストを一番上に表示 */
@@ -351,6 +351,7 @@ img { display: block; max-width: 100%; height: auto; }
     43% { opacity: 0; transform: scale(1.1); } /* 少しズームしながら消える */
     100% { opacity: 0; }
 }
+
 
 
 
