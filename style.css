@@ -718,6 +718,33 @@ img {
 }
 
 
+/* style.css の「ボタン」セクション付近に追加 */
+.btn-search {
+    /* 既存の .btn と同じ設定を継承 */
+    display: inline-block;
+    min-width: 200px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #ad8a42 100%);
+    color: var(--white);
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    border: 1px solid var(--sub-accent);
+    border-radius: 2px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: 0.3s ease;
+}
+
+.btn-search:hover {
+    background: linear-gradient(135deg, #ad8a42 0%, var(--accent-color) 100%);
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+
+
+
+
 
 
 
