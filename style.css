@@ -95,7 +95,7 @@ img {
     height: 100vh; /* 画面いっぱいの高さにする場合は 100vh、固定なら 600px */
     min-height: 600px;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url(https://i.imgur.com/mIAguTt.jpeg); /* 画像URLは適宜変更してください */
+                url(kominka.jpg); /* 画像URLは適宜変更してください */
     background-position: center;
     background-size: cover;
     
@@ -906,6 +906,7 @@ html {
     color: #666;
     line-height: 1.6;
 }
+
 
 
 
