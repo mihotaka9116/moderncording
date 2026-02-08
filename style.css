@@ -437,6 +437,74 @@ img { display: block; max-width: 100%; height: auto; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ==========================================
+   こだわりセクション（Hospitality）
+   ========================================== */
+.features-section {
+    padding: var(--v-space) 0;
+    background-color: var(--white);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 100px;
+}
+
+/* 2つ目のアイテムを左右反転させる */
+.feature-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-image, .feature-text {
+    flex: 1;
+}
+
+.feature-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 10px 10px 0 var(--sub-accent);
+}
+
+.feature-text h3 {
+    font-size: 24px;
+    color: var(--main-color);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.feature-text h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 1px;
+    background-color: var(--accent-color);
+}
+
+.feature-text p {
+    color: #555;
+    font-size: 15px;
+}
+
+/* スマホ対応 */
+@media (max-width: 767px) {
+    .feature-item, .feature-item.reverse {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    .feature-image img {
+        height: 250px;
+    }
+}
+
+
 
 
 
