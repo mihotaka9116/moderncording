@@ -1,33 +1,33 @@
-<section id="contact" class="js-fade-up">
-    <div class="container">
-        <h2 class="section-title">RESERVATION / CONTACT</h2>
-        <p class="section-title-en">ご予約・お問い合わせ</p>
+<section id="contact">
+    <div class="w-container">
+        <h2 class="heading-decoration">RESERVATION / CONTACT</h2>
+        <p style="text-align:center; margin-bottom: 40px;">ご予約・お問い合わせ</p>
 
-        <form action="#" class="contact-form">
-            <div class="item">
-                <label>お名前</label>
-                <input type="text" name="name" placeholder="遠野 太郎" required>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">お名前</label>
+                <input type="text" id="name" name="name" placeholder="遠野 太郎">
             </div>
 
-            <div class="item">
-                <label>メールアドレス</label>
-                <input type="email" name="email" placeholder="example@mail.com" required>
+            <div class="form-group">
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.com">
             </div>
 
-            <div style="display: flex; gap: 20px;">
-                <div class="item" style="flex: 1;">
-                    <label>チェックイン希望日</label>
-                    <input type="date" name="checkin">
+            <div class="form-row" style="display: flex; gap: 20px;">
+                <div class="form-group" style="flex: 1;">
+                    <label for="checkin">チェックイン希望日</label>
+                    <input type="date" id="checkin" name="checkin">
                 </div>
-                <div class="item" style="flex: 1;">
-                    <label>チェックアウト希望日</label>
-                    <input type="date" name="checkout">
+                <div class="form-group" style="flex: 1;">
+                    <label for="checkout">チェックアウト希望日</label>
+                    <input type="date" id="checkout" name="checkout">
                 </div>
             </div>
 
-            <div class="item">
-                <label>ご宿泊人数</label>
-                <select name="guests" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #bcd9f5; color: #4682b4;">
+            <div class="form-group">
+                <label for="guests">ご宿泊人数</label>
+                <select id="guests" name="guests">
                     <option value="1">1名</option>
                     <option value="2">2名</option>
                     <option value="3">3名</option>
@@ -35,39 +35,19 @@
                 </select>
             </div>
 
-            <div class="item">
-                <label>ご要望・ご質問</label>
-                <textarea name="message" rows="5" placeholder="アレルギーの有無や、到着予定時刻などをご記入ください。"></textarea>
+            <div class="form-group">
+                <label for="message">ご要望・ご質問</label>
+                <textarea id="message" name="message" rows="5"></textarea>
             </div>
 
-            <div class="item agree-check"> <label style="display: inline-flex; align-items: center; cursor: pointer;">
-        <input type="checkbox" name="agree" required style="width: auto; margin-right: 10px;">
-        <span style="font-size: 0.9rem;"><a href="privacy.html" target="_blank">個人情報の取り扱い</a>に同意する</span>
-    </label>
-</div>
+            <div class="form-agreement">
+                <label>
+                    <input type="checkbox" name="agree" required>
+                    <a href="privacy.html">個人情報の取り扱い</a>に同意する
+                </label>
+            </div>
 
-<div class="btn-submit-wrap"> <input type="submit" value="送信する" class="btn">
-</div>
-
-            <input type="submit" value="送信する" class="btn">
+            <button type="submit" class="btn-submit">この内容で送信する</button>
         </form>
     </div>
-    <script>
-      // 今日の日付を取得（YYYY-MM-DD形式）
-      const today = new Date().toISOString().split("T")[0];
-
-      // 「チェックイン希望日」の選択肢を今日以降にする
-      const checkinInput = document.getElementsByName('checkin')[0];
-      if (checkinInput) {
-          checkinInput.min = today;
-      }
-
-      // 「チェックアウト希望日」の選択肢を今日以降にする
-      const checkoutInput = document.getElementsByName('checkout')[0];
-      if (checkoutInput) {
-          checkoutInput.min = today;
-      }
-    </script>
-</body>
-</html>
 </section>
