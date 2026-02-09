@@ -420,4 +420,45 @@ img { display: block; max-width: 100%; height: auto; }
     }
 }
 
+/* プライバシーポリシーのテキスト調整 */
+.privacy-content p {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+/* 箇条書きリスト（表を使わない場合用） */
+.privacy-content ul {
+    margin-bottom: 30px;
+    padding-left: 1.5em;
+}
+
+.privacy-content li {
+    list-style: none;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+/* 以前のような強調見出し */
+.privacy-content h3 {
+    font-family: "Noto Serif JP", serif;
+    font-size: 1.2rem;
+    color: var(--main-color);
+    margin: 40px 0 20px;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+}
+
+/* お問い合わせボックス */
+.contact-box {
+    background-color: #faf8f4;
+    padding: 25px;
+    border: 1px solid var(--sub-accent);
+    border-radius: 4px;
+    margin-top: 20px;
+    line-height: 2;
+    font-size: 0.95rem;
+}
+
+
 
