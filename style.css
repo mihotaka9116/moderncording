@@ -498,6 +498,48 @@ img { display: block; max-width: 100%; height: auto; }
     transform: translateY(-3px);
 }
 
+/* ==========================================
+   お部屋・プラン（Contentページ）の画像調整
+   ========================================== */
+
+/* お部屋セクション（Rooms）の画像 */
+.room-item img, 
+.plan-item img {
+    width: 100%;
+    max-width: 800px; /* 画像の最大幅を制限して大きすぎないようにする */
+    height: 450px;    /* PCでの高さを固定してスッキリさせる */
+    object-fit: cover; /* 画像を切り抜いて比率を保つ */
+    margin: 0 auto 25px; /* 中央寄せにして下の余白を作る */
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* 軽い影で上品に */
+}
+
+/* プラン（Plans）のカード型レイアウト調整 */
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* 横に並ぶように設定 */
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.plan-item {
+    background: #fff;
+    padding-bottom: 30px;
+    border: 1px solid var(--sub-accent);
+}
+
+.plan-item img {
+    height: 250px; /* プラン画像は少し小さめに */
+}
+
+/* スマホ時の調整 */
+@media (max-width: 767px) {
+    .room-item img, 
+    .plan-item img {
+        height: 200px; /* スマホでは高さを抑えてスクロールしやすく */
+    }
+}
+
 
 
 
