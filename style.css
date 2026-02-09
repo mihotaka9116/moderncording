@@ -774,6 +774,57 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 
+:root {
+    /* 1. 色の彩度を落とし、高級感を出す */
+    --main-color: #2c363f;     /* 真っ黒ではなく、少し青みのある深いグレー */
+    --text-color: #3e464c;     /* 本文も少し柔らかい色にして可読性を上げる */
+    --accent-color: #9a8053;   /* ゴールドを少しだけくすませて上品に */
+    --bg-color: #fdfcf9;       /* 背景を真っ白ではなく、わずかにクリーム色に */
+}
+
+body {
+    /* 2. フォントの優先順位を変更 */
+    /* 日本語は Noto Serif JP で良いですが、英数字に Montserrat を混ぜるだけで一気にモダンになります */
+    font-family: "Montserrat", "Noto Serif JP", serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    -webkit-font-smoothing: antialiased; /* 文字の輪郭をシャープに見せる */
+}
+
+/* 3. 明朝体を「野暮ったく見せない」魔法の指定 */
+h1, h2, h3, .heading, .concept-title {
+    font-weight: 500;        /* 太すぎると野暮ったいので、中太にする */
+    letter-spacing: 0.25em;  /* 文字の間隔をしっかり空ける（これが最も重要！） */
+    line-height: 1.5;
+    color: var(--main-color);
+}
+
+/* 4. メインコピー（ヒーロー）の調整 */
+.hero h1 {
+    font-size: clamp(28px, 4vw, 52px);
+    letter-spacing: 0.4em;   /* さらに広げて「空気感」を出す */
+    font-weight: 600;
+    text-shadow: none;       /* ドロップシャドウを消すとモダンになります */
+}
+
+.hero p {
+    letter-spacing: 0.3em;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* 5. 本文（pタグ）はあえてゴシック体にする（選択肢として） */
+/* 全部が明朝体だと重いので、長い説明文はゴシックにすると今風です */
+.about-text p, .feature-text p, .post p {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 2;
+    letter-spacing: 0.05em;
+    color: var(--text-color);
+}
+
+
 
 
 
