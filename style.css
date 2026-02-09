@@ -1232,6 +1232,58 @@ p, .about-text p, .feature-text p, .post p, .plan-description {
     }
 }
 
+/* ==========================================
+   一括修正：縦書き解除 & マップ正常化
+   ========================================== */
+
+/* 1. 縦書きを強制的に横書きに戻す */
+.about-text h2, 
+.about-text .heading-decoration, 
+.feature-text h3 {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    height: auto !important;
+    min-height: 0 !important;
+    white-space: normal !important;
+    width: 100% !important;
+    display: block !important;
+    padding: 0 0 10px 0 !important;
+    border-left: none !important;
+    border-bottom: 2px solid var(--accent-color) !important;
+    margin-bottom: 20px !important;
+    letter-spacing: 0.15em !important;
+    font-size: clamp(22px, 3vw, 28px) !important;
+}
+
+/* 2. マップを操作可能にする（古い設定の上書き） */
+.access-map iframe, 
+.map-wrap iframe {
+    pointer-events: auto !important; /* 操作を可能にする */
+    filter: none !important;        /* いったん色味を元に戻して表示確認 */
+    opacity: 1 !important;
+}
+
+/* 3. Aboutセクションのレイアウト微調整 */
+.about-flex {
+    display: flex;
+    flex-direction: column; /* スマホ・PC共通で一旦縦に（崩れ防止） */
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .about-flex {
+        flex-direction: row; /* PCでは横並び */
+        align-items: center;
+    }
+}
+
+/* 4. おまけ：アクセスページの情報が見づらい場合（青文字を修正） */
+.access-info {
+    color: var(--main-color); /* 読みやすい色に変更 */
+    line-height: 2;
+}
+
+
 
 
 
