@@ -666,6 +666,45 @@ img { display: block; max-width: 100%; height: auto; }
     letter-spacing: 0.3em;
 }
 
+/* ==========================================
+   お部屋・プランページ 強制上書き設定
+   ========================================== */
+
+/* 画像の大きさを制限し、中央に寄せる */
+.room-item img, 
+.plan-item img,
+#rooms img, 
+#plans img {
+    width: 100% !important;
+    max-width: 800px !important; /* PCで大きくなりすぎない最大幅 */
+    height: 400px !important;    /* 高さを固定して揃える */
+    object-fit: cover !important; /* 切り抜き */
+    margin: 0 auto 30px !important; /* 中央寄せ */
+    display: block !important;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* テキストも中央に寄せて読みやすくする */
+.room-item, .plan-item {
+    text-align: center;
+    margin-bottom: 100px;
+    padding: 0 20px;
+}
+
+.room-item h3, .plan-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-family: "Noto Serif JP", serif;
+}
+
+/* スマホでは画像の高さを少し下げる */
+@media (max-width: 767px) {
+    .room-item img, .plan-item img {
+        height: 250px !important;
+    }
+}
+
 
 
 
