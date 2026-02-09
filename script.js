@@ -20,3 +20,19 @@
       });
   }
 </script>
+
+// ハンバーガーメニューの制御
+const navbtn = document.querySelector('.navbtn');
+const html = document.querySelector('html');
+
+navbtn.addEventListener('click', () => {
+    html.classList.toggle('open');
+});
+
+// メニューリンクをクリックしたら閉じる（ページ内リンク対策）
+const navLinks = document.querySelectorAll('.nav a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        html.classList.remove('open');
+    });
+});
