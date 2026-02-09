@@ -1397,6 +1397,40 @@ p, .about-text p, .feature-text p, .post p, .plan-description {
     color: var(--main-color) !important;
 }
 
+/* ==========================================
+   一括修正：横書きへの統一と幅の確保
+   ========================================== */
+
+/* 1. すべての縦書き設定を強制的に横書きに戻す */
+.about-text h2, 
+.about-text .heading-decoration,
+.feature-text h3 {
+    writing-mode: horizontal-tb !important; /* 横書きに戻す */
+    width: 100% !important;                /* 幅をいっぱいにする */
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    white-space: normal !important;        /* 改行を正常化 */
+    padding: 0 0 10px 0 !important;
+    border-left: none !important;          /* 縦書き用の左線を消す */
+    border-bottom: 2px solid var(--accent-color) !important; /* 横線に変更 */
+    margin-bottom: 20px !important;
+    letter-spacing: 0.1em !important;
+    text-align: left !important;
+}
+
+/* 2. マップを操作可能にする */
+.map-wrap iframe, .access-map iframe {
+    pointer-events: auto !important;
+    filter: none !important; 
+}
+
+/* 3. 青くなっているアクセス情報の文字色を修正 */
+.access-info {
+    color: var(--main-color) !important;
+}
+
+
 
 
 
