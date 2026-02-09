@@ -460,5 +460,44 @@ img { display: block; max-width: 100%; height: auto; }
     font-size: 0.95rem;
 }
 
+/* --- ヒーローセクションのタイトル拡大修正 --- */
+.hero-content h1 {
+    /* PCではかなり大きく（最大120px程度）、スマホでもしっかり大きく（56px〜） */
+    font-size: clamp(3.5rem, 10vw, 7.5rem) !important; 
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+    margin-bottom: 25px;
+    font-family: 'Montserrat', sans-serif;
+    /* 背景画像の上でも文字をくっきりさせるためのドロップシャドウ */
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    color: var(--white);
+}
+
+.hero-content p {
+    font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+    letter-spacing: 0.3em;
+    margin-bottom: 40px;
+    font-weight: 500;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ボタンのサイズもタイトルに合わせて微調整 */
+.hero-content .btn {
+    padding: 18px 50px;
+    font-size: 1.1rem;
+    background-color: var(--main-color);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    transition: all 0.4s;
+}
+
+.hero-content .btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+
 
 
