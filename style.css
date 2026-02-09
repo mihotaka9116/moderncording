@@ -1319,6 +1319,52 @@ p, .about-text p, .feature-text p, .post p, .plan-description {
     color: var(--text-color) !important;
 }
 
+/* ==========================================
+   不具合解消：横書きへの統一とレイアウト修正
+   ========================================== */
+
+/* 1. 全ての見出しを横書きに強制リセット */
+.about-text h2, 
+.about-text .heading-decoration,
+.feature-text h3 {
+    writing-mode: horizontal-tb !important; /* 縦書きを解除 */
+    width: 100% !important;                /* 幅をいっぱいにする */
+    height: auto !important;
+    min-height: 0 !important;
+    white-space: normal !important;        /* 自動改行を許可 */
+    display: block !important;
+    padding: 0 0 10px 0 !important;
+    border-left: none !important;          /* 縦書き用の線を消す */
+    border-bottom: 2px solid var(--accent-color) !important; /* 横線に変更 */
+    margin-bottom: 20px !important;
+    letter-spacing: 0.1em !important;      /* 横書き用の字間 */
+    text-align: left !important;
+}
+
+/* 2. 「こだわり」セクション内の不要な余白・崩れを直す */
+.feature-text .feature-item {
+    display: block !important; /* 二重のFlexboxを解除 */
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    transform: none !important;
+    opacity: 1 !important; /* 消えてしまうのを防ぐ */
+}
+
+/* 3. マップを操作可能にする */
+.map-wrap iframe, .access-map iframe {
+    pointer-events: auto !important;
+    filter: none !important; /* 一旦カラーで表示確認 */
+}
+
+/* 4. アクセス情報の文字色を修正（青色から墨色へ） */
+.access-info {
+    color: var(--main-color) !important;
+}
+
+
 
 
 
