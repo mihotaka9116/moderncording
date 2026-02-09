@@ -1364,6 +1364,39 @@ p, .about-text p, .feature-text p, .post p, .plan-description {
     color: var(--main-color) !important;
 }
 
+/* ==========================================
+   一括修正：横書きへの統一と幅の確保
+   ========================================== */
+
+/* 1. 縦書き設定を完全に上書きして横書きにする */
+.about-text h2, 
+.about-text .heading-decoration,
+.feature-text h3 {
+    writing-mode: horizontal-tb !important; /* 横書きに固定 */
+    width: 100% !important;                /* 幅を100%使う */
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    white-space: normal !important;        /* 自動改行を許可 */
+    padding: 0 0 10px 0 !important;
+    border-left: none !important;          /* 縦書き用の線を消す */
+    border-bottom: 2px solid var(--accent-color) !important; /* 横線に変更 */
+    margin-bottom: 20px !important;
+    letter-spacing: 0.1em !important;      /* 横書き用の字間に戻す */
+    text-align: left !important;
+}
+
+/* 2. マップを操作可能にし、モノクロを解除 */
+.map-wrap iframe, .access-map iframe {
+    pointer-events: auto !important;
+    filter: none !important; 
+}
+
+/* 3. アクセス情報の文字色を修正 */
+.access-info {
+    color: var(--main-color) !important;
+}
+
 
 
 
