@@ -867,6 +867,86 @@ h1, h2, h3, .heading, .concept-title {
     color: var(--text-color);
 }
 
+/* ==========================================
+   重複を解消し、デザインを統合
+   ========================================== */
+:root {
+    --main-color: #2c363f;     /* 墨色ネイビーグレー */
+    --text-color: #4a5156;     /* 柔らかいグレー */
+    --accent-color: #9a8053;   /* 上品なくすみゴールド */
+    --bg-color: #fdfcf9;       /* 質感のある生成り色 */
+    --sub-accent: #e8e2d0;     /* 境界線用の淡いベージュ */
+}
+
+/* ==========================================
+   タイポグラフィの最終調整
+   ========================================== */
+body {
+    font-family: "Montserrat", "Noto Serif JP", serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+/* 見出し：字間をさらに広げ、太さを抑えて上品に */
+h1, h2, h3, .heading, .concept-title, .room-info h3 {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 500;
+    letter-spacing: 0.35em; /* 0.2emから拡大 */
+    line-height: 1.6;
+    color: var(--main-color);
+}
+
+/* 本文：可読性の高いゴシック体で「抜け感」を出す */
+p, .about-text p, .feature-text p, .post p, .plan-description {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 2.2; /* 行間をさらにゆったり */
+    letter-spacing: 0.08em;
+    color: var(--text-color);
+}
+
+/* ==========================================
+   ヒーローセクションの洗練
+   ========================================== */
+.hero h1 {
+    font-family: "Noto Serif JP", serif;
+    font-size: clamp(30px, 5vw, 56px);
+    letter-spacing: 0.5em; /* 究極のゆとり */
+    font-weight: 600;
+}
+
+.hero p {
+    font-family: "Noto Serif JP", serif; /* キャッチコピーのみ明朝体 */
+    font-size: 1.1rem;
+    letter-spacing: 0.4em;
+    margin-top: 20px;
+}
+
+/* ==========================================
+   装飾・余白のブラッシュアップ
+   ========================================== */
+
+/* セクション間の余白を広げて「呼吸」させる */
+.about-section, .concept-section, .features-section, .posts, #access, .gallery-section {
+    padding: clamp(100px, 12vw, 150px) 0;
+}
+
+/* カード類の影をさらに繊細に */
+.plan-card, .room-detail, .post {
+    box-shadow: 0 10px 30px rgba(44, 54, 63, 0.05);
+    border: 1px solid rgba(154, 128, 83, 0.1);
+    background: #fff;
+}
+
+/* フォームのボタンをよりシャープに */
+.btn-search, .btn {
+    letter-spacing: 0.2em;
+    border-radius: 0; /* 角丸を消すとよりモダンになります */
+}
+
+
 
 
 
