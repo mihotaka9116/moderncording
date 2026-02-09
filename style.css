@@ -1049,6 +1049,51 @@ p, .about-text p, .feature-text p, .post p, .plan-description {
     border-right: none;
 }
 
+/* 地図エリアの親要素（例: #access .map-container）に指定 */
+.access-map iframe {
+    /* 1. 地図を白黒にする */
+    filter: grayscale(100%);
+    
+    /* 2. 少しコントラストを下げて、サイトの墨色に馴染ませる */
+    opacity: 0.8;
+    
+    /* 3. マウスを乗せた時だけ、元の色に戻す（オプション） */
+    transition: all 0.5s ease;
+}
+
+.access-map iframe:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.access-map iframe {
+    /* 白黒(100%) + セピア(20%) + 明るさ調整 */
+    filter: grayscale(100%) sepia(20%) brightness(1.1);
+    border: 1px solid var(--sub-accent); /* 境界線を薄いベージュに */
+}
+
+.access-map {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+}
+
+.access-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    /* 地図を最初は操作できないようにする（クリックすると操作可能に） */
+    pointer-events: none; 
+}
+
+/* 親要素をクリックした時、またはホバーした時だけ操作可能にする */
+.access-map.active iframe,
+.access-map:active iframe {
+    pointer-events: auto;
+}
+
+
 
 
 
