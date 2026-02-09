@@ -7,332 +7,230 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link href="style.css" rel="stylesheet">
     <link rel="icon" href="img/favicon.png" type="image/png">
 </head>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. 日付入力の制御 ---
-    const today = new Date().toISOString().split("T")[0];
-    const checkinInput = document.getElementsByName('checkin')[0];
-    const checkoutInput = document.getElementsByName('checkout')[0];
-
-    if (checkinInput && checkoutInput) {
-        checkinInput.min = today;
-        checkoutInput.min = today;
-
-        checkinInput.addEventListener('change', function() {
-            checkoutInput.min = this.value;
-            if (checkoutInput.value && checkoutInput.value < this.value) {
-                checkoutInput.value = this.value;
-            }
-        });
-    }
-
-    // --- 2. ハンバーガーメニューの制御 ---
-    const navbtn = document.querySelector('.navbtn');
-    const html = document.querySelector('html');
-
-    if (navbtn) {
-        navbtn.addEventListener('click', () => {
-            html.classList.toggle('open');
-        });
-    }
-
-    const navLinks = document.querySelectorAll('.nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            html.classList.remove('open');
-        });
-    });
-
-    // --- 3. スクロールアニメーションの実行 ---
-    const observeAnimation = () => {
-        const targets = document.querySelectorAll('.js-fade');
-        const options = {
-            root: null,
-            rootMargin: '0px 0px -10% 0px', // 少し早めに反応するように調整
-            threshold: 0.2
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-show');
-                }
-            });
-        }, options);
-
-        targets.forEach(target => observer.observe(target));
-    };
-
-    observeAnimation();
-});
-</script>
-    
 <body>
 
 <header class="header">
     <div class="header-container w-container">
         <div class="site">
             <a href="index.html">
-                <img src="img/logo.svg" alt="Boards" width="135" height="26">
+                <img src="img/logo.svg" alt="Tohno Modern Retreat" width="135" height="26">
             </a>
         </div>
 
         <button class="navbtn" type="button" aria-label="メニュー開閉">
-    <i class="fas fa-bars"></i>
-    </button>
             <i class="fas fa-bars"></i>
-            <i class="fas fa-times"></i>
-            <span class="sr-only">MENU</span>
         </button>
 
-       <nav class="nav">
-    <ul>
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="content.html">お部屋・プラン</a></li>
-        <li><a href="contact.html">お問い合わせ</a></li>             
-    </ul>
-</nav>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="content.html">お部屋・プラン</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>             
+            </ul>
+        </nav>
     </div>
 </header>
 
-<section class="hero">
-    <div class="hero-slider">
-        <div class="slide slide1"></div>
-        <div class="slide slide2"></div>
-        <div class="slide slide3"></div>
-    </div>
-    
-    <div class="hero-content">
-        <h1>Tohno Modern Retreat</h1>
-        <p>物語の続きを、この場所で。</p>
-        <a href="content.html" class="btn">プランを見る</a>
-    </div>
-</section>
+<main>
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Tohno Modern Retreat</h1>
+            <p>物語の続きを、この場所で。</p>
+            <a href="content.html" class="btn">プランを見る</a>
+        </div>
+    </section>
 
     <div class="booking-bar">
-    <div class="w-container">
-        <form class="booking-form">
-            <div class="form-item">
-                <label><i class="far fa-calendar-alt"></i> チェックイン</label>
-                <input type="date" name="checkin">
-            </div>
-            <div class="form-item">
-                <label><i class="far fa-calendar-alt"></i> チェックアウト</label>
-                <input type="date" name="checkout">
-            </div>
-            <div class="form-item">
-                <label><i class="fas fa-user-friends"></i> 人数</label>
-                <select name="guests">
-                    <option value="1">1名</option>
-                    <option value="2" selected>2名</option>
-                    <option value="3">3名</option>
-                    <option value="4">4名</option>
-                </select>
-            </div>
-            <div class="form-btn">
-                <button type="button" class="btn-search">空室を検索</button>
-            </div>
-        </form>
-    </div>
-</div>
-    
-    <section id="about" class="about-section js-fade">
-    <div class="w-container">
-        <div class="about-flex">
-            <div class="about-text">
-                <h2 class="heading-decoration">Tohno Modern Retreatについて</h2>
-                <p>
-                    岩手県遠野市、民話の里として知られるこの地に、<br>
-                    築50年の古民家を再生したモダンリトリートが誕生しました。<br><br>
-                    伝統的な建築美と、現代の快適さが融合した空間で、<br>
-                    日常の喧騒を忘れ、穏やかな時間をお過ごしください。
-                </p>
-            </div>
-            <div class="about-image">
-                <img src="kominka.jpg" alt="宿の外装">
-            </div>
+        <div class="w-container">
+            <form class="booking-form">
+                <div class="form-item">
+                    <label><i class="far fa-calendar-alt"></i> チェックイン</label>
+                    <input type="date" name="checkin">
+                </div>
+                <div class="form-item">
+                    <label><i class="far fa-calendar-alt"></i> チェックアウト</label>
+                    <input type="date" name="checkout">
+                </div>
+                <div class="form-item">
+                    <label><i class="fas fa-user-friends"></i> 人数</label>
+                    <select name="guests">
+                        <option value="1">1名</option>
+                        <option value="2" selected>2名</option>
+                        <option value="3">3名</option>
+                        <option value="4">4名</option>
+                    </select>
+                </div>
+                <div class="form-btn">
+                    <button type="button" class="btn-search">空室を検索</button>
+                </div>
+            </form>
         </div>
     </div>
-</section>
-
-
-    <section id="consept" class="consept-section js-fade">
-    <div class="w-container">
-        <div class="concept-content">
-            <h2 class="concept-title">物語の続きを、遠野で。</h2>
-            <div class="concept-text">
-                <p>
-                    遠野物語が綴られたこの地には、今も不思議な静寂が流れています。<br>
-                    かつて誰かが語った物語の続きを、<br>
-                    自身の体験として描いてほしいです。
-                </p>
-                <p>
-                    夜は薪ストーブの火を眺める。丁寧で、少しだけ特別な「日常」をご用意しております。
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-   <section id="feature" class="feature-section js-fade">
-    <div class="w-container">
-       <h2 class="heading">
-    <small>Hospitality</small>
-    三つのこだわり
-</h2>
-
-        <div class="feature-item">
-            <div class="feature-image">
-                <img src="rice.jpg" alt="遠野の地物野菜を使った料理">
-            </div>
-          <div class="feature-text">
-    <h3>遠野の恵みを味わう</h3>
-    <p>
-        「遠野の旬を、そのままに。」<br>
-        地元の農家さんが丹精込めて育てた地物野菜や、炊き立ての岩手県産米。
-        素材本来の滋味を大切にしたお料理をご用意しております。
-    </p>
-</div>
-</div>
-
-        <div class="feature-item reverse">
-            <div class="feature-image">
-                <img src="zasiki.jpg" alt="リラックスできる空間">
-            </div>
-            <div class="feature-text">
-                <<h3>静寂に浸るひととき</h3>
-                <p>
-                    築50年の歴史を感じる木の温もりに包まれながら、日常の疲れを解き放つ。
-                    窓から見える四季折々の景色を眺め、風の音に耳を澄ませる。
-                    心身ともにリフレッシュできる、穏やかな入浴体験を。
-                </p>
-            </div>
-        </div>
-        </div>
-
-        <div class="feature-item">
-            <div class="feature-image">
-                <img src="fire.jpg" alt="薪ストーブの火">
-            </div>
-            <div class="feature-text">
-                <h3>火を囲む、対話の時間</h3>
-                <p>
-                    ラウンジの中央に鎮座する薪ストーブ。<br>
-                    パチパチとはぜる火の音をBGMに、読書を楽しんだり、大切な人と語り合ったり。
-                    ここには、テレビのない贅沢な時間が流れています。
-                </p>
-            </div>
-        </div>
-    </div> </section>
-    
-
-<section class="posts">
-    <div class="w-container">
-        <h2 class="heading">
-            News <span>最新情報・催し</span>
-        </h2>
-
-        <div class="posts-container">
-           <article class="post">
-    <a href="#">
-        <figure><img src="bread.jpg" alt="遠野ミルクの厚切りトースト" width="1000" height="750"></figure>
-        <h3>遠野ミルクの厚切りトースト</h3>
-        <p>地元の新鮮なミルクを練り込んだ自家製パンを、薪ストーブの熱でじっくりと。季節の自家製ジャムと共にお愉しみください。</p>
-    </a>
-</article>
-
-            <article class="post">
-                <a href="#">
-                    <figure><img src="hosizora.jpg" alt="星空" width="1000" height="750"></figure>
-                    <h3>星降る夜の読書会</h3>
-                    <p>ラウンジにて「遠野物語」の読み聞かせイベントを定期開催しています。</p>
-                </a>
-            </article>
-
-            <article class="post">
-                <a href="#">
-                    <figure><img src="fire.jpg" alt="客室" width="1000" height="1000"></figure>
-                    <h3>冬限定の薪ストーブ</h3>
-                    <p>寒い夜は薪ストーブの火を眺めながら、ゆったりとした時間をお過ごしください。</p>
-                </a>
-            </article>
-        </div>
-    </div>
-</section>
-
-<section id="access" class="js-fade-up">
-    <div class="w-container">
-        <h2 class="heading">Access <span>交通・場所</span></h2>
         
-        <div class="access-container" style="display: flex; flex-direction: column; gap: 30px; margin-top: 40px;">
-           <div class="map-wrap" style="width: 100%; height: 400px; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12328.718501235654!2d141.5245844!3d39.3275759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8f399d82121e4b%3A0xc3928a6797f37356!2z6YGg6YeO6aeF!5e0!3m2!1sja!2sjp!4v1710000000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-</div>
-            
-            <div class="access-info" style="text-align: left; color: #4682b4;">
-                <p><strong>住所：</strong> 〒028-0523 岩手県遠野市中央通り（遠野駅から徒歩5分）</p>
-                <p><strong>電車でお越しの方：</strong> JR釜石線「遠野駅」より徒歩圏内</p>
-                <p><strong>お車でお越しの方：</strong> 釜石自動車道「遠野IC」より約10分（無料駐車場完備）</p>
-            　</div>
+    <section id="about" class="about-section js-fade">
+        <div class="w-container">
+            <div class="about-flex">
+                <div class="about-text">
+                    <h2 class="heading-decoration">Tohno Modern Retreatについて</h2>
+                    <p>
+                        岩手県遠野市、民話の里として知られるこの地に、<br>
+                        築50年の古民家を再生したモダンリトリートが誕生しました。<br><br>
+                        伝統的な建築美と、現代の快適さが融合した空間で、<br>
+                        日常の喧騒を忘れ、穏やかな時間をお過ごしください。
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="kominka.jpg" alt="宿の外観">
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section id="concept" class="consept-section js-fade">
+        <div class="w-container">
+            <div class="concept-content">
+                <h2 class="concept-title">物語の続きを、遠野で。</h2>
+                <div class="concept-text">
+                    <p>
+                        遠野物語が綴られたこの地には、今も不思議な静寂が流れています。<br>
+                        かつて誰かが語った物語の続きを、<br>
+                        自身の体験として描いてほしいのです。
+                    </p>
+                    <p>
+                        夜は薪ストーブの火を眺める。丁寧で、少しだけ特別な「日常」をご用意しております。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature" class="feature-section js-fade">
+        <div class="w-container">
+            <h2 class="heading">
+                <small>Hospitality</small>
+                三つのこだわり
+            </h2>
+
+            <div class="feature-item">
+                <div class="feature-image">
+                    <img src="rice.jpg" alt="遠野の地物野菜を使った料理">
+                </div>
+                <div class="feature-text">
+                    <h3>遠野の恵みを味わう</h3>
+                    <p>
+                        「遠野の旬を、そのままに。」<br>
+                        地元の農家さんが丹精込めて育てた地物野菜や、炊き立ての岩手県産米。
+                        素材本来の滋味を大切にしたお料理をご用意しております。
+                    </p>
+                </div>
+            </div>
+
+            <div class="feature-item reverse">
+                <div class="feature-image">
+                    <img src="zasiki.jpg" alt="落ち着いた座敷">
+                </div>
+                <div class="feature-text">
+                    <h3>静寂に浸るひととき</h3>
+                    <p>
+                        築50年の歴史を感じる木の温もりに包まれながら、日常の疲れを解き放つ。
+                        窓から見える四季折々の景色を眺め、風の音に耳を澄ませる。
+                        心身ともにリフレッシュできる時間を。
+                    </p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-image">
+                    <img src="fire.jpg" alt="薪ストーブの火">
+                </div>
+                <div class="feature-text">
+                    <h3>火を囲む、対話の時間</h3>
+                    <p>
+                        ラウンジの中央に鎮座する薪ストーブ。<br>
+                        パチパチとはぜる火の音をBGMに、読書を楽しんだり、大切な人と語り合ったり。
+                        ここには、テレビのない贅沢な時間が流れています。
+                    </p>
+                </div>
+            </div>
+        </div> 
+    </section>
+        
+    <section class="posts">
+        <div class="w-container">
+            <h2 class="heading">
+                <small>News</small>
+                最新情報・催し
+            </h2>
+            <div class="posts-container">
+                <article class="post">
+                    <a href="#">
+                        <figure><img src="bread.jpg" alt="遠野ミルクの厚切りトースト"></figure>
+                        <h3>遠野ミルクの厚切りトースト</h3>
+                        <p>地元の新鮮なミルクを練り込んだ自家製パンを。季節の自家製ジャムと共に。</p>
+                    </a>
+                </article>
+                <article class="post">
+                    <a href="#">
+                        <figure><img src="hosizora.jpg" alt="星空"></figure>
+                        <h3>星降る夜の読書会</h3>
+                        <p>ラウンジにて「遠野物語」の読み聞かせイベントを定期開催しています。</p>
+                    </a>
+                </article>
+                <article class="post">
+                    <a href="#">
+                        <figure><img src="fire.jpg" alt="薪ストーブ"></figure>
+                        <h3>冬限定の薪ストーブ</h3>
+                        <p>寒い夜は薪ストーブの火を眺めながら、ゆったりとした時間をお過ごしください。</p>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="access" class="js-fade">
+        <div class="w-container">
+            <h2 class="heading"><small>Access</small>交通・場所</h2>
+            <div class="access-container" style="margin-top: 40px;">
+                <div class="map-wrap" style="width: 100%; height: 400px; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3080.4619736853685!2d141.530419!3d39.345828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f858999863a8905%3A0x64e32080a229c99!2z6YGg6YeO6aeF!5e0!3m2!1sja!2sjp!4v1710000000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="access-info" style="margin-top:30px;">
+                    <p><strong>住所：</strong> 〒028-0523 岩手県遠野市中央通り</p>
+                    <p><strong>電車：</strong> JR釜石線「遠野駅」より徒歩5分</p>
+                    <p><strong>お車：</strong> 釜石自動車道「遠野IC」より約10分</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="gallery" class="gallery-section" style="padding: 80px 0; background: #fff;">
-    <div class="w-container">
-        <h2 class="heading">Gallery <span>遠野の風景</span></h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="hosizora.jpg" alt="遠野の星空"></div>
-            <div class="gallery-item"><img src="engawa.jpg" alt="伝統的な縁側"></div>
-            <div class="gallery-item"><img src="zasiki.jpg" alt="落ち着いた座敷"></div>
-            <div class="gallery-item"><img src="fire.jpg" alt="薪ストーブの火"></div>
-            <div class="gallery-item"><img src="bread.jpg" alt="自家製トースト"></div>
-            <div class="gallery-item"><img src="kominka.jpg" alt="宿の外観"></div>
+        <div class="w-container">
+            <h2 class="heading"><small>Gallery</small>遠野の風景</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="hosizora.jpg" alt="星空"></div>
+                <div class="gallery-item"><img src="engawa.jpg" alt="縁側"></div>
+                <div class="gallery-item"><img src="zasiki.jpg" alt="座敷"></div>
+                <div class="gallery-item"><img src="fire.jpg" alt="薪ストーブ"></div>
+                <div class="gallery-item"><img src="bread.jpg" alt="朝食"></div>
+                <div class="gallery-item"><img src="kominka.jpg" alt="外観"></div>
+            </div>
         </div>
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="https://www.instagram.com/" class="btn-outline" target="_blank">
-                <i class="fab fa-instagram"></i> Instagramをフォローする
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
+</main>
 
-    document.addEventListener('DOMContentLoaded', () => {
-    const navbtn = document.querySelector('.navbtn');
-    const html = document.querySelector('html');
-
-    if (navbtn) {
-        navbtn.addEventListener('click', () => {
-            html.classList.toggle('open');
-            // アイコンを「三」から「×」に変える演出（FontAwesome使用時）
-            const icon = navbtn.querySelector('i');
-            if (html.classList.contains('open')) {
-                icon.className = 'fas fa-times';
-            } else {
-                icon.className = 'fas fa-bars';
-            }
-        });
-    }
-
-    // メニュー内のリンクをクリックしたらメニューを閉じる
-    const navLinks = document.querySelectorAll('.nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            html.classList.remove('open');
-        });
-    });
-});
-
-<<footer class="footer">
+<footer class="footer">
     <div class="w-container">
         <div class="footer-logo">
             <img src="img/logo.svg" alt="Tohno Modern Retreat" width="120">
@@ -347,6 +245,51 @@ document.addEventListener('DOMContentLoaded', () => {
         <p class="copyright">© 2026 Tohno Modern Retreat</p>
     </div>
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const html = document.querySelector('html');
+    const navbtn = document.querySelector('.navbtn');
+    const navLinks = document.querySelectorAll('.nav a');
+
+    // ハンバーガーメニュー
+    if (navbtn) {
+        navbtn.addEventListener('click', () => {
+            html.classList.toggle('open');
+            const icon = navbtn.querySelector('i');
+            icon.className = html.classList.contains('open') ? 'fas fa-times' : 'fas fa-bars';
+        });
+    }
+
+    // メニューを閉じる
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            html.classList.remove('open');
+            if(navbtn.querySelector('i')) navbtn.querySelector('i').className = 'fas fa-bars';
+        });
+    });
+
+    // 日付制御
+    const checkin = document.querySelector('input[name="checkin"]');
+    const checkout = document.querySelector('input[name="checkout"]');
+    if (checkin && checkout) {
+        const today = new Date().toISOString().split("T")[0];
+        checkin.min = today;
+        checkin.addEventListener('change', () => {
+            checkout.min = checkin.value;
+        });
+    }
+
+    // フェードアニメーション
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('is-show');
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.js-fade').forEach(el => observer.observe(el));
+});
+</script>
 
 </body>
 </html>
