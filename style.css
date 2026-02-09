@@ -997,6 +997,24 @@ p, .about-text p, .feature-text p, .post p, .plan-description {
     color: rgba(255,255,255,0.4);
 }
 
+/* アニメーションの準備：最初は透明で、少し下にずらしておく */
+.js-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease, transform 1.2s ease; /* 1.2秒かけてゆっくり動く */
+}
+
+/* 表示された時の状態：透明度を1にし、元の位置に戻る */
+.js-fade.is-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 順番にふわっと出したい場合（ディレイ用） */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+
 
 
 
