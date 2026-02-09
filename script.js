@@ -21,13 +21,15 @@
   }
 </script>
 
-// ハンバーガーメニューの制御
+// ハンバーガーメニューの制御（差し替え）
 const navbtn = document.querySelector('.navbtn');
 const html = document.querySelector('html');
 
-navbtn.addEventListener('click', () => {
-    html.classList.toggle('open');
-});
+if (navbtn) {
+    navbtn.addEventListener('click', () => {
+        html.classList.toggle('open');
+    });
+}
 
 // メニューリンクをクリックしたら閉じる（ページ内リンク対策）
 const navLinks = document.querySelectorAll('.nav a');
