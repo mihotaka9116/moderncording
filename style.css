@@ -1283,6 +1283,43 @@ p, .about-text p, .feature-text p, .post p, .plan-description {
     line-height: 2;
 }
 
+/* ==========================================
+   強制リセット：すべての見出しを横書きにする
+   ========================================== */
+
+/* About見出し、こだわり見出しをすべて横書きに強制 */
+.about-text h2, 
+.about-text .heading-decoration,
+.feature-text h3,
+.feature-item h3 {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    white-space: normal !important;
+    padding: 0 0 15px 0 !important;
+    border-left: none !important;
+    border-bottom: 2px solid var(--accent-color) !important;
+    margin-bottom: 20px !important;
+    letter-spacing: 0.15em !important;
+    text-align: left !important;
+}
+
+/* マップを操作可能にする（古い pointer-events: none を上書き） */
+.map-wrap iframe, 
+.access-map iframe {
+    pointer-events: auto !important;
+    filter: none !important; /* 一旦モノクロ化も解除して表示を確認 */
+}
+
+/* 青くなってしまっているアクセス情報の文字色を修正 */
+.access-info {
+    color: var(--text-color) !important;
+}
+
+
 
 
 
