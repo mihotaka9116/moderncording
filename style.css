@@ -263,3 +263,71 @@ img { display: block; max-width: 100%; height: auto; }
         height: 250px; /* スマホでは高さを抑える */
     }
 }
+
+/* ==========================================
+   News (Posts) セクションの調整
+   ========================================== */
+.posts-container {
+    display: grid;
+    /* PCでは3枚横に並べる */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.post figure {
+    width: 100%;
+    height: 220px; /* 写真の高さを固定して揃える */
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.post figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像を枠いっぱいに綺麗に切り抜く */
+    transition: 0.3s;
+}
+
+/* ==========================================
+   Gallery セクションの調整
+   ========================================== */
+.gallery-grid {
+    display: grid;
+    /* PCでは3枚横に並べる（計2段） */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    aspect-ratio: 1 / 1; /* 正方形にする */
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================
+   スマホ時の調整（2枚並び、または1枚並び）
+   ========================================== */
+@media (max-width: 900px) {
+    .posts-container, .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* タブレットなどは2枚 */
+    }
+}
+
+@media (max-width: 600px) {
+    .posts-container {
+        grid-template-columns: 1fr; /* スマホのNewsは1枚ずつ */
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* スマホのGalleryは2枚並び */
+    }
+}
+
