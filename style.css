@@ -1015,6 +1015,33 @@ p, .about-text p, .feature-text p, .post p, .plan-description {
 .delay-2 { transition-delay: 0.4s; }
 .delay-3 { transition-delay: 0.6s; }
 
+/* PCのみ縦書きにする */
+@media (min-width: 768px) {
+    .about-flex {
+        align-items: flex-start; /* 縦書きの時は上揃えが綺麗です */
+    }
+    .about-text h2 {
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        margin-right: 60px;
+        height: 350px; /* 縦書きの高さを指定すると安定します */
+    }
+}
+
+/* スマホでは通常の横書き */
+@media (max-width: 767px) {
+    .about-text h2 {
+        writing-mode: horizontal-tb;
+        margin-right: 0;
+        margin-bottom: 30px;
+        border-left: none;
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 15px;
+        padding-left: 0;
+    }
+}
+
+
 
 
 
