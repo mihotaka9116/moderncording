@@ -331,3 +331,93 @@ img { display: block; max-width: 100%; height: auto; }
     }
 }
 
+/* ==========================================
+   特定商取引法・規約ページの表デザイン
+   ========================================== */
+.legal-page {
+    padding: var(--v-space) 0;
+    background-color: var(--white);
+}
+
+.legal-page .heading-decoration {
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: "Noto Serif JP", serif;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.legal-page .heading-decoration::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+/* テーブル本体 */
+.policy-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse; /* 線を一本にまとめる */
+    border-top: 2px solid var(--main-color); /* 上部に太線 */
+    background-color: #fff;
+}
+
+.policy-table th, 
+.policy-table td {
+    padding: 25px 30px;
+    border-bottom: 1px solid var(--sub-accent); /* 以前のような細い区切り線 */
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.policy-table th {
+    width: 30%;
+    background-color: #faf8f4; /* 以前のような薄い背景色（和モダン風） */
+    color: var(--main-color);
+    text-align: left;
+    font-weight: 600;
+    vertical-align: top;
+    font-family: "Noto Serif JP", serif;
+}
+
+.policy-table td {
+    width: 70%;
+    color: var(--text-color);
+}
+
+.policy-table small {
+    display: block;
+    margin-top: 5px;
+    color: #888;
+    font-size: 0.85rem;
+}
+
+/* スマホ用レスポンシブ：以前のサイトのように縦に並べる */
+@media (max-width: 767px) {
+    .policy-table th, 
+    .policy-table td {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+    }
+    
+    .policy-table th {
+        background-color: var(--sub-accent);
+        border-bottom: none;
+        padding-bottom: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .policy-table td {
+        padding-top: 8px;
+        margin-bottom: 15px;
+    }
+}
+
+
