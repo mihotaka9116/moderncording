@@ -600,6 +600,73 @@ img { display: block; max-width: 100%; height: auto; }
     font-size: clamp(1rem, 2vw, 1.4rem);
 }
 
+/* ==========================================
+   1. ヘッダーとナビゲーションの修正
+   ========================================== */
+
+/* PCではハンバーガーボタンを隠し、メニューを表示する */
+.navbtn {
+    display: none; /* デフォルトで非表示 */
+}
+
+.nav {
+    display: block; /* PCでは表示 */
+}
+
+/* スマホ用の設定（767px以下） */
+@media (max-width: 767px) {
+    .navbtn {
+        display: block; /* スマホでのみ表示 */
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        z-index: 1000;
+        cursor: pointer;
+    }
+
+    .nav {
+        display: block; /* 構造として表示はさせるが位置を飛ばす */
+        position: fixed;
+        top: 0;
+        right: -100%; /* メニューを画面の外側に隠す */
+        width: 100%;
+        height: 100vh;
+        background-color: var(--main-color);
+        transition: 0.5s ease;
+        z-index: 999;
+        padding-top: 100px;
+    }
+
+    /* JavaScriptでhtmlに.openが付いた時の動き */
+    html.open .nav {
+        right: 0; /* 画面内にスライドイン */
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+}
+
+/* ==========================================
+   2. メインビジュアルのテキストサイズ調整
+   ========================================== */
+.hero-content h1 {
+    /* 大きすぎたサイズを、バランスの良い大きさに修正 */
+    font-size: clamp(2.5rem, 7vw, 5rem) !important; 
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    letter-spacing: 0.3em;
+}
+
+
 
 
 
