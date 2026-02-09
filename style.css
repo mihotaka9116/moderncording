@@ -1041,6 +1041,15 @@ p, .about-text p, .feature-text p, .post p, .plan-description {
     }
 }
 
+.form-item {
+    border-right: 1px solid rgba(166, 133, 73, 0.1); /* 項目間の仕切り */
+}
+
+.form-item:last-child {
+    border-right: none;
+}
+
+
 
 
 
