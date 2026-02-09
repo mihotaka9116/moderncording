@@ -946,6 +946,32 @@ p, .about-text p, .feature-text p, .post p, .plan-description {
     border-radius: 0; /* 角丸を消すとよりモダンになります */
 }
 
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* 英語と日本語の隙間 */
+}
+
+.heading small {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    letter-spacing: 0.4em;
+    text-transform: uppercase; /* 大文字に強制 */
+}
+
+.about-text h2 {
+    writing-mode: vertical-rl; /* 縦書きに */
+    text-orientation: upright;
+    font-size: 2rem;
+    letter-spacing: 0.5em;
+    border-left: 1px solid var(--accent-color);
+    padding-left: 20px;
+    margin-right: 40px;
+}
+
 
 
 
