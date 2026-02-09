@@ -14,6 +14,67 @@
     <link href="style.css" rel="stylesheet">
     <link rel="icon" href="img/favicon.png" type="image/png">
 </head>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. 日付入力の制御 ---
+    const today = new Date().toISOString().split("T")[0];
+    const checkinInput = document.getElementsByName('checkin')[0];
+    const checkoutInput = document.getElementsByName('checkout')[0];
+
+    if (checkinInput && checkoutInput) {
+        checkinInput.min = today;
+        checkoutInput.min = today;
+
+        checkinInput.addEventListener('change', function() {
+            checkoutInput.min = this.value;
+            if (checkoutInput.value && checkoutInput.value < this.value) {
+                checkoutInput.value = this.value;
+            }
+        });
+    }
+
+    // --- 2. ハンバーガーメニューの制御 ---
+    const navbtn = document.querySelector('.navbtn');
+    const html = document.querySelector('html');
+
+    if (navbtn) {
+        navbtn.addEventListener('click', () => {
+            html.classList.toggle('open');
+        });
+    }
+
+    const navLinks = document.querySelectorAll('.nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            html.classList.remove('open');
+        });
+    });
+
+    // --- 3. スクロールアニメーションの実行 ---
+    const observeAnimation = () => {
+        const targets = document.querySelectorAll('.js-fade');
+        const options = {
+            root: null,
+            rootMargin: '0px 0px -10% 0px', // 少し早めに反応するように調整
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-show');
+                }
+            });
+        }, options);
+
+        targets.forEach(target => observer.observe(target));
+    };
+
+    observeAnimation();
+});
+</script>
+    
 <body>
 
 <header class="header">
