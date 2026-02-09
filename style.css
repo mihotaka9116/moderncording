@@ -1093,6 +1093,96 @@ p, .about-text p, .feature-text p, .post p, .plan-description {
     pointer-events: auto;
 }
 
+/* --- 1. Aboutセクションの大きな見出し（縦書きにする場合） --- */
+/* 他の見出しに影響しないよう、クラスを絞り込みます */
+.about-text .heading-decoration {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: clamp(24px, 3vw, 32px);
+    letter-spacing: 0.4em;
+    height: auto;
+    min-height: 300px; /* 縦の長さを確保 */
+    white-space: nowrap; /* 勝手に改行させない */
+}
+
+/* --- 2. こだわりセクションの見出し（横書きに強制） --- */
+/* 「静寂に浸るひととき」などが縦にならないようにします */
+.feature-text h3 {
+    writing-mode: horizontal-tb; /* 明示的に横書きを指定 */
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    display: block;
+    width: 100%; /* 幅をいっぱい使って改行を防ぐ */
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start; /* 上揃えにする */
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.feature-text {
+    flex: 1; /* 残りの幅をすべて使う */
+    min-width: 0; /* Flex子要素の崩れ防止 */
+}
+
+.feature-image {
+    flex: 0 0 50%; /* 画像の幅を50%に固定（お好みで調整） */
+}
+
+@media (max-width: 767px) {
+    /* スマホではすべて横書きに戻す */
+    .about-text .heading-decoration,
+    .feature-text h3 {
+        writing-mode: horizontal-tb;
+        height: auto;
+        min-height: 0;
+        margin-bottom: 20px;
+        letter-spacing: 0.1em;
+        border-left: none;
+        border-bottom: 1px solid var(--accent-color);
+        padding-bottom: 10px;
+    }
+}
+
+.about-text h2 {
+    writing-mode: vertical-rl;
+    text-orientation: upright; /* 文字を正立させる */
+    
+    /* 1. 字間をさらに広げて「呼吸」させる */
+    letter-spacing: 0.5em; 
+    
+    /* 2. 行間（横の行との隙間）を確保 */
+    line-height: 2; 
+    
+    /* 3. 高さを指定して、文字が窮屈にならないようにする */
+    height: auto;
+    min-height: 400px; 
+    
+    /* 4. 線の装飾を少し離す */
+    border-left: 1px solid var(--accent-color);
+    padding-left: 30px;
+    
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.about-text {
+    position: relative;
+    /* 文字の背景に、左から右へ「ごく薄い白」のグラデーションを敷く */
+    background: linear-gradient(to right, rgba(253, 252, 249, 0.9) 0%, rgba(253, 252, 249, 0) 100%);
+    padding: 40px;
+}
+
+.about-text h2 {
+    font-size: 1.8rem; /* 少し小さくする */
+    letter-spacing: 0.6em; /* その分、隙間を大胆に空ける */
+    opacity: 0.9; /* 真っ黒より、少しだけ透過させると背景に馴染んで読みやすくなります */
+}
+
+
 
 
 
