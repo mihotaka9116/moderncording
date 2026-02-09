@@ -972,6 +972,32 @@ p, .about-text p, .feature-text p, .post p, .plan-description {
     margin-right: 40px;
 }
 
+.footer {
+    background-color: var(--main-color);
+    padding: 80px 0 40px;
+    text-align: center;
+}
+
+.footer-logo {
+    filter: brightness(0) invert(1); /* ロゴを白抜きにする */
+    margin-bottom: 40px;
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.copyright {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.4);
+}
+
+
 
 
 
