@@ -824,6 +824,50 @@ h1, h2, h3, .heading, .concept-title {
     color: var(--text-color);
 }
 
+:root {
+    /* 1. 配色の微調整：真っ黒を避け、少し青みを含んだ深いグレーに */
+    --main-color: #2c363f;     /* 墨色に近いネイビーグレー */
+    --text-color: #4a5156;     /* 本文はやわらかいグレーに */
+    --accent-color: #9a8053;   /* ゴールドを少し落ち着かせる */
+    --bg-color: #fdfcf9;       /* 背景を真っ白から「生成り色」に */
+}
+
+body {
+    /* 2. 英数字に Montserrat を混ぜ、日本語は明朝体にする */
+    font-family: "Montserrat", "Noto Serif JP", serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased; /* 文字を細くシャープに見せる */
+}
+
+/* 3. 明朝体（見出し）をモダンに見せる魔法の指定 */
+h1, h2, h3, .heading, .concept-title {
+    font-weight: 500;           /* 太すぎない（700より500が今風） */
+    letter-spacing: 0.3em;      /* 文字の間隔をしっかり空ける（これが最重要！） */
+    line-height: 1.6;
+    color: var(--main-color);
+}
+
+/* ヒーローセクションの文字を「風景に馴染ませる」 */
+.hero h1 {
+    font-size: clamp(28px, 4vw, 52px);
+    letter-spacing: 0.4em;
+    font-weight: 600;
+    text-shadow: none;          /* 影を消して、背景に薄いレイヤーを重ねる方がモダン */
+}
+
+/* 4. 本文（pタグ）はあえてゴシック体にして「抜け感」を出す */
+/* 全部が明朝体だと「旅館のパンフレット」になります。
+   説明文をゴシックにするのが、今のWEBデザインのトレンドです。 */
+.about-text p, .feature-text p, .post p {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+    font-size: 15px;
+    line-height: 2.1;           /* 行間をたっぷり取る */
+    letter-spacing: 0.05em;
+    color: var(--text-color);
+}
+
+
 
 
 
