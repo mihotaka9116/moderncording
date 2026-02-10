@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_1" data-name="レイヤー 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 151.71 118.86">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #231815;
+        font-family: KozGoPr6N-Regular-90ms-RKSJ-H, 'Kozuka Gothic Pr6N';
+      }
+
+      .cls-2 {
+        font-size: 18px;
+      }
+
+      .cls-3 {
+        font-size: 12px;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke: #231815;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(52 32.8)"><tspan class="cls-2" x="0" y="0">T</tspan><tspan class="cls-3" x="9.52" y="-2.28">ohno</tspan><tspan class="cls-2" x="0" y="31.5">M</tspan><tspan class="cls-3" x="15.62" y="29.22">odern</tspan><tspan class="cls-2" x="0" y="63">R</tspan><tspan class="cls-3" x="10.37" y="60.72">etreat</tspan></text>
+  <rect class="cls-4" x=".5" y=".5" width="150.71" height="117.86"/>
+</svg>
