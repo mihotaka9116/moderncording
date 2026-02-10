@@ -811,6 +811,43 @@ img { display: block; max-width: 100%; height: auto; }
     }
 }
 
+/* ==========================================
+   ロゴ（tmr.svg）の最終調整
+   ========================================== */
+.site a img {
+    /* 1. サイズを大幅にアップ（60pxから75pxへ） */
+    height: 75px !important; 
+    width: auto !important;
+    
+    /* 2. 真っ白にする */
+    filter: brightness(0) invert(1) !important;
+    
+    /* 3. 文字を物理的に太らせる */
+    /* 線の幅を0.8pxに設定し、外側に肉付けします */
+    stroke: #ffffff !important;
+    stroke-width: 0.8px !important;
+    paint-order: stroke !important;
+
+    /* 表示の安定化 */
+    display: block;
+    transition: all 0.3s ease;
+}
+
+/* ホバー時の動き */
+.site a:hover img {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* スマホでのサイズ調整（スマホでも見やすく） */
+@media (max-width: 767px) {
+    .site a img {
+        height: 55px !important;
+        stroke-width: 0.5px !important; /* スマホでは太すぎないよう微調整 */
+    }
+}
+
+
 
 
 
