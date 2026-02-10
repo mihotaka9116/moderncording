@@ -759,6 +759,27 @@ img { display: block; max-width: 100%; height: auto; }
     }
 }
 
+/* ロゴ（tmr.svg）を白く・小さくする設定 */
+.site a img {
+    /* 1. サイズを小さく調整（40px〜45pxがおすすめ） */
+    height: 40px; 
+    width: auto;
+    
+    /* 2. 画像を白くする（元の色が黒でもこれで白くなります） */
+    filter: brightness(0) invert(1);
+    
+    /* 3. 表示の微調整 */
+    display: block;
+}
+
+/* スマホではさらにもう少し小さくする場合 */
+@media (max-width: 767px) {
+    .site a img {
+        height: 32px;
+    }
+}
+
+
 
 
 
