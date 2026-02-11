@@ -910,6 +910,46 @@ img { display: block; max-width: 100%; height: auto; }
     background-image: none;
 }
 
+/* AboutとFeatureセクションの写真に適用 */
+.about-image, 
+.feature-image {
+    position: relative;
+    /* ドット枠の太さ（ここを大きくすると枠が広くなります） */
+    padding: 16px; 
+    display: inline-block;
+    
+    /* ベージュの背景や既存の枠線をリセット */
+    background-color: transparent !important; 
+    border: none !important;
+    box-shadow: none !important;
+
+    /* ドットの設定 */
+    /* 1つ目の数値(40%)を大きくするとドット一つ一つが太くなります */
+    background-image: radial-gradient(rgba(0, 0, 0, 0.4) 40%, transparent 40%);
+    /* ドットの間隔（ここを大きくするとドット自体が大きくなります） */
+    background-size: 10px 10px; 
+    background-repeat: repeat;
+}
+
+/* 写真自体の設定 */
+.about-image img, 
+.feature-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* 写真の下にドットが入り込まないよう、写真の背景を白（またはサイトの背景色）に設定 */
+    background-color: #fff; 
+}
+
+/* 疑似要素でベージュの枠がついている場合の対策 */
+.about-image::before,
+.about-image::after,
+.feature-image::before,
+.feature-image::after {
+    display: none !important;
+}
+
+
 
 
 
