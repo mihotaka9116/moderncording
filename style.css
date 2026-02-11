@@ -874,6 +874,42 @@ img { display: block; max-width: 100%; height: auto; }
     background-color: #fff; 
 }
 
+/* NEWSとGALLERYを除き、特定の写真（AboutとFeature）だけにドット枠を適用 */
+.about-image, 
+.feature-image {
+    position: relative;
+    padding: 12px; /* ドット枠の太さ */
+    display: inline-block;
+    
+    /* 透過ドット背景の設定 */
+    /* rgba(0,0,0,0.2) は黒の透明度20%。お好みで色を調整してください */
+    background-image: radial-gradient(rgba(0, 0, 0, 0.2) 20%, transparent 20%);
+    background-size: 5px 5px; /* ドットの細かさ */
+    background-repeat: repeat;
+    
+    /* 元々あるかもしれない枠線や影をリセット */
+    border: none;
+    box-shadow: none;
+}
+
+/* 中の写真の設定 */
+.about-image img, 
+.feature-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* 写真の背後をサイトの背景色（白など）で埋めることで、
+       padding部分だけがドット枠として見えます */
+    background-color: #fff; 
+}
+
+/* NEWSとGALLERYの枠や余白をリセット（念のため） */
+.post figure,
+.gallery-item {
+    padding: 0;
+    background-image: none;
+}
+
 
 
 
