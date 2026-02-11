@@ -847,6 +847,34 @@ img { display: block; max-width: 100%; height: auto; }
     }
 }
 
+/* 写真の親要素（枠の土台）の設定 */
+.about-image, 
+.feature-image, 
+.post figure,
+.gallery-item {
+    position: relative;
+    padding: 10px; /* ここがドット枠の太さになります */
+    display: inline-block; /* サイズを画像に合わせる */
+    
+    /* 透過ドット背景の設定 */
+    background-image: radial-gradient(rgba(0, 0, 0, 0.2) 20%, transparent 20%);
+    background-size: 5px 5px; /* ドットの細かさ（小さいほど細かい） */
+    background-repeat: repeat;
+}
+
+/* 中の写真自体の設定 */
+.about-image img, 
+.feature-image img, 
+.post figure img,
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* 写真の背景を白（またはサイト背景色）にするとドットが枠に見えます */
+    background-color: #fff; 
+}
+
+
 
 
 
