@@ -949,6 +949,67 @@ img { display: block; max-width: 100%; height: auto; }
     display: none !important;
 }
 
+/* 予約バーのモダン化 */
+.booking-bar {
+    position: relative;
+    z-index: 50;
+    margin-top: -60px; /* ヒーロー画像に少し被せる */
+}
+
+.booking-form {
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* 影を深くして浮遊感を出す */
+    border-radius: 8px;
+}
+
+.form-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 0 15px;
+    border-right: 1px solid #eee;
+}
+
+.form-item:last-child { border-right: none; }
+
+.form-item label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* コンセプトセクションの演出 */
+.consept-section {
+    padding: 120px 0;
+    background-color: #f4f1ed; /* 少し温かみのあるベージュ */
+    text-align: center;
+}
+
+.concept-title {
+    font-family: "Noto Serif JP", serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.concept-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background: var(--accent-color);
+}
+
+
 
 
 
