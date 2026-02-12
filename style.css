@@ -1202,6 +1202,31 @@ body {
     .navbtn:focus { outline: none; }
 }
 
+/* SNSアイコン */
+.footer-sns {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-sns a {
+    font-size: 1.5rem;
+    color: var(--sub-accent); /* 最初は少し控えめな色 */
+    transition: all 0.4s ease;
+}
+
+.footer-sns a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* フッターメニューのホバー時 */
+.footer-menu a:hover {
+    color: var(--accent-color);
+}
+
+
 
 
 
