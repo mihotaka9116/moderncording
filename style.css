@@ -1105,6 +1105,81 @@ img { display: block; max-width: 100%; height: auto; }
     font-size: 0.85rem;
 }
 
+/* お問い合わせページ独自のスタイル */
+.contact-intro {
+    text-align: center;
+    margin-bottom: 50px;
+    line-height: 2;
+}
+
+.contact-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: clamp(30px, 5vw, 60px);
+    border: 1px solid var(--sub-accent);
+    border-radius: 4px;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--main-color);
+}
+
+.form-group .required {
+    background: var(--accent-color);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    background: #fdfdfd;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* 日付と人数の横並び設定 */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-submit {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.form-submit .btn {
+    min-width: 280px;
+    cursor: pointer;
+}
+
+/* スマホではグリッドを1列に */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 
 
 
