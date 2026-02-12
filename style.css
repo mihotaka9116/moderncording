@@ -1179,6 +1179,30 @@ img { display: block; max-width: 100%; height: auto; }
     }
 }
 
+/* 文字組みの微調整 */
+body {
+    letter-spacing: 0.05em; /* 全体の字間をわずかに広げて読みやすく */
+}
+
+/* より滑らかなフェードイン */
+.js-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.5s cubic-bezier(0.33, 1, 0.68, 1), 
+                transform 1.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* リンクボタンのホバー演出（ふわっと浮き上がる） */
+.btn, .btn-search, .btn-small {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* スマホ用メニューが閉まっている時の視認性確保 */
+@media (max-width: 767px) {
+    .navbtn:focus { outline: none; }
+}
+
+
 
 
 
