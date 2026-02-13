@@ -1249,6 +1249,69 @@ h2, h3 {
     font-family: 'Montserrat', sans-serif;
 }
 
+/* ==========================================
+   【強制上書き】枠線・装飾・ロゴ画像を完全に消去
+   ========================================== */
+
+/* 1. ロゴ画像を強制的に消す（テキストロゴのみにする場合） */
+.site a img, 
+.footer-logo img {
+    display: none !important;
+}
+
+/* 2. あらゆる枠線、ドット背景、ベージュの影をリセット */
+.about-image, 
+.feature-image, 
+.post figure, 
+.gallery-item,
+.room-item img,
+.plan-item img,
+#rooms img,
+#plans img {
+    position: static !important;
+    padding: 0 !important;
+    background-image: none !important; /* ドットを消去 */
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important; /* ベージュの影を消去 */
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* 3. 画像自体の装飾もリセット */
+.about-image img, 
+.feature-image img, 
+.post figure img, 
+.gallery-item img,
+.room-item img,
+.plan-item img {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    transform: none !important;
+}
+
+/* 4. 疑似要素（::before, ::after）で作られた枠も完全に消去 */
+.about-image::before, .about-image::after,
+.feature-image::before, .feature-image::after,
+.post figure::before, .post figure::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* 5. テキストロゴ自体のスタイルを再定義（白くはっきりと） */
+.site a {
+    display: block !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+
 
 
 
