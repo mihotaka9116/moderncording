@@ -1332,6 +1332,72 @@ body {
     -webkit-font-smoothing: antialiased; /* 文字をより滑らかに（Mac/iOS用） */
 }
 
+/* ==========================================
+   游明朝を美しく見せるための最終調整
+   ========================================== */
+body {
+    font-family: "Montserrat", "YuMincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+    font-weight: 400;
+    color: #444444;       /* 真っ黒を避けることで高級感を演出 */
+    line-height: 2;       /* 行間をたっぷり取って余白を美しく */
+    letter-spacing: 0.1em; /* 游明朝は少し字間を広げるとより美しくなります */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 見出しの「強すぎる太さ」を抑えてモダンに */
+h2, h3, .concept-title {
+    font-weight: 500 !important;
+    letter-spacing: 0.25em !important; /* 見出しはさらに字間を広く */
+    color: #2c363f;
+}
+
+/* ==========================================
+   【強制削除】ロゴ画像とあらゆる枠線の完全消去
+   ========================================== */
+
+/* ロゴを画像からテキストへ切り替え（画像を非表示にする） */
+.site a img, 
+.footer-logo img {
+    display: none !important;
+}
+
+/* 写真の装飾（ドット・ベージュ枠・影）をすべてリセット */
+.about-image, 
+.feature-image, 
+.post figure, 
+.gallery-item,
+.room-item img,
+.plan-item img,
+#rooms img,
+#plans img {
+    position: static !important;
+    padding: 0 !important;
+    background-image: none !important; 
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+}
+
+/* 疑似要素（以前設定した枠線のパーツ）を完全に消去 */
+.about-image::before, .about-image::after,
+.feature-image::before, .feature-image::after,
+.post figure::before, .post figure::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* 画像自体の角を少しだけ丸めて馴染ませる（任意） */
+.about-image img, 
+.feature-image img, 
+.post figure img, 
+.gallery-item img {
+    border-radius: 2px !important;
+}
+
+
 
 
 
