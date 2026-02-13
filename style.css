@@ -1226,6 +1226,30 @@ body {
     color: var(--accent-color);
 }
 
+/* Google Fonts の読み込み（HTMLの<head>内にある既存のNoto Serifをこれに書き換えるか追加してください） */
+/* <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet"> */
+
+body {
+    font-family: "Montserrat", "Noto Sans JP", sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+}
+
+h2, h3 {
+    font-weight: 500;
+    letter-spacing: 0.15em;
+}
+
+:root {
+    --text-color: #555555; /* #4a5156 からもう少しだけ明るくしてもOK */
+}
+
+/* 数字やアルファベットをシュッとさせる */
+.price-amount, .post h3, .form-item label {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
 
 
 
