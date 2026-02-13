@@ -390,4 +390,23 @@ h2, h3, .concept-title {
     }
 }
 
+/* ロゴエリアの最終調整（一番下に追記または修正） */
+.site a {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.1rem !important; /* ここでサイズを小さく固定 */
+    font-weight: 400;
+    color: #ffffff !important;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.logo-icon {
+    font-size: 1rem; /* アイコンも少し控えめに */
+    color: var(--accent-color);
+}
+
+
 
