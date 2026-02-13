@@ -1326,6 +1326,13 @@ h1, h2, h3, .concept-title {
     letter-spacing: 0.2em; /* 見出しの字間をたっぷり取る */
 }
 
+body {
+    font-family: "Montserrat", "YuMincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased; /* 文字をより滑らかに（Mac/iOS用） */
+}
+
+
 
 
 
