@@ -1305,7 +1305,7 @@ h2, h3 {
     display: block !important;
     font-family: 'Montserrat', sans-serif !important;
     font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
-    font-weight: 700 !important;
+    font-weight: 300;
     color: #ffffff !important;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -1396,6 +1396,7 @@ h2, h3, .concept-title {
 .gallery-item img {
     border-radius: 2px !important;
 }
+
 
 
 
