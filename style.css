@@ -1311,6 +1311,22 @@ h2, h3 {
     letter-spacing: 0.1em;
 }
 
+/* bodyのfont-familyを更新 */
+body {
+    /* 300(細め)を指定して、文字の圧迫感を消します */
+    font-family: "Montserrat", "Noto Serif JP", serif;
+    font-weight: 300; 
+    line-height: 2;   /* 行間をさらに広げて余白を見せる */
+    letter-spacing: 0.1em; /* 全体的に字間を広げる */
+}
+
+/* 見出しを特に上品にする */
+h1, h2, h3, .concept-title {
+    font-weight: 500; /* 見出しも太すぎないように設定 */
+    letter-spacing: 0.2em; /* 見出しの字間をたっぷり取る */
+}
+
+
 
 
 
