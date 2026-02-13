@@ -231,3 +231,94 @@ h2, h3, .concept-title {
 
 .footer-menu { display: flex; justify-content: center; gap: 20px; margin: 30px 0; }
 .copyright { font-size: 11px; opacity: 0.6; letter-spacing: 0.2em; }
+
+/* ==========================================
+   ヘッダー（左ロゴ・右ナビ）の調整
+   ========================================== */
+.header {
+    height: 80px; /* 少し高さを抑えてスマートに */
+    background-color: var(--main-color);
+    color: var(--white);
+    position: sticky; /* スクロールしても上についてくる設定（お好みで） */
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* これで左右に振り分けられます */
+    align-items: center;
+    height: 100%;
+}
+
+/* ロゴ全体のスタイル */
+.site a {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* アイコンと文字の間隔 */
+    text-decoration: none;
+    color: #ffffff !important;
+}
+
+/* 小さなアイコンの調整 */
+.logo-icon {
+    font-size: 1.1rem; /* アイコンのサイズ */
+    color: var(--accent-color); /* アイコンだけアクセントカラーにする */
+    opacity: 0.9;
+}
+
+/* ロゴテキストの調整 */
+.logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem; /* 以前より少し小さく設定 */
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* ナビゲーションを右に寄せる */
+.nav {
+    margin-left: auto; /* 右寄せを確実にする */
+}
+
+.nav ul {
+    display: flex;
+    gap: clamp(20px, 3vw, 35px); /* 画面幅に合わせて間隔を調整 */
+}
+
+.nav ul li a {
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    position: relative;
+}
+
+/* ナビにホバーした時の下線アニメーション（お好みで） */
+.nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-color);
+    transition: 0.3s;
+}
+
+.nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* スマホ時の微調整 */
+@media (max-width: 767px) {
+    .header {
+        height: 70px;
+    }
+    .logo-text {
+        font-size: 0.9rem; /* スマホではさらに小さく */
+    }
+    .logo-icon {
+        font-size: 1rem;
+    }
+}
+
