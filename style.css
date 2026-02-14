@@ -408,5 +408,80 @@ h2, h3, .concept-title {
     color: var(--accent-color);
 }
 
+/* ==========================================
+   NEWS (Posts) の横並び調整
+   ========================================== */
+.posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 画面幅に合わせて自動で並べる */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.post {
+    background: #fff;
+    transition: transform 0.3s ease;
+}
+
+.post:hover {
+    transform: translateY(-5px); /* 少し浮き上がる演出 */
+}
+
+.post figure img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post h3 {
+    font-size: 1.1rem;
+    margin: 15px 0 10px;
+}
+
+.post p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* ==========================================
+   Gallery の横並び調整（タイル状）
+   ========================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* PCでは3列 */
+    gap: 15px; /* 写真同士の隙間 */
+    margin-top: 40px;
+}
+
+.gallery-item {
+    aspect-ratio: 1 / 1; /* 正方形に統一 */
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); /* ホバーでズーム */
+}
+
+/* --- スマホ時の調整 --- */
+@media (max-width: 767px) {
+    .posts-container {
+        grid-template-columns: 1fr; /* スマホは1列 */
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* スマホは2列 */
+        gap: 10px;
+    }
+}
+
+
 
 
