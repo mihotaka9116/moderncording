@@ -422,5 +422,61 @@ h2, h3 {
     }
 }
 
+/* メイン写真の高さを制限 */
+.hero {
+    height: 70vh; /* 画面の7割に。これで下がチラ見えして綺麗です */
+    min-height: 450px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-slider, .slide {
+    height: 100%;
+}
+
+/* 予約バーを写真の下に綺麗に配置 */
+.booking-bar {
+    background-color: var(--white);
+    padding: 30px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 20;
+    margin-top: -40px; /* 少し写真に重ねて高級感を出す */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+}
+
+@media (max-width: 767px) {
+    /* 予約バーを縦に */
+    .booking-form {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* こだわりを縦並びに */
+    .feature-item, .feature-item.reverse {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .feature-image img {
+        height: 250px;
+    }
+
+    /* ニュースを縦並びに */
+    .posts-container {
+        grid-template-columns: 1fr; /* 1列にする */
+    }
+    
+    /* ヒーローの重なりを解除 */
+    .booking-bar {
+        margin-top: 20px;
+        width: 92%;
+    }
+}
+
+
 
 
