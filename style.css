@@ -686,6 +686,80 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
     }
 }
 
+/* ==========================================
+   宿の紹介（about.html）専用の調整
+   ========================================== */
+
+/* メインの紹介セクション（写真と文章を整える） */
+.about-page section:first-of-type {
+    padding: 80px 0;
+}
+
+.about-page img[alt="古民家の外観"] {
+    width: 100%;
+    max-width: 900px; /* 広がりすぎ防止 */
+    height: 500px;
+    margin: 0 auto 40px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.about-page h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.about-page p {
+    max-width: 700px;
+    margin: 0 auto 60px;
+    line-height: 2.2;
+    text-align: justify; /* 文章の端を揃えて美しく */
+}
+
+/* 体験（EXPERIENCE）セクションを横並びにする */
+.about-page section[style*="background-color"] {
+    padding: 80px 0 !important;
+}
+
+.about-page section[style*="background-color"] .w-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列に並べる */
+    gap: 40px;
+}
+
+/* 体験セクション内の各項目 */
+.about-page section[style*="background-color"] div {
+    background: rgba(255,255,255,0.05); /* ほんのり背景を明るく */
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.about-page h3 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: var(--accent-color) !important; /* アクセントカラーにする */
+}
+
+/* スマホ対応 */
+@media (max-width: 767px) {
+    .about-page section[style*="background-color"] .w-container {
+        grid-template-columns: 1fr; /* スマホでは1列 */
+        gap: 20px;
+    }
+    
+    .about-page img[alt="古民家の外観"] {
+        height: 300px;
+    }
+    
+    .about-page h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
 
 
 
