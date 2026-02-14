@@ -681,6 +681,70 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em !important; color: 
 .footer { background: var(--main-color); padding: 60px 0; color: #fff; text-align: center; }
 .footer-menu { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
 
+/* ==========================================
+   ヒーローセクション（メインビジュアル復元 & コピー拡大）
+   ========================================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    min-height: 550px;
+    overflow: hidden;
+}
+
+/* 画像パスを正しく設定（ファイル名を確認してください） */
+.slide1 { background-image: url('main1.jpg'); }
+.slide2 { background-image: url('main2.jpg'); }
+.slide3 { background-image: url('main3.jpg'); }
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem); /* コピーを大きく */
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.5rem); /* サブコピーも調整 */
+    letter-spacing: 0.3em;
+}
+
+/* ==========================================
+   ギャラリー（綺麗なグリッド整列）
+   ========================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* PCで3列 */
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    aspect-ratio: 3 / 2; /* 写真の比率を一定に保つ */
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 切り抜いてフィットさせる */
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); /* ホバー時の演出 */
+}
+
+/* スマホでは2列にする */
+@media (max-width: 767px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+
 
 
 
