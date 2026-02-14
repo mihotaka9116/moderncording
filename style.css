@@ -484,4 +484,73 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
     }
 }
 
+/* ==========================================
+   宿の紹介（About）ページ専用の調整
+   ========================================== */
+
+/* ページ全体の余白 */
+.about-page {
+    padding: 100px 0;
+}
+
+/* メインコンセプト部分（画像と文字の2カラム） */
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 120px;
+}
+
+/* 交互に左右を入れ替える設定（HTMLにreverseクラスがある場合） */
+.about-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-section-image, 
+.about-section-text {
+    flex: 1;
+}
+
+/* 画像の巨大化を防ぎ、情緒あるサイズに */
+.about-section-image img {
+    width: 100%;
+    height: 550px; /* PCでの高さをしっかり確保しつつ制限 */
+    object-fit: cover;
+    border-radius: 4px; /* わずかに角を丸めて柔らかく */
+    box-shadow: 20px 20px 0px var(--sub-accent); /* デザインのアクセント */
+}
+
+/* 文章の装飾 */
+.about-section-text h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.about-section-text p {
+    font-size: 1rem;
+    line-height: 2.2;
+    color: #555;
+}
+
+/* スマホ対応：縦並びにして、画像の影を調整 */
+@media (max-width: 767px) {
+    .about-section, 
+    .about-section.reverse {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+
+    .about-section-image img {
+        height: 350px; /* スマホではコンパクトに */
+        box-shadow: 10px 10px 0px var(--sub-accent);
+    }
+
+    .about-section-text h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
 
