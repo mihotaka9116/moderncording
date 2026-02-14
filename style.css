@@ -804,6 +804,66 @@ h2, h3, .concept-title {
     }
 }
 
+/* ==========================================
+   宿泊プランの表示崩れ修正
+   ========================================== */
+
+/* 1. 写真がテキストに被る問題を解消 */
+.plan-card .plan-image img {
+    width: 100% !important;
+    height: 240px !important; /* カードに収まる適切な高さに固定 */
+    margin: 0 !important;      /* 余計な余白をリセット */
+    object-fit: cover !important;
+}
+
+/* 2. カード全体の高さを中身に合わせる */
+.plan-card {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* 3. テキストエリアが隠れないように余白を確保 */
+.plan-content {
+    padding: 25px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+}
+
+/* 4. 予約ボタンをさらに際立たせる（色と余白） */
+.btn-small {
+    background-color: var(--accent-color) !important;
+    color: #fff !important;
+    padding: 12px 24px !important;
+    border-radius: 4px !important;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(154, 128, 83, 0.3); /* ボタンに少し影をつけて立体的に */
+    transition: 0.3s ease;
+}
+
+.btn-small:hover {
+    background-color: var(--main-color) !important;
+    box-shadow: none;
+    transform: translateY(2px); /* 押したような感覚 */
+}
+
+/* 5. 価格表示の調整 */
+.plan-footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 20px !important;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 20px !important;
+}
+
+
 
 
 
