@@ -196,3 +196,186 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
    ========================================== */
 .footer { background: var(--main-color); padding: 60px 0; color: #fff; text-align: center; }
 .footer-menu { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
+
+/* ==========================================
+   お問い合わせページ専用の調整
+   ========================================== */
+
+/* フォームを中央に寄せ、幅を制限する */
+.contact-form-styled {
+    max-width: 800px; /* 横幅が広がりすぎないように制限 */
+    margin: 60px auto; /* 上下に余白を作り、中央に配置 */
+    background: #fff;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05); /* 柔らかな影で浮き立たせる */
+}
+
+/* 入力項目ごとの間隔 */
+.form-group {
+    margin-bottom: 30px;
+    text-align: left; /* 文字は左寄せ */
+}
+
+/* ラベル（お名前、メールアドレスなど） */
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--main-color);
+}
+
+/* 入力ボックスとテキストエリア */
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box; /* 幅100%からはみ出さないようにする */
+    background-color: #fafafa;
+    transition: 0.3s;
+}
+
+/* 入力中の色 */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(154, 128, 83, 0.1);
+}
+
+/* 送信ボタンを旅館らしいデザインに */
+.btn-submit {
+    display: block;
+    width: 250px; /* ボタンが巨大化しないように幅を指定 */
+    margin: 40px auto 0; /* ボタンを中央寄せ */
+    padding: 18px;
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 50px; /* 丸みをつけてモダンに */
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 0.2em;
+}
+
+.btn-submit:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* スマホ用の調整 */
+@media (max-width: 767px) {
+    .contact-form-styled {
+        padding: 30px 20px;
+        margin: 40px 15px; /* 左右に少し余白を作る */
+    }
+    
+    .btn-submit {
+        width: 100%; /* スマホでは押しやすいように全幅 */
+    }
+}
+
+/* ==========================================
+   特定商取引法・規約ページ共通
+   ========================================== */
+.legal-page {
+    padding: 80px 0;
+    background-color: var(--bg-color);
+}
+
+/* 見出しの装飾（中央寄せ＋下線） */
+.heading-decoration {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.heading-decoration::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+/* テーブルの整頓 */
+.policy-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-top: 2px solid var(--main-color);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+}
+
+.policy-table th {
+    width: 30%;
+    background-color: #f9f8f4;
+    color: var(--main-color);
+    text-align: left;
+    padding: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+.policy-table td {
+    padding: 25px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    border-bottom: 1px solid #eee;
+}
+
+/* スマホ対応：テーブルを縦に並べる */
+@media (max-width: 767px) {
+    .legal-page {
+        padding: 50px 0;
+    }
+    .heading-decoration {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+    }
+    .policy-table th, 
+    .policy-table td {
+        display: block; /* 横並びを解除 */
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .policy-table th {
+        padding: 15px 20px 5px;
+        background-color: #f9f8f4;
+        border-bottom: none;
+    }
+    .policy-table td {
+        padding: 5px 20px 20px;
+    }
+}
+
+/* ボタン（共通パーツとして存在しない場合用） */
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: var(--main-color);
+    color: #fff !important;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+}
+
