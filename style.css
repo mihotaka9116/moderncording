@@ -4,485 +4,6 @@
    1. 変数・基本設定
    ========================================== */
 :root {
-    --v-space: clamp(80px, 8vw, 110px);
-    --bg-color: #fdfcf9;
-    --main-color: #2c363f;
-    --accent-color: #9a8053;
-    --sub-accent: #e8e2d0;
-    --text-color: #444444;
-    --white: #ffffff;
-}
-
-body {
-    margin: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: "Montserrat", "YuMincho", "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
-    font-weight: 400;
-    line-height: 2;
-    letter-spacing: 0.1em;
-    -webkit-font-smoothing: antialiased;
-}
-
-html { scroll-behavior: smooth; }
-h1, h2, h3, p, figure, ul { margin: 0; padding: 0; list-style: none; }
-a { color: inherit; text-decoration: none; transition: 0.3s; }
-img { display: block; max-width: 100%; height: auto; }
-
-.w-container {
-    width: min(92%, 1100px);
-    margin: auto;
-}
-
-h2, h3 {
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    color: var(--main-color);
-}
-
-/* ==========================================
-   2. ヘッダー & ナビゲーション
-   ========================================== */
-.header {
-    height: 80px;
-    background-color: var(--main-color);
-    color: var(--white);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-.site a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-}
-
-.logo-icon { color: var(--accent-color); font-size: 1rem; }
-
-.nav ul { display: flex; gap: 35px; }
-.nav ul li a { font-size: 0.85rem; position: relative; }
-.nav ul li a:hover { color: var(--accent-color); }
-
-@media (max-width: 767px) {
-    .navbtn { display: block; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; z-index: 1000; }
-    .nav { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: var(--main-color); transition: 0.5s ease; z-index: 999; padding-top: 100px; }
-    html.open .nav { right: 0; }
-    .nav ul { flex-direction: column; align-items: center; gap: 40px; }
-}
-
-/* ==========================================
-   3. お部屋・プラン共通（カードデザイン）
-   ========================================== */
-.rooms-flex-container, .plans-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.room-card, .plan-card {
-    flex: 1;
-    min-width: 320px;
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: 0.3s;
-}
-
-.room-card:hover, .plan-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-
-.room-card-image, .plan-image { height: 260px; position: relative; }
-.room-card-image img, .plan-image img { width: 100%; height: 100%; object-fit: cover; }
-
-.room-card-content, .plan-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
-
-.room-card-content h3, .plan-title { font-size: 1.25rem; margin-bottom: 15px; }
-.room-card-content p, .plan-description { font-size: 0.9rem; color: #666; line-height: 1.8; margin-bottom: 20px; flex-grow: 1; }
-
-/* 予約ボタンと価格 */
-.plan-footer {
-    border-top: 1px solid #f0f0f0;
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.btn-small {
-    background-color: var(--accent-color);
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 0.85rem;
-}
-
-/* ==========================================
-   4. 表形式（規約・特定商取引法）
-   ========================================== */
-.policy-table, .info-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 40px;
-    background: #fff;
-    border: 1px solid var(--sub-accent);
-}
-
-.policy-table th, .info-table th {
-    background-color: #f9f8f4;
-    color: var(--main-color);
-    width: 30%;
-    text-align: left;
-    padding: 20px;
-    font-size: 0.9rem;
-    vertical-align: top;
-    border-bottom: 1px solid var(--sub-accent);
-}
-
-.policy-table td, .info-table td {
-    padding: 20px;
-    font-size: 0.9rem;
-    border-bottom: 1px solid var(--sub-accent);
-}
-
-/* ==========================================
-   5. お問い合わせフォーム
-   ========================================== */
-.contact-form-styled {
-    max-width: 750px;
-    margin: 40px auto;
-    background: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-}
-
-.form-group { margin-bottom: 25px; }
-.form-group label { display: block; font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; }
-.required-tag { background: var(--accent-color); color: #fff; font-size: 0.7rem; padding: 2px 6px; margin-left: 10px; border-radius: 2px; }
-
-.form-group input, .form-group textarea {
-    width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit;
-}
-
-.btn-submit {
-    width: 100%; padding: 20px; background: var(--main-color); color: #fff; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; transition: 0.3s;
-}
-
-.btn-submit:hover { background: var(--accent-color); }
-
-/* ==========================================
-   6. フッター
-   ========================================== */
-.footer { background: var(--main-color); padding: 60px 0; color: #fff; text-align: center; }
-.footer-menu { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
-.footer-menu a { font-size: 0.8rem; opacity: 0.8; }
-.footer-menu a:hover { opacity: 1; color: var(--accent-color); }
-
-/* ==========================================
-   2. ヘッダー & ナビゲーション
-   ========================================== */
-.header {
-    height: 80px;
-    background-color: var(--main-color);
-    color: var(--white);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-.site a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-}
-
-.logo-icon { color: var(--accent-color); font-size: 1rem; }
-
-/* PC版のナビゲーション表示 */
-.nav ul { 
-    display: flex; 
-    gap: 35px; 
-}
-.nav ul li a { 
-    font-size: 0.85rem; 
-    position: relative; 
-}
-.nav ul li a:hover { 
-    color: var(--accent-color); 
-}
-
-/* ★PCではハンバーガーボタンを隠す */
-.navbtn {
-    display: none; 
-}
-
-/* スマホ版（767px以下） */
-@media (max-width: 767px) {
-    /* ★スマホではハンバーガーボタンを表示 */
-    .navbtn { 
-        display: block; 
-        background: none; 
-        border: none; 
-        color: #fff; 
-        font-size: 24px; 
-        cursor: pointer; 
-        z-index: 1001; /* ナビより上に */
-    }
-
-    .nav { 
-        position: fixed; 
-        top: 0; 
-        right: -100%; 
-        width: 100%; 
-        height: 100vh; 
-        background-color: var(--main-color); 
-        transition: 0.5s ease; 
-        z-index: 999; 
-        padding-top: 100px; 
-    }
-
-    html.open .nav { 
-        right: 0; 
-    }
-
-    .nav ul { 
-        flex-direction: column; 
-        align-items: center; 
-        gap: 40px; 
-    }
-}
-
-/* ==========================================
-   ヒーローセクション（メイン写真）の調整
-   ========================================== */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 80vh; /* 画面の高さの80%に抑える（巨大すぎる場合は60vhなどに調整） */
-    overflow: hidden;
-}
-
-.hero-slider {
-    width: 100%;
-    height: 100%;
-}
-
-.slide {
-    width: 100%;
-    height: 100%;
-    background-size: cover;      /* 画像を枠いっぱいに広げる */
-    background-position: center; /* 中央合わせ */
-    background-repeat: no-repeat;
-}
-
-/* 各スライドの画像指定（HTMLのクラス名に合わせて） */
-.slide1 { background-image: url('kiminka.jpg'); }
-.slide2 { background-image: url('hosizora.jpg'); }
-.slide3 { background-image: url('living.jpg'); }
-
-/* 写真の上の文字が重なって見にくい場合の調整 */
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    z-index: 10;
-}
-
-/* 写真の横幅を親要素（w-container）に収め、高さを自動にする */
-.about-image img, 
-.feature-image img {
-    width: 100%;
-    height: 400px; /* 高さを固定したい場合 */
-    object-fit: cover; /* 固定しても画像が伸びないようにする */
-    border-radius: 8px;
-}
-
-@media (max-width: 767px) {
-    .about-image img, 
-    .feature-image img {
-        height: 250px; /* スマホでは高さを低くする */
-    }
-}
-
-/* --- ヒーローセクション全体の高さを固定 --- */
-.hero {
-    width: 100%;
-    height: 75vh; /* 画面の高さの75%に制限。これで下の予約バーが少し見えます */
-    min-height: 500px; /* 小さくなりすぎないための最低ライン */
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-slider {
-    width: 100%;
-    height: 100%;
-}
-
-.slide {
-    width: 100%;
-    height: 100%;
-    background-size: cover;      /* 画像を枠いっぱいに広げる（必須） */
-    background-position: center; /* 中央合わせ（必須） */
-    background-repeat: no-repeat;
-}
-
-/* スマホ用の調整 */
-@media (max-width: 767px) {
-    .hero {
-        height: 60vh; /* スマホではもう少し低くすると使いやすい*/
-    }
-}
-
-/* --- Aboutセクションの修正 --- */
-.about-flex {
-    display: flex;
-    align-items: center;
-    gap: 5%;
-    margin-top: 40px;
-}
-
-.about-text { flex: 1; }
-
-.about-image {
-    flex: 1;
-}
-
-.about-image img {
-    width: 100%;
-    height: 450px; /* PCでの写真の高さを固定 */
-    object-fit: cover; /* 画像を切り抜いてフィットさせる */
-    border-radius: 8px;
-}
-
-/* --- Hospitality（こだわり）セクションの修正 --- */
-.feature-item {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    margin-bottom: 80px;
-}
-
-.feature-item.reverse {
-    flex-direction: row-reverse; /* 写真と文字を交互にする */
-}
-
-.feature-image {
-    flex: 1;
-}
-
-.feature-image img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* --- スマホでは縦並びに戻す --- */
-@media (max-width: 767px) {
-    .about-flex, .feature-item {
-        flex-direction: column;
-    }
-    .about-image img, .feature-image img {
-        height: 250px;
-    }
-}
-
-/* メイン写真の高さを制限 */
-.hero {
-    height: 70vh; /* 画面の7割 */
-    min-height: 450px;
-    overflow: hidden;
-    position: relative;
-}
-
-.hero-slider, .slide {
-    height: 100%;
-}
-
-/* 予約バーを写真の下に綺麗に配置 */
-.booking-bar {
-    background-color: var(--white);
-    padding: 30px 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    position: relative;
-    z-index: 20;
-    margin-top: -40px; /* 少し写真に重ねて高級感を出す */
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 8px;
-}
-
-@media (max-width: 767px) {
-    /* 予約バーを縦に */
-    .booking-form {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    /* こだわりを縦並びに */
-    .feature-item, .feature-item.reverse {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .feature-image img {
-        height: 250px;
-    }
-
-    /* ニュースを縦並びに */
-    .posts-container {
-        grid-template-columns: 1fr; /* 1列にする */
-    }
-    
-    /* ヒーローの重なりを解除 */
-    .booking-bar {
-        margin-top: 20px;
-        width: 92%;
-    }
-}
-
-@charset "UTF-8";
-
-/* ==========================================
-   1. 変数・基本設定
-   ========================================== */
-:root {
     --bg-color: #fdfcf9;
     --main-color: #2c363f;
     --accent-color: #9a8053;
@@ -543,35 +64,35 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
     text-transform: uppercase;
 }
 
-.logo-icon { color: var(--accent-color); font-size: 1rem; }
-
 .nav ul { display: flex; gap: 35px; }
 .nav ul li a { font-size: 0.85rem; }
 .nav ul li a:hover { color: var(--accent-color); }
-
-.navbtn { display: none; } /* PCでは隠す */
+.navbtn { display: none; }
 
 /* ==========================================
-   3. ヒーローセクション & 予約バー
+   3. ヒーローセクション（メインコピー拡大版）
    ========================================== */
 .hero {
     position: relative;
     width: 100%;
-    height: 75vh; /* 巨大化防止：画面の75%に固定 */
-    min-height: 500px;
+    height: 75vh;
+    min-height: 550px;
+    background-color: #eee; /* 読み込み中も真っ白にしない */
     overflow: hidden;
 }
 
 .hero-slider, .slide { width: 100%; height: 100%; }
-.slide { 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
+
+.slide {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.slide1 { background-image: url('main1.jpg'); }
-.slide2 { background-image: url('main2.jpg'); }
-.slide3 { background-image: url('main3.jpg'); }
+/* ★画像ファイル名を実際のフォルダ内にある名前に合わせてください★ */
+.slide1 { background-image: url('kominka.jpg'); }
+.slide2 { background-image: url('hosizora.jpg'); }
+.slide3 { background-image: url('living.jpg'); }
 
 .hero-content {
     position: absolute;
@@ -579,45 +100,47 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
     z-index: 10;
+    width: 100%;
 }
 
+.hero-content h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem); /* コピーを大きく */
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    letter-spacing: 0.3em;
+}
+
+/* 予約バー */
 .booking-bar {
     background-color: var(--white);
     padding: 25px 0;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     position: relative;
     z-index: 20;
-    margin-top: -40px; /* 写真に少し重ねる */
+    margin-top: -50px;
     border-radius: 8px;
 }
 
 .booking-form {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
-    gap: 20px;
+    gap: 30px;
 }
 
 /* ==========================================
-   4. コンテンツ・グリッド (About / Feature / News)
+   4. コンテンツ・グリッド
    ========================================== */
 
-/* Aboutセクション */
-.about-flex {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    padding: 80px 0;
-}
-.about-text, .about-image { flex: 1; }
-.about-image img { 
-    width: 100%; height: 450px; 
-    object-fit: cover; border-radius: 8px; 
-}
-
-/* こだわり (Feature) - PCで横並び、交互 */
+/* こだわり (Feature) */
 .feature-item {
     display: flex;
     align-items: center;
@@ -631,48 +154,41 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
     object-fit: cover; border-radius: 8px; 
 }
 
-/* 最新情報 (News) - 3列グリッド */
+/* ニュース (News) */
 .posts-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 40px;
 }
-.post img { 
-    width: 100%; height: 220px; 
-    object-fit: cover; border-radius: 8px; 
-}
+.post img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; }
 
-/* お部屋・プラン共通 (Cards) */
-.rooms-flex-container, .plans-grid {
+/* ギャラリー (Gallery) */
+.gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
     margin-top: 40px;
 }
+.gallery-item { aspect-ratio: 3 / 2; overflow: hidden; border-radius: 4px; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.gallery-item:hover img { transform: scale(1.1); }
 
 /* ==========================================
-   5. スマホ対応 (Responsive)
+   5. スマホ対応
    ========================================== */
 @media (max-width: 767px) {
-    /* ナビ */
     .navbtn { display: block; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; z-index: 1001; }
     .nav { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: var(--main-color); transition: 0.5s ease; z-index: 999; padding-top: 100px; }
     html.open .nav { right: 0; }
     .nav ul { flex-direction: column; align-items: center; gap: 40px; }
 
-    /* レイアウトを縦1列に強制 */
-    .about-flex, .feature-item, .feature-item.reverse, .booking-form {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
+    .booking-form, .feature-item, .feature-item.reverse { flex-direction: column; align-items: stretch; gap: 20px; }
     .posts-container { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     
     .hero { height: 60vh; }
-    .booking-bar { margin-top: 20px; }
-
-    .about-image img, .feature-image img { height: 280px; }
+    .booking-bar { margin-top: 20px; width: 95%; }
 }
 
 /* ==========================================
@@ -680,73 +196,3 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
    ========================================== */
 .footer { background: var(--main-color); padding: 60px 0; color: #fff; text-align: center; }
 .footer-menu { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
-
-/* ==========================================
-   ヒーローセクション（メインビジュアル復元 & コピー拡大）
-   ========================================== */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 75vh;
-    min-height: 550px;
-    overflow: hidden;
-}
-
-/* 画像パスを正しく設定（ファイル名を確認してください） */
-.slide1 { background-image: url('main1.jpg'); }
-.slide2 { background-image: url('main2.jpg'); }
-.slide3 { background-image: url('main3.jpg'); }
-
-.hero-content h1 {
-    font-size: clamp(2.5rem, 5vw, 4.5rem); /* コピーを大きく */
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    margin-bottom: 20px;
-}
-
-.hero-content p {
-    font-size: clamp(1rem, 2vw, 1.5rem); /* サブコピーも調整 */
-    letter-spacing: 0.3em;
-}
-
-/* ==========================================
-   ギャラリー（綺麗なグリッド整列）
-   ========================================== */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* PCで3列 */
-    gap: 15px;
-    margin-top: 40px;
-}
-
-.gallery-item {
-    aspect-ratio: 3 / 2; /* 写真の比率を一定に保つ */
-    overflow: hidden;
-    border-radius: 4px;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 切り抜いてフィットさせる */
-    transition: transform 0.5s;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1); /* ホバー時の演出 */
-}
-
-/* スマホでは2列にする */
-@media (max-width: 767px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-}
-
-
-
-
-
-
-
