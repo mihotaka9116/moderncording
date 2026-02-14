@@ -482,6 +482,93 @@ h2, h3, .concept-title {
     }
 }
 
+/* ==========================================
+   予約バー（横並び）の調整
+   ========================================== */
+.booking-bar {
+    background-color: var(--white);
+    padding: 20px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* 軽い影で浮かせる */
+    position: relative;
+    z-index: 50;
+    margin-top: -40px; /* ヒーロー画像に少し被せる（モダンな演出） */
+    border-radius: 4px;
+}
+
+.booking-form {
+    display: flex;
+    flex-wrap: nowrap; /* PCでは折り返さない */
+    align-items: flex-end; /* ラベルと入力欄を揃える */
+    justify-content: center;
+    gap: 20px;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column; /* ラベルと入力を上下に */
+    gap: 8px;
+    flex: 1; /* 各項目の幅を均等に広げる */
+    min-width: 150px;
+}
+
+.form-item label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.form-item input, 
+.form-item select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    background-color: #f9f9f9;
+}
+
+/* 検索ボタン */
+.form-btn {
+    flex: 0 0 180px; /* ボタンの幅を固定 */
+}
+
+.btn-search {
+    width: 100%;
+    padding: 13px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+}
+
+.btn-search:hover {
+    background-color: var(--main-color);
+}
+
+/* --- スマホ時の調整 --- */
+@media (max-width: 767px) {
+    .booking-bar {
+        margin-top: 0;
+        padding: 30px 15px;
+    }
+    
+    .booking-form {
+        flex-direction: column; /* スマホでは縦並び */
+        gap: 15px;
+    }
+    
+    .form-item, .form-btn {
+        width: 100%;
+        flex: none;
+    }
+}
+
+
 
 
 
