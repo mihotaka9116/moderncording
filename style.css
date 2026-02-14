@@ -947,6 +947,60 @@ h2, h3, .concept-title {
     }
 }
 
+/* ==========================================
+   規約ページ・表のデザイン
+   ========================================== */
+.legal-page {
+    padding: var(--v-space) 0;
+    background-color: var(--bg-color);
+}
+
+.policy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px;
+    background-color: #fff;
+    border: 1px solid var(--sub-accent);
+}
+
+.policy-table th, .policy-table td {
+    padding: 20px;
+    border-bottom: 1px solid var(--sub-accent);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.policy-table th {
+    background-color: #f9f8f4; /* ほんのりベージュで高級感を */
+    color: var(--main-color);
+    width: 30%;
+    text-align: left;
+    font-weight: 600;
+    vertical-align: top;
+}
+
+.policy-table td {
+    color: var(--text-color);
+}
+
+.policy-table tr:last-child th, 
+.policy-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* スマホ表示での表の調整 */
+@media (max-width: 767px) {
+    .policy-table th, .policy-table td {
+        display: block;
+        width: 100%;
+    }
+    .policy-table th {
+        border-bottom: none;
+        padding-bottom: 5px;
+    }
+}
+
+
 
 
 
