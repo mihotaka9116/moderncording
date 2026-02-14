@@ -568,6 +568,21 @@ h2, h3, .concept-title {
     }
 }
 
+/* こだわりセクションの画像もアスペクト比を整える */
+.feature-image img {
+    width: 100%;
+    height: 450px; /* PCでの高さ */
+    object-fit: cover; /* 写真が歪まないように切り抜く */
+    border-radius: 4px;
+}
+
+@media (max-width: 767px) {
+    .feature-image img {
+        height: 300px; /* スマホでは少し高さを抑える */
+    }
+}
+
+
 
 
 
