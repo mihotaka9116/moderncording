@@ -477,6 +477,211 @@ h2, h3 {
     }
 }
 
+@charset "UTF-8";
+
+/* ==========================================
+   1. 変数・基本設定
+   ========================================== */
+:root {
+    --bg-color: #fdfcf9;
+    --main-color: #2c363f;
+    --accent-color: #9a8053;
+    --sub-accent: #e8e2d0;
+    --text-color: #444444;
+    --white: #ffffff;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Montserrat", "Noto Serif JP", serif;
+    font-weight: 400;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    -webkit-font-smoothing: antialiased;
+}
+
+html { scroll-behavior: smooth; }
+h1, h2, h3, p, figure, ul { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; transition: 0.3s; }
+img { display: block; max-width: 100%; height: auto; }
+
+.w-container {
+    width: min(92%, 1100px);
+    margin: auto;
+}
+
+h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em !important; color: var(--main-color); }
+
+/* ==========================================
+   2. ヘッダー & ナビゲーション
+   ========================================== */
+.header {
+    height: 80px;
+    background-color: var(--main-color);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.site a {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.1rem !important;
+    color: #ffffff !important;
+    text-transform: uppercase;
+}
+
+.logo-icon { color: var(--accent-color); font-size: 1rem; }
+
+.nav ul { display: flex; gap: 35px; }
+.nav ul li a { font-size: 0.85rem; }
+.nav ul li a:hover { color: var(--accent-color); }
+
+.navbtn { display: none; } /* PCでは隠す */
+
+/* ==========================================
+   3. ヒーローセクション & 予約バー
+   ========================================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 75vh; /* 巨大化防止：画面の75%に固定 */
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.hero-slider, .slide { width: 100%; height: 100%; }
+.slide { 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.slide1 { background-image: url('main1.jpg'); }
+.slide2 { background-image: url('main2.jpg'); }
+.slide3 { background-image: url('main3.jpg'); }
+
+.hero-content {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.booking-bar {
+    background-color: var(--white);
+    padding: 25px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 20;
+    margin-top: -40px; /* 写真に少し重ねる */
+    border-radius: 8px;
+}
+
+.booking-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+/* ==========================================
+   4. コンテンツ・グリッド (About / Feature / News)
+   ========================================== */
+
+/* Aboutセクション */
+.about-flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 80px 0;
+}
+.about-text, .about-image { flex: 1; }
+.about-image img { 
+    width: 100%; height: 450px; 
+    object-fit: cover; border-radius: 8px; 
+}
+
+/* こだわり (Feature) - PCで横並び、交互 */
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+.feature-item.reverse { flex-direction: row-reverse; }
+.feature-image, .feature-text { flex: 1; }
+.feature-image img { 
+    width: 100%; height: 400px; 
+    object-fit: cover; border-radius: 8px; 
+}
+
+/* 最新情報 (News) - 3列グリッド */
+.posts-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+.post img { 
+    width: 100%; height: 220px; 
+    object-fit: cover; border-radius: 8px; 
+}
+
+/* お部屋・プラン共通 (Cards) */
+.rooms-flex-container, .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* ==========================================
+   5. スマホ対応 (Responsive)
+   ========================================== */
+@media (max-width: 767px) {
+    /* ナビ */
+    .navbtn { display: block !important; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; z-index: 1001; }
+    .nav { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: var(--main-color); transition: 0.5s ease; z-index: 999; padding-top: 100px; }
+    html.open .nav { right: 0; }
+    .nav ul { flex-direction: column; align-items: center; gap: 40px; }
+
+    /* レイアウトを縦1列に強制 */
+    .about-flex, .feature-item, .feature-item.reverse, .booking-form {
+        flex-direction: column !important;
+        gap: 30px;
+    }
+    
+    .posts-container { grid-template-columns: 1fr; }
+    
+    .hero { height: 60vh; }
+    .booking-bar { margin-top: 20px; }
+
+    .about-image img, .feature-image img { height: 280px; }
+}
+
+/* ==========================================
+   6. フッター
+   ========================================== */
+.footer { background: var(--main-color); padding: 60px 0; color: #fff; text-align: center; }
+.footer-menu { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
+
+
 
 
 
