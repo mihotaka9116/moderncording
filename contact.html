@@ -33,62 +33,29 @@
         </div>
     </header>
 
-    <section class="contact-section">
-        <div class="w-container">
-            <div class="contact-intro">
-                <p>宿泊のご予約、ワークショップのご相談など、お気軽にお問い合わせください。<br>
-                内容を確認後、担当者より折り返しご連絡を差し上げます。</p>
-            </div>
-
-            <div class="contact-form-container">
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label>お問い合わせ種別 <span class="required">必須</span></label>
-                        <select name="subject" required>
-                            <option value="">選択してください</option>
-                            <option value="plan-fire">【予約希望】薪ストーブ朝食付プラン</option>
-                            <option value="plan-stay">【予約希望】素泊まりプラン</option>
-                            <option value="workshop">催し・ワークショップについて</option>
-                            <option value="other">その他のお問い合わせ</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>お名前 <span class="required">必須</span></label>
-                        <input type="text" name="name" placeholder="遠野 太郎" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>メールアドレス <span class="required">必須</span></label>
-                        <input type="email" name="email" placeholder="example@mail.com" required>
-                    </div>
-
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>ご宿泊希望日</label>
-                            <input type="date" name="stay-date">
-                        </div>
-                        <div class="form-group">
-                            <label>人数</label>
-                            <select name="guests">
-                                <option value="1">1名</option>
-                                <option value="2">2名</option>
-                                <option value="3">3名</option>
-                                <option value="4">4名以上</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>メッセージ内容</label>
-                        <textarea name="message" rows="8" placeholder="ご質問やご要望があればご記入ください。"></textarea>
-                    </div>
-
-                    <div class="form-submit">
-                        <button type="submit" class="btn">内容を確認して送信する</button>
-                    </div>
-                </form>
-            </div>
+<section class="contact-section">
+    <div class="w-container">
+        <div class="contact-header">
+            <h2 class="heading"><small>Contact</small>ご予約・お問い合わせ</h2>
+            <p class="contact-intro">ご不明な点や、特別な日のご相談など、お気軽にお問い合わせください。<br>
+            通常、3営業日以内に担当者よりお返事いたします。</p>
         </div>
-    </section>
+
+        <form class="contact-form-styled">
+            <div class="form-group">
+                <label>お名前<span>必須</span></label>
+                <input type="text" placeholder="遠野 雅代">
+            </div>
+            <div class="form-group">
+                <label>メールアドレス<span>必須</span></label>
+                <input type="email" placeholder="example@mail.com">
+            </div>
+            <div class="form-group">
+                <label>お問い合わせ内容<span>必須</span></label>
+                <textarea rows="8" placeholder="ご質問やご要望をご記入ください"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">送信内容を確認する</button>
+        </form>
+    </div>
+</section>
 </main>
