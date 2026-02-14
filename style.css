@@ -835,6 +835,80 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
     pointer-events: auto;
 }
 
+/* ナビゲーションやメニューの点を強制的に消す */
+.nav ul, 
+.footer-menu, 
+.footer-menu ul {
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+}
+
+.nav ul li, 
+.footer-menu li {
+    list-style: none !important;
+}
+
+/* ==========================================
+   about.html ページ全体の調整
+   ========================================== */
+
+/* メインの紹介エリア（古民家写真とテキスト） */
+.about-page {
+    padding-bottom: 80px;
+}
+
+/* 巨大すぎる画像を適切なサイズに制限 */
+.about-page img[alt="古民家の外観"] {
+    width: 100%;
+    max-width: 1000px; /* 画面いっぱいに広がらないよう制限 */
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    margin: 40px auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* 「EXPERIENCE 体験」セクションを横並びに整える */
+.experience-section {
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 100px 0;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* PCで3列に並べる */
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.experience-item {
+    text-align: left;
+}
+
+.experience-item h3 {
+    color: var(--accent-color) !important;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.experience-item p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* スマホ対応：1列に戻す */
+@media (max-width: 767px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+
 
 
 
