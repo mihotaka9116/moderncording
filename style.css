@@ -35,8 +35,8 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 h2, h3 {
-    font-weight: 500 !important;
-    letter-spacing: 0.25em !important;
+    font-weight: 500;
+    letter-spacing: 0.25em;
     color: var(--main-color);
 }
 
@@ -60,13 +60,13 @@ h2, h3 {
 }
 
 .site a {
-    display: flex !important;
+    display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 1.1rem !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
     font-weight: 400;
-    color: #ffffff !important;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.15em;
 }
@@ -78,7 +78,7 @@ h2, h3 {
 .nav ul li a:hover { color: var(--accent-color); }
 
 @media (max-width: 767px) {
-    .navbtn { display: block !important; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; z-index: 1000; }
+    .navbtn { display: block; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; z-index: 1000; }
     .nav { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: var(--main-color); transition: 0.5s ease; z-index: 999; padding-top: 100px; }
     html.open .nav { right: 0; }
     .nav ul { flex-direction: column; align-items: center; gap: 40px; }
@@ -109,7 +109,7 @@ h2, h3 {
 .room-card:hover, .plan-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
 .room-card-image, .plan-image { height: 260px; position: relative; }
-.room-card-image img, .plan-image img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
+.room-card-image img, .plan-image img { width: 100%; height: 100%; object-fit: cover; }
 
 .room-card-content, .plan-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
 
@@ -126,8 +126,8 @@ h2, h3 {
 }
 
 .btn-small {
-    background-color: var(--accent-color) !important;
-    color: #fff !important;
+    background-color: var(--accent-color);
+    color: #fff;
     padding: 12px 24px;
     border-radius: 4px;
     font-weight: 600;
@@ -216,13 +216,13 @@ h2, h3 {
 }
 
 .site a {
-    display: flex !important;
+    display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 1.1rem !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
     font-weight: 400;
-    color: #ffffff !important;
+    color: #fff;
     text-transform: uppercase;
     letter-spacing: 0.15em;
 }
@@ -251,7 +251,7 @@ h2, h3 {
 @media (max-width: 767px) {
     /* ★スマホではハンバーガーボタンを表示 */
     .navbtn { 
-        display: block !important; 
+        display: block; 
         background: none; 
         border: none; 
         color: #fff; 
@@ -307,9 +307,9 @@ h2, h3 {
 }
 
 /* 各スライドの画像指定（HTMLのクラス名に合わせて） */
-.slide1 { background-image: url('main1.jpg'); }
-.slide2 { background-image: url('main2.jpg'); }
-.slide3 { background-image: url('main3.jpg'); }
+.slide1 { background-image: url('kiminka.jpg'); }
+.slide2 { background-image: url('hosizora.jpg'); }
+.slide3 { background-image: url('living.jpg'); }
 
 /* 写真の上の文字が重なって見にくい場合の調整 */
 .hero-content {
@@ -364,7 +364,7 @@ h2, h3 {
 /* スマホ用の調整 */
 @media (max-width: 767px) {
     .hero {
-        height: 60vh; /* スマホではもう少し低くすると使いやすいです */
+        height: 60vh; /* スマホではもう少し低くすると使いやすい*/
     }
 }
 
@@ -415,7 +415,7 @@ h2, h3 {
 /* --- スマホでは縦並びに戻す --- */
 @media (max-width: 767px) {
     .about-flex, .feature-item {
-        flex-direction: column !important;
+        flex-direction: column;
     }
     .about-image img, .feature-image img {
         height: 250px;
@@ -424,7 +424,7 @@ h2, h3 {
 
 /* メイン写真の高さを制限 */
 .hero {
-    height: 70vh; /* 画面の7割に。これで下がチラ見えして綺麗です */
+    height: 70vh; /* 画面の7割 */
     min-height: 450px;
     overflow: hidden;
     position: relative;
@@ -512,7 +512,7 @@ img { display: block; max-width: 100%; height: auto; }
     margin: auto;
 }
 
-h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em !important; color: var(--main-color); }
+h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-color); }
 
 /* ==========================================
    2. ヘッダー & ナビゲーション
@@ -534,12 +534,12 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em !important; color: 
 }
 
 .site a {
-    display: flex !important;
+    display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 1.1rem !important;
-    color: #ffffff !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #ffffff;
     text-transform: uppercase;
 }
 
@@ -656,14 +656,14 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em !important; color: 
    ========================================== */
 @media (max-width: 767px) {
     /* ナビ */
-    .navbtn { display: block !important; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; z-index: 1001; }
+    .navbtn { display: block; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; z-index: 1001; }
     .nav { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: var(--main-color); transition: 0.5s ease; z-index: 999; padding-top: 100px; }
     html.open .nav { right: 0; }
     .nav ul { flex-direction: column; align-items: center; gap: 40px; }
 
     /* レイアウトを縦1列に強制 */
     .about-flex, .feature-item, .feature-item.reverse, .booking-form {
-        flex-direction: column !important;
+        flex-direction: column;
         gap: 30px;
     }
     
@@ -743,6 +743,7 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em !important; color: 
         gap: 10px;
     }
 }
+
 
 
 
