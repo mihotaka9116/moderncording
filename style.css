@@ -908,6 +908,92 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
     }
 }
 
+/* ==========================================
+   全ページ共通：ナビゲーションの「点」を消す
+   ========================================== */
+.nav ul, 
+.footer-menu, 
+.footer-menu ul {
+    list-style: none !important; /* 強制的に点を消す */
+    padding: 0;
+    margin: 0;
+    display: flex; /* 横並びを維持 */
+}
+
+.nav ul li, 
+.footer-menu li {
+    list-style: none !important;
+}
+
+/* ==========================================
+   about.html（宿の紹介）専用の調整
+   ========================================== */
+
+/* メイン画像（縁側の写真など）のサイズを適正にする */
+.about-page img[alt="古民家の外観"] {
+    width: 100%;
+    max-width: 900px; /* 巨大化を防ぐ */
+    height: 500px;    /* 高さを固定 */
+    object-fit: cover;
+    margin: 40px auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* 紹介文の調整 */
+.about-page h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 40px 0 20px;
+}
+
+.about-page p {
+    max-width: 750px;
+    margin: 0 auto 60px;
+    line-height: 2.2;
+    text-align: center; /* 中央寄せ */
+}
+
+/* 体験（EXPERIENCE）セクションの横並び */
+/* HTML内のstyle属性より強く当てるための記述 */
+section[style*="background-color"] {
+    padding: 100px 0 !important;
+}
+
+section[style*="background-color"] .w-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 項目に合わせて2列または3列 */
+    gap: 40px;
+    max-width: 1000px;
+}
+
+/* 各体験項目の見出しとテキスト */
+section[style*="background-color"] h3 {
+    color: var(--accent-color) !important;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+section[style*="background-color"] p {
+    font-size: 0.95rem;
+    color: #eee;
+    text-align: left; /* 説明文は左寄せ */
+}
+
+/* スマホ対応 */
+@media (max-width: 767px) {
+    .nav ul {
+        flex-direction: column; /* スマホでは縦 */
+    }
+    .about-page img[alt="古民家の外観"] {
+        height: 300px;
+    }
+    section[style*="background-color"] .w-container {
+        grid-template-columns: 1fr; /* スマホでは1列 */
+    }
+}
+
+
 
 
 
