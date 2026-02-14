@@ -863,6 +863,91 @@ h2, h3, .concept-title {
     padding-top: 20px !important;
 }
 
+/* ==========================================
+   お部屋セクション（横並び）のブラッシュアップ
+   ========================================== */
+.rooms-flex-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+
+.room-card {
+    flex: 1; /* 二つのカードを同じ幅にする */
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.room-card-image {
+    height: 300px;
+}
+
+.room-card-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+}
+
+.room-card-content {
+    padding: 30px;
+}
+
+.room-card-content small {
+    display: block;
+    color: var(--accent-color);
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.room-card-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.room-card-content p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* 簡易スペック表 */
+.room-mini-spec {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px;
+}
+
+.room-mini-spec li {
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.room-mini-spec li span {
+    width: 60px;
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+/* スマホでは縦並びに戻す */
+@media (max-width: 767px) {
+    .rooms-flex-container {
+        flex-direction: column;
+    }
+    .room-card-image {
+        height: 250px;
+    }
+}
+
+
 
 
 
