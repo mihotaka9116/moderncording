@@ -712,6 +712,99 @@ h2, h3, .concept-title {
     }
 }
 
+/* ==========================================
+   お部屋詳細（Room Detail）のブラッシュアップ
+   ========================================== */
+.room-detail {
+    padding: var(--v-space) 0;
+}
+
+.room-flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+.room-desc {
+    flex: 1;
+}
+
+.room-desc small {
+    display: block;
+    color: var(--accent-color);
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.3em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.room-desc h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.room-desc .lead {
+    font-size: 1.1rem;
+    color: var(--main-color);
+    font-weight: 500;
+    margin-bottom: 30px;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 15px;
+}
+
+/* スペック表（定員・設備など）を上品に */
+.room-spec {
+    margin-top: 40px;
+    border-top: 1px solid var(--sub-accent);
+    padding-top: 30px;
+}
+
+.room-spec li {
+    display: flex;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.room-spec li span {
+    width: 100px;
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+/* フッターのリスト表示崩れ対策 */
+.footer-menu {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 0;
+    background-color: var(--main-color);
+    margin: 0; /* 点が出ないようにマージンをリセット */
+}
+
+.footer-menu li {
+    list-style: none;
+}
+
+.footer-menu a {
+    color: #fff;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.footer-menu a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+@media (max-width: 991px) {
+    .room-flex {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+
 
 
 
