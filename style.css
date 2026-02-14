@@ -339,4 +339,88 @@ h2, h3 {
     }
 }
 
+/* --- ヒーローセクション全体の高さを固定 --- */
+.hero {
+    width: 100%;
+    height: 75vh; /* 画面の高さの75%に制限。これで下の予約バーが少し見えます */
+    min-height: 500px; /* 小さくなりすぎないための最低ライン */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slider {
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;      /* 画像を枠いっぱいに広げる（必須） */
+    background-position: center; /* 中央合わせ（必須） */
+    background-repeat: no-repeat;
+}
+
+/* スマホ用の調整 */
+@media (max-width: 767px) {
+    .hero {
+        height: 60vh; /* スマホではもう少し低くすると使いやすいです */
+    }
+}
+
+/* --- Aboutセクションの修正 --- */
+.about-flex {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-top: 40px;
+}
+
+.about-text { flex: 1; }
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    height: 450px; /* PCでの写真の高さを固定 */
+    object-fit: cover; /* 画像を切り抜いてフィットさせる */
+    border-radius: 8px;
+}
+
+/* --- Hospitality（こだわり）セクションの修正 --- */
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+.feature-item.reverse {
+    flex-direction: row-reverse; /* 写真と文字を交互にする */
+}
+
+.feature-image {
+    flex: 1;
+}
+
+.feature-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* --- スマホでは縦並びに戻す --- */
+@media (max-width: 767px) {
+    .about-flex, .feature-item {
+        flex-direction: column !important;
+    }
+    .about-image img, .feature-image img {
+        height: 250px;
+    }
+}
+
+
 
