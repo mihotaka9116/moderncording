@@ -759,6 +759,83 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
     }
 }
 
+/* ==========================================
+   3. ヒーローセクション（ループアニメーション復元）
+   ========================================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    min-height: 550px;
+    background-color: #333; /* 背景を暗くして文字を見やすく */
+    overflow: hidden;
+}
+
+.hero-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0; /* 最初は消しておく */
+    animation: sliderFade 15s infinite; /* 15秒かけてループ */
+}
+
+/* 各スライドの画像指定（実際のファイル名に合わせて調整してください） */
+.slide1 { background-image: url('kominka.jpg'); animation-delay: 0s; }
+.slide2 { background-image: url('hosizora.jpg'); animation-delay: 5s; }
+.slide3 { background-image: url('irori.jpg'); animation-delay: 10s; }
+
+/* フェードアニメーションの設定（1→2→3と切り替わる） */
+@keyframes sliderFade {
+    0% { opacity: 0; }
+    10% { opacity: 1; }  /* じわっと表示 */
+    33% { opacity: 1; }  /* 表示を維持 */
+    43% { opacity: 0; }  /* 次へ消える */
+    100% { opacity: 0; }
+}
+
+/* 写真の上の文字（常に最前面に配置） */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.6); /* 文字の影を強くして視認性アップ */
+    z-index: 50; /* 写真(z-index: 1)より上に */
+    width: 100%;
+    pointer-events: none; /* 文字がボタンの邪魔をしないように */
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    letter-spacing: 0.3em;
+}
+
+/* ボタンなどはクリックできるようにpointer-eventsを戻す */
+.hero-content .btn {
+    pointer-events: auto;
+}
+
+
 
 
 
