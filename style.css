@@ -92,7 +92,7 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
 /* ★画像ファイル名を実際のフォルダ内にある名前に合わせてください★ */
 .slide1 { background-image: url('kominka.jpg'); }
 .slide2 { background-image: url('hosizora.jpg'); }
-.slide3 { background-image: url('living.jpg'); }
+.slide3 { background-image: url('sifa.jpg'); }
 
 .hero-content {
     position: absolute;
@@ -834,6 +834,7 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
 .hero-content .btn {
     pointer-events: auto;
 }
+
 
 
 
