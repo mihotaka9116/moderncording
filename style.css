@@ -379,3 +379,109 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
     background-color: var(--accent-color);
 }
 
+/* ==========================================
+   お部屋・プランページ専用の調整
+   ========================================== */
+
+/* ページ上部の見出しエリア */
+.legal-page h1 {
+    text-align: center;
+    padding: 60px 0 20px;
+    font-size: 2.5rem;
+}
+
+.legal-page p {
+    text-align: center;
+    margin-bottom: 60px;
+    color: #666;
+}
+
+/* カードを横並びにする（グリッド設定） */
+.rooms-flex-container, 
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* PCで2列に並べる */
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+/* カード全体のデザイン */
+.room-card, 
+.plan-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* 高さを揃える */
+    transition: 0.3s;
+}
+
+.room-card:hover, 
+.plan-card:hover {
+    transform: translateY(-10px);
+}
+
+/* 画像の巨大化を抑え、比率を固定する */
+.room-card-image, 
+.plan-image {
+    width: 100%;
+    height: 300px; /* PCでの高さを固定 */
+    overflow: hidden;
+}
+
+.room-card-image img, 
+.plan-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像を歪ませず切り抜く */
+}
+
+/* カード内のテキストエリア */
+.room-card-content, 
+.plan-content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.room-card-content h3, 
+.plan-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--main-color);
+}
+
+/* プラン価格とボタンの装飾 */
+.plan-footer {
+    margin-top: auto; /* 下に固定 */
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plan-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* スマホ対応：1列にする */
+@media (max-width: 767px) {
+    .rooms-flex-container, 
+    .plans-grid {
+        grid-template-columns: 1fr; /* スマホでは1列 */
+        gap: 25px;
+    }
+    
+    .room-card-image, 
+    .plan-image {
+        height: 220px; /* スマホでは高さを少し低く */
+    }
+}
+
+
