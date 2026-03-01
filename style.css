@@ -1173,6 +1173,24 @@ main {
     margin-bottom: 10px;
 }
 
+/* ロゴのテキストをそのままの表記（大文字・小文字混じり）にする */
+.site a {
+    text-transform: none !important; /* すべて大文字にする指定を解除 */
+    display: flex;
+    align-items: center;
+    gap: 12px; /* 家のマークと文字の間隔を調整 */
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em; /* ロゴらしく少し文字間を整える */
+}
+
+/* 家のアイコンの大きさを微調整 */
+.logo-icon {
+    font-size: 1.4rem;
+    color: var(--accent-color); /* アイコンだけアクセントカラーにしてもお洒落です */
+}
+
+
 
 
 
