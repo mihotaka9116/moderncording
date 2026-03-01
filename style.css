@@ -1072,6 +1072,53 @@ section[style*="background-color"] p {
     transform: translateY(0);
 }
 
+/* ブラウザ独自の余白を完全にリセット */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 横揺れ防止 */
+}
+
+/* ヘッダー自体の余白を確認 */
+.header {
+    margin-top: 0; /* 上の隙間を消す */
+    width: 100%;
+}
+
+/* フッターの下の隙間を消す */
+.footer {
+    margin-bottom: 0;
+    padding: 60px 0; /* paddingで中の余白を調整 */
+}
+
+/* about-page全体のパディング設定を調整 */
+/* 現在 100px 0 になっているため、ヘッダー直下に大きな隙間が空いています */
+.about-page main {
+    padding-top: 0; 
+}
+
+/* セクション間の余白も調整 */
+.about-section {
+    margin-top: 0;
+    padding: 80px 0; /* marginではなくpaddingで余白を作る */
+}
+
+/* 強制リセット用 */
+body.about-page {
+    padding-top: 0 !important;
+}
+
+.header {
+    top: 0 !important;
+}
+
+/* フッターの下を詰める */
+footer.footer {
+    margin-bottom: 0 !important;
+    display: block !important;
+}
+
+
 
 
 
