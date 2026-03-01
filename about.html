@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="style.css" rel="stylesheet">
 </head>
-<body class="about-page"> <header class="header">
+<body class="about-page"> 
+
+<header class="header">
     <div class="header-container w-container">
-        <h1 class="site"> <a href="index.html">
+        <h1 class="site"> 
+            <a href="index.html">
                 <i class="fa-solid fa-house-chimney logo-icon"></i>
                 <span class="logo-text">Tohno Modern Retreat</span>
             </a>
@@ -28,7 +31,9 @@
 </header>
 
 <main>
-    <section class="about-section js-fade"> <div class="w-container about-flex"> <div class="about-section-image">
+    <section class="about-section js-fade"> 
+        <div class="w-container about-flex"> 
+            <div class="about-section-image">
                 <img src="img/engawa.jpg" alt="古民家の縁側">
             </div>
             <div class="about-section-text">
@@ -48,7 +53,8 @@
             <h2 class="heading-decoration">EXPERIENCE 体験</h2>
             <div class="experience-grid">
                 <div class="experience-item">
-                    <i class="fa-solid fa-utensils"></i> <h3>地物と発酵の朝食</h3>
+                    <i class="fa-solid fa-utensils"></i> 
+                    <h3>地物と発酵の朝食</h3>
                     <p>遠野の肥沃な大地で育った新鮮な野菜と、古くからこの地に伝わる発酵文化を取り入れた朝食。炊き立ての岩手産米とともに、身体の芯から目覚める時間をお届けします。</p>
                 </div>
                 <div class="experience-item">
@@ -77,6 +83,15 @@
         <p class="copyright">© Tohno Modern Retreat All Rights Reserved.</p>
     </div>
 </footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('is-show');
+    });
+});
+document.querySelectorAll('.js-fade').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
