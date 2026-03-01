@@ -993,6 +993,86 @@ section[style*="background-color"] p {
     }
 }
 
+/* ==========================================
+   ヒーローセクションの視認性向上
+   ========================================== */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* 画像の上に薄い黒を重ねて文字を読みやすく */
+    z-index: 5;
+}
+
+.hero-content {
+    z-index: 10; /* 背景（5）より上に配置 */
+}
+
+/* ==========================================
+   予約バー（Booking Bar）の入力欄デザイン
+   ========================================== */
+.form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-item input, 
+.form-item select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 0.9rem;
+}
+
+.btn-search {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.btn-search:hover {
+    background: var(--accent-color);
+}
+
+/* ==========================================
+   About / Experience ページのグリッド調整
+   ========================================== */
+/* セクションが複数ある場合、交互に背景色を変える */
+.about-page section:nth-of-type(even) {
+    background-color: #f4f1ea;
+}
+
+/* 体験グリッド（3列を維持しつつスマホで1列） */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+/* ==========================================
+   全ページ共通：フェードイン（js-fade）の挙動
+   ========================================== */
+.js-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.js-fade.is-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 
 
 
