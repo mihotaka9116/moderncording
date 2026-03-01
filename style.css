@@ -1118,6 +1118,62 @@ footer.footer {
     display: block !important;
 }
 
+/* 1. bodyの余計な余白をリセット */
+body.about-page {
+    margin: 0 !important;
+    padding: 0 !important; /* ここが100pxになっているのが隙間の正体です */
+}
+
+/* 2. ヘッダーを一番上に密着させる */
+.header {
+    margin-top: 0 !important;
+    top: 0 !important;
+}
+
+/* 3. フッターの下の隙間（もしあれば）を消す */
+.footer {
+    margin-bottom: 0 !important;
+}
+
+/* 4. 代わりにコンテンツの上側に余白を作る（ヘッダーに被らないように） */
+main {
+    padding-top: 0; /* stickyヘッダーの場合は0でOK */
+}
+
+/* 体験セクション全体の文字を白く、読みやすくする */
+.experience-section {
+    background-color: var(--main-color) !important; /* 背景をしっかり濃い色に */
+    color: #ffffff !important; /* 全体の文字を白に */
+    padding: 100px 0;
+}
+
+/* タイトル（EXPERIENCE 体験）の色 */
+.experience-section .heading-decoration {
+    color: #ffffff !important;
+}
+
+/* 各項目の説明文（pタグ）の色と透明度 */
+.experience-item p {
+    color: rgba(255, 255, 255, 0.9) !important; /* 純白より少しだけ落とすと目に優しいです */
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+/* 見出し（h3）はアクセントカラーで見やすく */
+.experience-item h3 {
+    color: var(--accent-color) !important;
+    margin-top: 15px;
+    font-weight: 600 !important;
+}
+
+/* アイコンの色も調整 */
+.experience-item i {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+
 
 
 
