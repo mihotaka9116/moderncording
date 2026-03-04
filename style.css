@@ -1190,6 +1190,26 @@ main {
     color: var(--accent-color); /* アイコンだけアクセントカラーにしてもお洒落です */
 }
 
+.site a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* フォントをMontserratに固定し、太さを700（Bold）に指定 */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-transform: none !important;
+    
+    /* 文字の幅（間隔）を微調整：ここを 0 にするか、極端に狭く/広く設定します */
+    letter-spacing: 0em; 
+    
+    /* 文字が横に広がらないように設定 */
+    font-stretch: normal;
+    white-space: nowrap; /* 改行を防ぐ */
+}
+
+
 
 
 
