@@ -28,23 +28,29 @@
 <body>
 
 <header class="header">
-    <div class="header-container w-container">
-       <a href="index.html">
+    <div class="w-container header-container">
+        <h1 class="site">
+            <a href="index.html">
                 <i class="fa-solid fa-house-chimney logo-icon"></i>
                 <span class="logo-text">Tohno Modern Retreat</span>
             </a>
+        </h1>
+
+        <button class="navbtn" onClick="document.querySelector('html').classList.toggle('open')">
+            <i class="fas fa-bars"></i>
+        </button>
+
         <nav class="nav">
-    <ul>
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="about.html">宿の紹介</a></li>
-        <li><a href="content.html">お部屋・プラン</a></li>
-        <li><a href="access.html">アクセス</a></li> 
-        <li><a href="contact.html">お問い合わせ</a></li>             
-    </ul>
-</nav>
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="about.html">宿の紹介</a></li>
+                <li><a href="content.html">お部屋・プラン</a></li>
+                <li><a href="access.html">アクセス</a></li> 
+                <li><a href="contact.html">お問い合わせ</a></li>              
+            </ul>
+        </nav>
     </div>
 </header>
-
 <main class="contact-page">
     <header class="content-hero">
         <div class="w-container">
