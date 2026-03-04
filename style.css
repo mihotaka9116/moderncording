@@ -1209,6 +1209,19 @@ main {
     white-space: nowrap; /* 改行を防ぐ */
 }
 
+.site a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    font-family: 'Montserrat', sans-serif !important; /* ここが重要 */
+    font-weight: 700 !important;
+    font-size: 1.1rem !important; /* 他のページとサイズを合わせる */
+    letter-spacing: 0.1em !important; /* ギュッとならないように少しゆとりを持たせる */
+    text-transform: none !important;
+    white-space: nowrap !important; /* 改行させない */
+}
+
+
 
 
 
