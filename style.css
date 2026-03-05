@@ -1061,16 +1061,7 @@ section[style*="background-color"] p {
 /* ==========================================
    全ページ共通：フェードイン（js-fade）の挙動
    ========================================== */
-.js-fade {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.2s ease, transform 1.2s ease;
-}
 
-.js-fade.is-show {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 /* ブラウザ独自の余白を完全にリセット */
 body {
@@ -1491,6 +1482,70 @@ html.open .navbtn .fa-xmark {
     .room-item { flex-direction: column; }
     .room-item-image, .room-item-info { width: 100%; }
 }
+
+/* フェードアニメーションの基本設定 */
+.js-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    visibility: hidden; /* 完全に隠す */
+}
+
+/* クラスがついた時に表示する */
+.js-fade.is-show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible; /* 表示する */
+}
+
+/* 予約結果ページのカードデザイン */
+.room-item {
+    display: flex;
+    background: #fff;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.room-item-image { 
+    flex: 4; /* 幅の4割 */
+    min-height: 300px;
+}
+
+.room-item-info {
+    flex: 6; /* 幅の6割 */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* スマホでは縦並びに切り替え */
+@media (max-width: 768px) {
+    .room-item { 
+        flex-direction: column; 
+    }
+    .room-item-image {
+        min-height: 200px;
+    }
+}
+/* Aboutページ全体の余白リセット */
+body.about-page {
+    margin: 0;
+    padding: 0;
+}
+
+/* ヘッダーに被らないようにメインコンテンツの上だけ少し空ける */
+.about-page main {
+    padding-top: 0; 
+}
+
+/* 最初のセクションの余白 */
+.about-page section:first-of-type {
+    padding-top: 80px;
+}
+
 
 
 
