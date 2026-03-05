@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>空室検索結果 | 遠野モダンリトリート</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="reservation-page">
+
+<main class="w-container">
+    <div class="page-header js-fade">
+        <small class="eng-sub-title">Check Availability</small>
+        <h1 class="heading-decoration">空室検索結果</h1>
+    </div>
+
+    <section class="reservation-result js-fade">
+        <div class="result-summary">
+            <p>ご指定の条件：<span id="display-date">2026年3月10日</span> / <span id="display-guests">2</span>名様</p>
+        </div>
+
+        <div class="available-rooms">
+            <div class="room-item">
+                <div class="room-item-image">
+                    <img src="fire.jpg" alt="メインルーム">
+                </div>
+                <div class="room-item-info">
+                    <h3>薪ストーブのメインルーム</h3>
+                    <p class="room-desc">火の粉がはぜる音、薪の香り。特別な時間をお約束します。</p>
+                    <div class="price-calc-area">
+                        <p class="price-label">合計料金（税込）</p>
+                        <p class="total-price">¥<span id="main-room-price">37,000</span>〜</p>
+                    </div>
+                    <a href="contact.html" class="btn-small">この部屋を予約する</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    // 仮想の価格ロジック
+    function calculatePrice() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const dateStr = urlParams.get('checkin') || "2026-03-10";
+        const guests = parseInt(urlParams.get('guests')) || 2;
+        
+        const date = new Date(dateStr);
+        const day = date.getDay(); // 0:日, 6:土
+        
+        // 基本単価（平日1名）
+        let basePrice = 18500;
+        
+        // 1. 土日祝（金土日）の変動（+3,000円）
+        if (day === 0 || day === 5 || day === 6) {
+            basePrice += 3000;
+        }
+
+        // 2. 人数による合計
+        const totalPrice = basePrice * guests;
+
+        // 表示の更新
+        document.getElementById('display-date').innerText = dateStr.replace(/-/g, '/');
+        document.getElementById('display-guests').innerText = guests;
+        document.getElementById('main-room-price').innerText = totalPrice.toLocaleString();
+    }
+    
+    window.onload = calculatePrice;
+</script>
+</body>
+</html>
