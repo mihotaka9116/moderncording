@@ -89,7 +89,7 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
     background-repeat: no-repeat;
 }
 
-/* ★画像ファイル名を実際のフォルダ内にある名前に合わせてください★ */
+/* ★画像ファイル名を実際のフォルダ内にある名前に合わせる★ */
 .slide1 { background-image: url('kominka.jpg'); }
 .slide2 { background-image: url('hosizora.jpg'); }
 .slide3 { background-image: url('sifa.jpg'); }
@@ -914,7 +914,7 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
 .nav ul, 
 .footer-menu, 
 .footer-menu ul {
-    list-style: none !important; /* 強制的に点を消す */
+    list-style: none; /* 強制的に点を消す */
     padding: 0;
     margin: 0;
     display: flex; /* 横並びを維持 */
@@ -922,7 +922,7 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
 
 .nav ul li, 
 .footer-menu li {
-    list-style: none !important;
+    list-style: none;
 }
 
 /* ==========================================
@@ -957,7 +957,7 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
 /* 体験（EXPERIENCE）セクションの横並び */
 /* HTML内のstyle属性より強く当てるための記述 */
 section[style*="background-color"] {
-    padding: 100px 0 !important;
+    padding: 100px 0;
 }
 
 section[style*="background-color"] .w-container {
@@ -1320,9 +1320,9 @@ html.open .navbtn .fa-xmark {
 
 /* もし既存の .legal-page p が邪魔をしている場合は以下で上書き */
 .legal-page p.sub-copy {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* 見出しの装飾（中央寄せ＋下線） */
@@ -1350,8 +1350,8 @@ html.open .navbtn .fa-xmark {
 /* --- お部屋・プランページ専用：中央配置の決定版 --- */
 
 .page-header {
-    text-align: center !important;
-    padding: 60px 0 40px !important;
+    text-align: center;
+    padding: 60px 0 40px;
     width: 100%;
 }
 
@@ -1362,9 +1362,9 @@ html.open .navbtn .fa-xmark {
 
 /* 「心に触れる、遠野のひととき。」の文字 */
 .sub-copy {
-    display: block !important;
-    text-align: center !important;
-    margin: 0 auto !important;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
     font-size: 1.1rem;
     letter-spacing: 0.3em;
     color: var(--text-color);
@@ -1400,7 +1400,7 @@ html.open .navbtn .fa-xmark {
 }
 
 .experience-section .heading-decoration {
-    color: #2c2c2c !important; /* 見出しをはっきり */
+    color: #2c2c2c; /* 見出しをはっきり */
 }
 
 /* アイコンと小見出しの色 */
@@ -1494,13 +1494,13 @@ html.open .navbtn .fa-xmark {
 
 /* 予約結果ページ専用の隙間消し */
 body.reservation-page {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
+    padding-top: 0;
+    margin-top: 0;
 }
 
 /* ヘッダーを最上部に固定 */
 .reservation-page .header {
-    top: 0 !important;
+    top: 0;
     position: sticky; /* または fixed */
 }
 
@@ -1511,25 +1511,25 @@ body.reservation-page {
 
 /* 文字の自動折り返しとボタンのはみ出し防止 */
 body.reservation-page * {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
+    max-width: 100%;
+    box-sizing: border-box;
     overflow-wrap: break-word; /* 長い文章がはみ出さないように途中で折る */
 }
 
 /* ボタン（btn-submit）の修正 */
 .reservation-page .btn-submit {
-    width: 100% !important; /* 親要素の幅いっぱいに広げる */
-    display: block !important;
-    margin: 20px 0 0 0 !important;
-    padding: 15px !important;
-    box-sizing: border-box !important; /* paddingが外に飛び出すのを防ぐ */
-    white-space: normal !important; /* 文字が長すぎてもボタン内で改行させる */
+    width: 100%; /* 親要素の幅いっぱいに広げる */
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 15px;
+    box-sizing: border-box; /* paddingが外に飛び出すのを防ぐ */
+    white-space: normal; /* 文字が長すぎてもボタン内で改行させる */
 }
 
 /* 部屋の説明文（room-desc）の修正 */
 .room-desc {
-    width: 100% !important;
-    line-height: 1.6 !important;
+    width: 100%;
+    line-height: 1.6;
     text-align: left;
     margin-bottom: 20px;
     padding-right: 10px; /* 右側に少しだけ余裕を作る */
@@ -1537,21 +1537,22 @@ body.reservation-page * {
 
 /* 料金計算エリアの修正 */
 .price-calc-area {
-    width: 100% !important;
-    margin-right: 0 !important;
-    margin-left: 0 !important;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0 !;
 }
 
 /* スマホ表示での微調整 */
 @media (max-width: 767px) {
     .room-item-info {
-        padding: 20px !important; /* スマホでは内側の余白を少し減らす */
+        padding: 20px; /* スマホでは内側の余白を少し減らす */
     }
     
     .room-desc br {
         display: none; /* スマホではHTMLの<br>による強制改行を無視して自然に折る */
     }
 }
+
 
 
 
