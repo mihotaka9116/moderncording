@@ -1546,6 +1546,48 @@ body.about-page {
     padding-top: 80px;
 }
 
+/* ==========================================
+   最終調整：空白・右端切れ・スマホ角丸解除
+   ========================================== */
+
+/* 1. 全ページ共通：ヘッダー上の空白を強制削除 */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden; /* 右端のハミ出しを防止 */
+}
+
+.header {
+    top: 0 !important;
+}
+
+/* 2. スマホ表示（768px以下）の特別な調整 */
+@media (max-width: 768px) {
+    /* ギャラリーの角を四角にする */
+    .gallery-item, 
+    .gallery-item img,
+    .room-card,
+    .room-card-image img,
+    .post img {
+        border-radius: 0 !important; /* 角丸を完全に消す */
+    }
+
+    /* 予約結果ページのカードもスマホでは四角にする */
+    .room-item {
+        border-radius: 0 !important;
+        margin-left: -4%; /* 親のw-containerの余白を無視して画面端まで広げる場合 */
+        margin-right: -4%;
+        width: 108%;
+    }
+
+    /* 右端切れ対策の補強 */
+    .w-container {
+        width: 92%;
+        margin: auto;
+        box-sizing: border-box;
+    }
+}
+
 
 
 
