@@ -1672,6 +1672,48 @@ main {
     }
 }
 
+/* ==========================================
+   【PC用】画像の巨大化・横長すぎを制限する
+   ========================================== */
+@media (min-width: 769px) {
+
+    /* 1. 「宿の紹介」などのメイン画像を適切なサイズに */
+    .about-page img[alt="古民家の外観"],
+    .about-section-image img {
+        width: 100% !important;
+        max-width: 800px !important; /* 横幅の最大値を制限 */
+        height: 450px !important;    /* 高さを少し抑える */
+        margin: 0 auto 40px !important; /* 中央寄せ */
+        object-fit: cover;
+    }
+
+    /* 2. 予約結果のカードを横長にさせすぎない */
+    .room-item {
+        max-width: 900px !important; /* カード全体の幅を制限 */
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* 3. 2カラム（画像と文字）のセクションのバランス調整 */
+    .about-section {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 50px; /* 画像と文字の間隔をほどよく */
+    }
+
+    /* 4. 画像の影（box-shadow）がズレすぎるのを修正 */
+    .about-section-image img {
+        box-shadow: 15px 15px 0px var(--sub-accent) !important;
+    }
+}
+
+/* 5. 【全デバイス共通】画像がボケたり歪んだりするのを防ぐ */
+img {
+    object-fit: cover;
+}
+
+
 
 
 
