@@ -1277,6 +1277,28 @@ html.open .navbtn .fa-xmark {
     line-height: 2.2;        /* 行間を広げると、よりゆったりした印象になります */
 }
 
+/* style.css の末尾を確認・修正 */
+.central-intro {
+    text-align: center;      /* 文字を中央へ */
+    margin: 0 auto;          /* ブロック自体を中央へ */
+    max-width: 800px;        
+    display: flex;           /* 追加：子要素を整列させる */
+    flex-direction: column;  /* 追加：縦並びに */
+    align-items: center;     /* 追加：h2などの要素を中央へ */
+}
+
+.central-intro p {
+    line-height: 2.2;
+    text-align: center;      /* 文章を中央寄せ */
+}
+
+/* 見出しの下線を中央から広がるように調整 */
+.central-intro .heading-decoration::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
 
 
 
