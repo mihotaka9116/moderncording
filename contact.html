@@ -86,6 +86,19 @@
         </p>
     </div>
 </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-show');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.js-fade').forEach(el => observer.observe(el));
+});
+</script>
 </body>
 </html>
 
