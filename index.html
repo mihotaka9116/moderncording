@@ -58,32 +58,31 @@
 </section>
 
     <div class="booking-bar">
-        <div class="w-container">
-            <form class="booking-form">
-                <div class="form-item">
-                    <label><i class="far fa-calendar-alt"></i> チェックイン</label>
-                    <input type="date" name="checkin">
-                </div>
-                <div class="form-item">
-                    <label><i class="far fa-calendar-alt"></i> チェックアウト</label>
-                    <input type="date" name="checkout">
-                </div>
-                <div class="form-item">
-                    <label><i class="fas fa-user-friends"></i> 人数</label>
-                    <select name="guests">
-                        <option value="1">1名</option>
-                        <option value="2" selected>2名</option>
-                        <option value="3">3名</option>
-                        <option value="4">4名</option>
-                    </select>
-                </div>
-               <form class="booking-form" action="reservation.html" method="get">
-    <div class="form-btn">
-        <button type="submit" class="btn-search">空室を検索</button>
+    <div class="w-container">
+        <form class="booking-form" action="reservation.html" method="get">
+            <div class="form-item">
+                <label><i class="far fa-calendar-alt"></i> チェックイン</label>
+                <input type="date" name="checkin" required>
+            </div>
+            <div class="form-item">
+                <label><i class="far fa-calendar-alt"></i> チェックアウト</label>
+                <input type="date" name="checkout" required>
+            </div>
+            <div class="form-item">
+                <label><i class="fas fa-user-friends"></i> 人数</label>
+                <select name="guests">
+                    <option value="1">1名</option>
+                    <option value="2" selected>2名</option>
+                    <option value="3">3名</option>
+                    <option value="4">4名</option>
+                </select>
+            </div>
+            <div class="form-btn">
+                <button type="submit" class="btn-search">空室を検索</button>
+            </div>
+        </form>
     </div>
-</form>
-        </div>
-    </div>
+</div>
         
   <section id="about" class="about-section js-fade">
     <div class="w-container">
