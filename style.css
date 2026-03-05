@@ -839,14 +839,14 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
 .nav ul, 
 .footer-menu, 
 .footer-menu ul {
-    list-style: none !important;
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .nav ul li, 
 .footer-menu li {
-    list-style: none !important;
+    list-style: none;
 }
 
 /* ==========================================
@@ -889,7 +889,7 @@ h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-
 }
 
 .experience-item h3 {
-    color: var(--accent-color) !important;
+    color: var(--accent-color);
     margin-bottom: 20px;
     font-size: 1.3rem;
 }
@@ -969,7 +969,7 @@ section[style*="background-color"] .w-container {
 
 /* 各体験項目の見出しとテキスト */
 section[style*="background-color"] h3 {
-    color: var(--accent-color) !important;
+    color: var(--accent-color);
     margin-bottom: 15px;
     font-size: 1.3rem;
 }
@@ -1105,34 +1105,34 @@ body {
 
 /* 強制リセット用 */
 body.about-page {
-    padding-top: 0 !important;
+    padding-top: 0;
 }
 
 .header {
-    top: 0 !important;
+    top: 0;
 }
 
 /* フッターの下を詰める */
 footer.footer {
-    margin-bottom: 0 !important;
-    display: block !important;
+    margin-bottom: 0;
+    display: block;
 }
 
 /* 1. bodyの余計な余白をリセット */
 body.about-page {
-    margin: 0 !important;
-    padding: 0 !important; /* ここが100pxになっているのが隙間の正体です */
+    margin: 0;
+    padding: 0; /* ここが100pxになっているのが隙間の正体です */
 }
 
 /* 2. ヘッダーを一番上に密着させる */
 .header {
-    margin-top: 0 !important;
-    top: 0 !important;
+    margin-top: 0;
+    top: 0;
 }
 
 /* 3. フッターの下の隙間（もしあれば）を消す */
 .footer {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
 }
 
 /* 4. 代わりにコンテンツの上側に余白を作る（ヘッダーに被らないように） */
@@ -1142,28 +1142,28 @@ main {
 
 /* 体験セクション全体の文字を白く、読みやすくする */
 .experience-section {
-    background-color: var(--main-color) !important; /* 背景をしっかり濃い色に */
-    color: #ffffff !important; /* 全体の文字を白に */
+    background-color: var(--main-color); /* 背景をしっかり濃い色に */
+    color: #ffffff; /* 全体の文字を白に */
     padding: 100px 0;
 }
 
 /* タイトル（EXPERIENCE 体験）の色 */
 .experience-section .heading-decoration {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 /* 各項目の説明文（pタグ）の色と透明度 */
 .experience-item p {
-    color: rgba(255, 255, 255, 0.9) !important; /* 純白より少しだけ落とすと目に優しいです */
+    color: rgba(255, 255, 255, 0.9); /* 純白より少しだけ落とすと目に優しいです */
     line-height: 1.8;
     font-size: 0.95rem;
 }
 
 /* 見出し（h3）はアクセントカラーで見やすく */
 .experience-item h3 {
-    color: var(--accent-color) !important;
+    color: var(--accent-color);
     margin-top: 15px;
-    font-weight: 600 !important;
+    font-weight: 600;
 }
 
 /* アイコンの色も調整 */
@@ -1175,7 +1175,7 @@ main {
 
 /* ロゴのテキストをそのままの表記（大文字・小文字混じり）にする */
 .site a {
-    text-transform: none !important; /* すべて大文字にする指定を解除 */
+    text-transform: none; /* すべて大文字にする指定を解除 */
     display: flex;
     align-items: center;
     gap: 12px; /* 家のマークと文字の間隔を調整 */
@@ -1199,7 +1199,7 @@ main {
     font-weight: 700;
     font-size: 1.2rem;
     color: #ffffff;
-    text-transform: none !important;
+    text-transform:;
     
     /* 文字の幅（間隔）を微調整：ここを 0 にするか、極端に狭く/広く設定します */
     letter-spacing: 0em; 
@@ -1210,16 +1210,47 @@ main {
 }
 
 .site a {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-    font-family: 'Montserrat', sans-serif !important; /* ここが重要 */
-    font-weight: 700 !important;
-    font-size: 1.1rem !important; /* 他のページとサイズを合わせる */
-    letter-spacing: 0.1em !important; /* ギュッとならないように少しゆとりを持たせる */
-    text-transform: none !important;
-    white-space: nowrap !important; /* 改行させない */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Montserrat', sans-serif; /* ここが重要 */
+    font-weight: 700;
+    font-size: 1.1rem; /* 他のページとサイズを合わせる */
+    letter-spacing: 0.1em; /* ギュッとならないように少しゆとりを持たせる */
+    text-transform: none;
+    white-space: nowrap; /* 改行させない */
 }
+
+/* 通常の三本線 */
+.hamburger {
+  position: relative;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+}
+.hamburger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s; /* アニメーション速度 */
+}
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 11px; }
+.hamburger span:nth-child(3) { bottom: 0; }
+
+/* メニューが開いた時（activeクラスがついた時）の「×」の形 */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(11px) rotate(-45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0; /* 真ん中の線を消す */
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-11px) rotate(45deg);
+}
+
 
 
 
