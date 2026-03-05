@@ -13,36 +13,133 @@
 <body class="reservation-page">
 
 <header class="header">
-    </header>
+    <div class="w-container header-container">
+        <h1 class="site">
+            <a href="index.html">
+                <i class="fa-solid fa-house-chimney logo-icon"></i>
+                <span class="logo-text">Tohno Modern Retreat</span>
+            </a>
+        </h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="about.html">宿の紹介</a></li>
+                <li><a href="content.html">お部屋・プラン</a></li>
+                <li><a href="access.html">アクセス</a></li> 
+                <li><a href="contact.html">お問い合わせ</a></li>                
+            </ul>
+        </nav>
+    </div>
+</header>
 
 <div style="width: 100%; overflow: hidden;">
-    <main class="w-container" style="padding-top: 80px; padding-bottom: 100px;">
-        </main>
+    <main class="w-container" style="padding-top: 100px; padding-bottom: 100px;">
+        <div class="page-header js-fade">
+            <small class="eng-sub-title">Check Availability</small>
+            <h1 class="heading-decoration">空室検索結果</h1>
+        </div>
+
+        <section class="reservation-result js-fade">
+            <div class="result-summary" style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 40px; text-align: center;">
+                <p style="font-size: 1.1rem;">
+                    <i class="far fa-calendar-check"></i> 宿泊日：<strong id="display-date">----/--/--</strong> 
+                    <span style="margin: 0 15px;">|</span>
+                    <i class="fas fa-users"></i> 人数：<strong id="display-guests">-</strong>名様
+                </p>
+            </div>
+
+            <div class="available-rooms">
+                <div class="room-item js-fade">
+                    <div class="room-item-image">
+                        <img src="fire.jpg" alt="メインルーム">
+                    </div>
+                    <div class="room-item-info">
+                        <span style="background: #a68d5e; color: #fff; font-size: 11px; padding: 3px 10px; border-radius: 20px;">残りわずか</span>
+                        <h3>薪ストーブのメインルーム</h3>
+                        <p class="room-desc">
+                            火の粉がはぜる音、薪の香り。都会の喧騒を離れ、<br>
+                            大切な人と心を通わせる特別な時間をお約束します。
+                        </p>
+                        
+                        <div class="price-calc-area" style="background: #fdfaf5; padding: 20px; border-radius: 5px; margin-bottom: 30px;">
+                            <p class="price-label">合計料金（税込）</p>
+                            <p class="total-price">¥<span id="main-room-price">---</span></p>
+                            <p id="price-note" style="font-size: 12px; color: #999; margin-top: 5px;"></p>
+                        </div>
+                        
+                        <a href="contact.html" class="btn-submit" style="display: inline-block; text-decoration: none; text-align: center; width: 100%;">この条件で予約へ進む</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="index.html" style="color: #666; font-size: 14px;"><i class="fas fa-arrow-left"></i> 検索し直す</a>
+            </div>
+        </section>
+    </main>
 </div>
 
 <footer class="footer">
-    </footer>
+    <div class="w-container">
+        <p class="copyright">&copy; Tohno Modern Retreat All Rights Reserved.</p>
+    </div>
+</footer>
 
 <script>
-    // ハンバーガーメニューの制御
+    // 1. 金額計算と表示のメイン機能
+    function calculatePrice() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const dateStr = urlParams.get('checkin') || new Date().toISOString().split("T")[0];
+        const guests = parseInt(urlParams.get('guests')) || 2;
+        
+        const date = new Date(dateStr);
+        const day = date.getDay();
+        const dayNames = ["日", "月", "火", "水", "木", "金", "土"];
+        
+        let unitPrice = 18500;
+        let note = "平日料金が適用されています。";
+        
+        if (day === 0 || day === 5 || day === 6) {
+            unitPrice += 3000;
+            note = "金土日・祝前日料金が適用されています。";
+        }
+
+        const totalPrice = unitPrice * guests;
+
+        document.getElementById('display-date').innerText = `${dateStr.replace(/-/g, '/')} (${dayNames[day]})`;
+        document.getElementById('display-guests').innerText = guests;
+        document.getElementById('main-room-price').innerText = totalPrice.toLocaleString();
+        document.getElementById('price-note').innerText = `※1名様あたり ¥${unitPrice.toLocaleString()}（${note}）`;
+        
+        // アニメーション発火
+        setTimeout(() => {
+            document.querySelectorAll('.js-fade').forEach(el => el.classList.add('is-show'));
+        }, 100);
+    }
+
+    // 2. 読み込み完了時に実行
+    window.addEventListener('DOMContentLoaded', () => {
+        calculatePrice();
+        observeAnimation();
+    });
+
+    // 3. ハンバーガーメニュー
     const navbtn = document.querySelector('.navbtn');
     const html = document.querySelector('html');
     if (navbtn) {
         navbtn.addEventListener('click', () => { html.classList.toggle('open'); });
     }
 
-    // スクロールアニメーションの制御
+    // 4. スクロールアニメーション
     const observeAnimation = () => {
         const targets = document.querySelectorAll('.js-fade');
-        const options = { threshold: 0.2 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) { entry.target.classList.add('is-show'); }
             });
-        }, options);
+        }, { threshold: 0.2 });
         targets.forEach(target => observer.observe(target));
     };
-    observeAnimation();
 </script>
 </body>
 </html>
