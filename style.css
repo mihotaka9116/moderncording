@@ -1251,6 +1251,23 @@ main {
   transform: translateY(-11px) rotate(45deg);
 }
 
+/* --- ハンバーガーボタン内のアイコン制御 --- */
+
+/* 1. 最初は×マークを隠す */
+.navbtn .fa-xmark {
+    display: none;
+}
+
+/* 2. メニューが開いた時（htmlにopenクラスがついた時） */
+html.open .navbtn .fa-bars {
+    display: none;      /* 三本線を消す */
+}
+
+html.open .navbtn .fa-xmark {
+    display: inline-block; /* ×を表示する */
+}
+
+
 
 
 
