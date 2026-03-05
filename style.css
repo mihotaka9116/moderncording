@@ -1423,6 +1423,30 @@ html.open .navbtn .fa-xmark {
     line-height: 1.8;
 }
 
+/* --- スマホ表示（768px以下）でのギャラリー調整 --- */
+@media (max-width: 768px) {
+    .gallery-grid {
+        display: flex;
+        flex-direction: column; /* 縦一列に並べる */
+        gap: 20px;              /* 画像同士の上下の隙間 */
+        padding: 0 20px;        /* 画面端に少し余白を作る */
+    }
+
+    .gallery-item {
+        width: 100%;            /* 横幅いっぱい */
+        aspect-ratio: 3 / 2;    /* 画像の比率を揃えて綺麗に見せる */
+        overflow: hidden;
+        border-radius: 8px;     /* 角を少し丸めるとモダンになります */
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;      /* 枠に合わせて画像を切り抜く（歪ませない） */
+    }
+}
+
+
 
 
 
