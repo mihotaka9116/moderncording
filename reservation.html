@@ -2,70 +2,125 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>空室検索結果 | 遠野モダンリトリート</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
 </head>
 <body class="reservation-page">
 
-<main class="w-container">
+<header class="header">
+    <div class="w-container header-container">
+        <h1 class="site">
+            <a href="index.html">
+                <i class="fa-solid fa-house-chimney logo-icon"></i>
+                <span class="logo-text">Tohno Modern Retreat</span>
+            </a>
+        </h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="about.html">宿の紹介</a></li>
+                <li><a href="content.html">お部屋・プラン</a></li>
+                <li><a href="access.html">アクセス</a></li> 
+                <li><a href="contact.html">お問い合わせ</a></li>              
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="w-container" style="padding-top: 150px; padding-bottom: 100px;">
     <div class="page-header js-fade">
         <small class="eng-sub-title">Check Availability</small>
         <h1 class="heading-decoration">空室検索結果</h1>
     </div>
 
     <section class="reservation-result js-fade">
-        <div class="result-summary">
-            <p>ご指定の条件：<span id="display-date">2026年3月10日</span> / <span id="display-guests">2</span>名様</p>
+        <div class="result-summary" style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 40px; text-align: center;">
+            <p style="font-size: 1.1rem;">
+                <i class="far fa-calendar-check"></i> 宿泊日：<strong id="display-date">2026/03/10</strong> 
+                <span style="margin: 0 15px;">|</span>
+                <i class="fas fa-users"></i> 人数：<strong id="display-guests">2</strong>名様
+            </p>
         </div>
 
         <div class="available-rooms">
-            <div class="room-item">
-                <div class="room-item-image">
-                    <img src="fire.jpg" alt="メインルーム">
+            <div class="room-item js-fade" style="display: flex; background: #fff; border: 1px solid #eee; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <div class="room-item-image" style="flex: 1; min-height: 300px;">
+                    <img src="fire.jpg" alt="メインルーム" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <div class="room-item-info">
-                    <h3>薪ストーブのメインルーム</h3>
-                    <p class="room-desc">火の粉がはぜる音、薪の香り。特別な時間をお約束します。</p>
-                    <div class="price-calc-area">
-                        <p class="price-label">合計料金（税込）</p>
-                        <p class="total-price">¥<span id="main-room-price">37,000</span>〜</p>
+                <div class="room-item-info" style="flex: 1.2; padding: 40px;">
+                    <span style="background: #a68d5e; color: #fff; font-size: 11px; padding: 3px 10px; border-radius: 20px;">残りわずか</span>
+                    <h3 style="font-size: 1.8rem; margin: 15px 0;">薪ストーブのメインルーム</h3>
+                    <p class="room-desc" style="color: #666; margin-bottom: 20px; line-height: 1.8;">
+                        火の粉がはぜる音、薪の香り。都会の喧騒を離れ、<br>
+                        大切な人と心を通わせる特別な時間をお約束します。
+                    </p>
+                    
+                    <div class="price-calc-area" style="background: #fdfaf5; padding: 20px; border-radius: 5px; margin-bottom: 30px;">
+                        <p class="price-label" style="font-size: 13px; color: #888;">合計料金（税込）</p>
+                        <p class="total-price" style="font-size: 2.2rem; color: #a68d5e; font-weight: 700; font-family: 'Montserrat';">
+                            ¥<span id="main-room-price">---</span>
+                        </p>
+                        <p id="price-note" style="font-size: 12px; color: #999; margin-top: 5px;"></p>
                     </div>
-                    <a href="contact.html" class="btn-small">この部屋を予約する</a>
+                    
+                    <a href="contact.html" class="btn-submit" style="display: inline-block; text-decoration: none; text-align: center; width: 100%;">この条件で予約へ進む</a>
                 </div>
             </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="index.html" style="color: #666; font-size: 14px;"><i class="fas fa-arrow-left"></i> 検索し直す</a>
         </div>
     </section>
 </main>
 
+<footer class="footer">
+    <div class="w-container">
+        <p class="copyright">&copy; Tohno Modern Retreat All Rights Reserved.</p>
+    </div>
+</footer>
+
 <script>
-    // 仮想の価格ロジック
     function calculatePrice() {
         const urlParams = new URLSearchParams(window.location.search);
-        const dateStr = urlParams.get('checkin') || "2026-03-10";
+        const dateStr = urlParams.get('checkin') || new Date().toISOString().split("T")[0];
         const guests = parseInt(urlParams.get('guests')) || 2;
         
         const date = new Date(dateStr);
-        const day = date.getDay(); // 0:日, 6:土
+        const day = date.getDay(); // 0:日, 5:金, 6:土
+        const dayNames = ["日", "月", "火", "水", "木", "金", "土"];
         
-        // 基本単価（平日1名）
-        let basePrice = 18500;
+        // 基本単価（平日1名：18,500円）
+        let unitPrice = 18500;
+        let note = "平日料金が適用されています。";
         
-        // 1. 土日祝（金土日）の変動（+3,000円）
+        // 土日祝（金土日）の変動（+3,000円）
         if (day === 0 || day === 5 || day === 6) {
-            basePrice += 3000;
+            unitPrice += 3000;
+            note = "金土日・祝前日料金が適用されています。";
         }
 
-        // 2. 人数による合計
-        const totalPrice = basePrice * guests;
+        const totalPrice = unitPrice * guests;
 
         // 表示の更新
-        document.getElementById('display-date').innerText = dateStr.replace(/-/g, '/');
+        document.getElementById('display-date').innerText = `${dateStr.replace(/-/g, '/')} (${dayNames[day]})`;
         document.getElementById('display-guests').innerText = guests;
         document.getElementById('main-room-price').innerText = totalPrice.toLocaleString();
+        document.getElementById('price-note').innerText = `※1名様あたり ¥${unitPrice.toLocaleString()}（${note}）`;
+        
+        // フェードアニメーション用
+        setTimeout(() => {
+            document.querySelectorAll('.js-fade').forEach(el => el.classList.add('is-show'));
+        }, 100);
     }
     
     window.onload = calculatePrice;
 </script>
+
 </body>
 </html>
