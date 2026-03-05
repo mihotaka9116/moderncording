@@ -1298,6 +1298,34 @@ html.open .navbtn .fa-xmark {
     transform: translateX(-50%);
 }
 
+/* お部屋・プランページの見出しエリア */
+.page-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.page-header h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 20px;
+}
+
+.sub-copy {
+    text-align: center;      /* 文字を中央へ */
+    margin: 0 auto;          /* ブロックを中央へ */
+    font-size: 1.1rem;
+    letter-spacing: 0.3em;   /* 文字間を広げて情緒的に */
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* もし既存の .legal-page p が邪魔をしている場合は以下で上書き */
+.legal-page p.sub-copy {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
 
 
 
