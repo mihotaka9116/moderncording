@@ -1633,6 +1633,45 @@ main {
     overflow: hidden;
 }
 
+/* --- 予約ページ専用の不具合修正 --- */
+
+/* 1. ページ全体の横揺れ（右端切れ）を物理的にカット */
+.reservation-page {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* 2. スマホで中身がはみ出さないように調整 */
+@media (max-width: 768px) {
+    /* reservation.html の mainタグの余白を調整 */
+    .reservation-page main.w-container {
+        padding-top: 20px !important; /* ヘッダーがstickyなので、その分を考慮 */
+        width: 95% !important; /* 画面幅いっぱいに近くする */
+        margin: 0 auto;
+    }
+
+    /* カードを縦並びに強制し、幅を100%に収める */
+    .room-item {
+        flex-direction: column !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box; /* 枠線を含めて100%にする */
+    }
+
+    .room-item-image, 
+    .room-item-info {
+        width: 100% !important;
+        flex: none !important;
+    }
+
+    /* 風景画像の角丸を維持（以前のご要望通り） */
+    .room-item,
+    .room-item-image img {
+        border-radius: 8px !important;
+    }
+}
+
 
 
 
