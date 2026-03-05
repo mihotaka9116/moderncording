@@ -1392,6 +1392,38 @@ html.open .navbtn .fa-xmark {
     margin-bottom: 2rem;
 }
 
+/* EXPERIENCEセクションの文字色を強制的に濃くする */
+.experience-section {
+    background-color: #f9f9f9; /* ほんの少しグレーの背景にすると高級感が出ます */
+    color: #333; /* 文字を濃いグレーに */
+    padding: 100px 0;
+}
+
+.experience-section .heading-decoration {
+    color: #2c2c2c !important; /* 見出しをはっきり */
+}
+
+/* アイコンと小見出しの色 */
+.experience-item i {
+    color: #a68d5e; /* 金茶色のアクセントカラー */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.experience-item h3 {
+    color: #333;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.experience-item p {
+    color: #555; /* 本文は少しだけ柔らかい色に */
+    line-height: 1.8;
+}
+
+
 
 
 
