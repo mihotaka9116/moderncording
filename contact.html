@@ -35,39 +35,50 @@
         </nav>
     </div>
 </header>
+お問い合わせ（Contact）ページも、これまでの修正と同じトーンで整えましょう！
+統一感が出るように、「英語が上で日本語が下」の見出しスタイルを適用し、テキストの中央配置と**フェードアニメーション（js-fade）**を組み込みます。
+
+1. HTMLの修正案
+<main> タグの中身を、他のページと共通のクラス構成（page-header や js-fade）に書き換えます。
+
+HTML
 <main class="contact-page">
-    <header class="content-hero">
-        <div class="w-container">
-            <h1>Contact</h1>
-            <p>ご予約・お問い合わせ</p>
+    <header class="legal-page"> <div class="w-container">
+            <div class="page-header js-fade">
+                <small class="eng-sub-title">Contact</small>
+                <h1 class="heading-decoration">ご予約・お問い合わせ</h1>
+            </div>
         </div>
     </header>
 
-<section class="contact-section">
-    <div class="w-container">
-        <div class="contact-header">
-            <h2 class="heading"><small>Contact</small>ご予約・お問い合わせ</h2>
-            <p class="contact-intro">ご不明な点や、特別な日のご相談など、お気軽にお問い合わせください。<br>
-            通常、3営業日以内に担当者よりお返事いたします。</p>
-        </div>
+    <section class="contact-section js-fade">
+        <div class="w-container">
+            <div class="contact-header" style="text-align: center; margin-bottom: 50px;">
+                <p class="contact-intro" style="line-height: 2; color: #666;">
+                    ご不明な点や、特別な日のご相談など、お気軽にお問い合わせください。<br>
+                    通常、3営業日以内に担当者よりお返事いたします。
+                </p>
+            </div>
 
-        <form class="contact-form-styled">
-            <div class="form-group">
-                <label>お名前<span>必須</span></label>
-                <input type="text" placeholder="遠野 雅代">
-            </div>
-            <div class="form-group">
-                <label>メールアドレス<span>必須</span></label>
-                <input type="email" placeholder="example@mail.com">
-            </div>
-            <div class="form-group">
-                <label>お問い合わせ内容<span>必須</span></label>
-                <textarea rows="8" placeholder="ご質問やご要望をご記入ください"></textarea>
-            </div>
-            <button type="submit" class="btn-submit">送信内容を確認する</button>
-        </form>
-    </div>
-</section>
+            <form class="contact-form-styled js-fade">
+                <div class="form-group">
+                    <label>お名前<span>必須</span></label>
+                    <input type="text" placeholder="遠野 雅代">
+                </div>
+                <div class="form-group">
+                    <label>メールアドレス<span>必須</span></label>
+                    <input type="email" placeholder="example@mail.com">
+                </div>
+                <div class="form-group">
+                    <label>お問い合わせ内容<span>必須</span></label>
+                    <textarea rows="8" placeholder="ご質問やご要望をご記入ください"></textarea>
+                </div>
+                <div class="btn-container" style="text-align: center; margin-top: 40px;">
+                    <button type="submit" class="btn-submit">送信内容を確認する</button>
+                </div>
+            </form>
+        </div>
+    </section>
 </main>
     <footer class="footer">
     <div class="w-container">
