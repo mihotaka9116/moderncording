@@ -1765,6 +1765,57 @@ img {
 img {
     object
 
+   /* ==========================================
+   PCでの横長・間延び問題を完全に解消する
+   ========================================== */
+@media (min-width: 769px) {
+
+    /* 1. コンテナの最大幅を厳守させる */
+    .w-container {
+        width: 90% !important;
+        max-width: 1000px !important; /* コンテンツが広がりすぎないように制限 */
+        margin: 0 auto !important;
+    }
+
+    /* 2. 宿の紹介（About）などの巨大画像を適正サイズに */
+    .about-page img[alt="古民家の外観"],
+    .about-section-image img,
+    .about-section-image {
+        width: 100% !important;
+        max-width: 800px !important; /* 画像の横幅を制限 */
+        height: 450px !important;    /* 高さを少し抑える */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        object-fit: cover;           /* 画像を歪ませない */
+        display: block;
+    }
+
+    /* 3. 2カラムのセクションが横に広がりすぎるのを防ぐ */
+    .about-section {
+        max-width: 1000px !important;
+        margin: 0 auto 80px !important;
+        gap: 50px !important;
+    }
+
+    /* 4. 予約結果のカード（room-item）の横長を防止 */
+    .room-item {
+        max-width: 900px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* 5. 予約結果の画像が横に伸びないように固定 */
+    .room-item-image {
+        flex: 0 0 350px !important; /* 画像の幅を固定（350px） */
+    }
+}
+
+/* 全体共通：画像が絶対に歪まないようにするお守り */
+img {
+    object-fit: cover;
+}
+
+
 
 
 
