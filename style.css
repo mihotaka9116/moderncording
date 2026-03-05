@@ -1267,6 +1267,17 @@ html.open .navbtn .fa-xmark {
     display: inline-block; /* ×を表示する */
 }
 
+.central-intro {
+    text-align: center;      /* 文字を中央へ */
+    margin: 0 auto;          /* ブロック自体を中央へ */
+    max-width: 800px;        /* 横に広がりすぎないよう制限すると読みやすいです */
+}
+
+.central-intro p {
+    line-height: 2.2;        /* 行間を広げると、よりゆったりした印象になります */
+}
+
+
 
 
 
