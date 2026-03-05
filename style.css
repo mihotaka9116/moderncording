@@ -1446,6 +1446,52 @@ html.open .navbtn .fa-xmark {
     }
 }
 
+.reservation-page {
+    padding-top: 120px;
+    background-color: #fbfaf5;
+}
+
+.result-summary {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--main-color);
+}
+
+.room-item {
+    display: flex;
+    background: #fff;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.room-item-image { width: 40%; }
+.room-item-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.room-item-info {
+    padding: 30px;
+    width: 60%;
+}
+
+.total-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #a68d5e;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.price-label {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .room-item { flex-direction: column; }
+    .room-item-image, .room-item-info { width: 100%; }
+}
+
 
 
 
