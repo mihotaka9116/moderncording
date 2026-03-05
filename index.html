@@ -280,8 +280,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkin = document.querySelector('input[name="checkin"]');
     const checkout = document.querySelector('input[name="checkout"]');
     if (checkin && checkout) {
-        const today = new Date().toISOString().split("T")[0];
-        checkin.min = today;
+    const today = new Date().toISOString().split("T")[0];
+    checkin.min = today;
+        checkin.value = today;
         checkin.addEventListener('change', () => {
             checkout.min = checkin.value;
         });
