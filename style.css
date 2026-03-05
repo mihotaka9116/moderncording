@@ -1571,6 +1571,69 @@ html, body {
     }
 }
 
+/* ==========================================
+   【最終調整】角丸維持・空白除去・右端切れ防止
+   ========================================== */
+
+/* 1. 全ページ共通：最上部の隙間を物理的に消去 */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    overflow-x: hidden; /* 横揺れ（右端切れ）を防止 */
+}
+
+/* ヘッダーを画面最上部に固定 */
+.header {
+    top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* 2. スマホ表示（768px以下）での調整 */
+@media (max-width: 768px) {
+    
+    /* 遠野の風景やカードの角丸を「維持」または「微調整」 */
+    .gallery-item, 
+    .gallery-item img,
+    .room-item,
+    .room-item-image img,
+    .room-card,
+    .room-card-image img,
+    .feature-image img,
+    .post img,
+    .about-section-image img,
+    .about-page img[alt="古民家の外観"] {
+        border-radius: 12px !important; /* スマホでも優しく角を丸める */
+    }
+
+    /* 予約結果ページのカード */
+    .room-item {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        overflow: hidden; /* 中身の画像も角丸に合わせて切り抜く */
+    }
+
+    /* コンテナの幅を調整して、端が切れるのを防ぐ */
+    .w-container {
+        width: 90% !important; /* 左右に少し余裕を持たせて「切れ」を防止 */
+        margin: 0 auto;
+    }
+
+    /* 予約ページのトップ余白（空白が気になる場合、ここを調整） */
+    .reservation-page main {
+        padding-top: 100px !important; /* 150pxから100pxに詰めました */
+    }
+}
+
+/* 3. ハミ出しを隠すための保険設定 */
+.main-wrapper, 
+main {
+    width: 100%;
+    overflow: hidden;
+}
+
+
 
 
 
