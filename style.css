@@ -1492,6 +1492,67 @@ html.open .navbtn .fa-xmark {
     .room-item-image, .room-item-info { width: 100%; }
 }
 
+/* 予約結果ページ専用の隙間消し */
+body.reservation-page {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* ヘッダーを最上部に固定 */
+.reservation-page .header {
+    top: 0 !important;
+    position: sticky; /* または fixed */
+}
+
+/* もし main タグの上の余白が原因ならここで調整 */
+.reservation-page main {
+    padding-top: 50px; /* 100pxだと広すぎるので、ヘッダー分を考慮して調整 */
+}
+
+/* 文字の自動折り返しとボタンのはみ出し防止 */
+body.reservation-page * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-wrap: break-word; /* 長い文章がはみ出さないように途中で折る */
+}
+
+/* ボタン（btn-submit）の修正 */
+.reservation-page .btn-submit {
+    width: 100% !important; /* 親要素の幅いっぱいに広げる */
+    display: block !important;
+    margin: 20px 0 0 0 !important;
+    padding: 15px !important;
+    box-sizing: border-box !important; /* paddingが外に飛び出すのを防ぐ */
+    white-space: normal !important; /* 文字が長すぎてもボタン内で改行させる */
+}
+
+/* 部屋の説明文（room-desc）の修正 */
+.room-desc {
+    width: 100% !important;
+    line-height: 1.6 !important;
+    text-align: left;
+    margin-bottom: 20px;
+    padding-right: 10px; /* 右側に少しだけ余裕を作る */
+}
+
+/* 料金計算エリアの修正 */
+.price-calc-area {
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* スマホ表示での微調整 */
+@media (max-width: 767px) {
+    .room-item-info {
+        padding: 20px !important; /* スマホでは内側の余白を少し減らす */
+    }
+    
+    .room-desc br {
+        display: none; /* スマホではHTMLの<br>による強制改行を無視して自然に折る */
+    }
+}
+
 
 
 
