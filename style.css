@@ -1713,6 +1713,59 @@ img {
     object-fit: cover;
 }
 
+/* ==========================================
+   PC表示の横長・間延び問題を解決する修正
+   ========================================== */
+@media (min-width: 769px) {
+    /* 1. ページ全体の最大幅を制限して中央に寄せる */
+    .about-page, 
+    .reservation-page,
+    .legal-page {
+        max-width: 1200px; /* 画面が広がりすぎない上限 */
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* 2. 巨大すぎる画像の横幅と高さを制限 */
+    .about-page img[alt="古民家の外観"],
+    .about-section-image img {
+        width: 100% !important;
+        max-width: 900px !important; /* 横幅の上限 */
+        height: 500px !important;    /* 高さを固定 */
+        margin: 0 auto 40px !important;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    /* 3. 2カラムセクション（紹介文など）の幅を調整 */
+    .about-section {
+        max-width: 1100px;
+        margin: 0 auto 100px;
+        gap: 60px; /* 画像と文字の間の余白を適切に */
+    }
+
+    /* 4. 予約結果のカードが横に伸びるのを防ぐ */
+    .room-item {
+        max-width: 1000px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        height: 350px; /* PCでのカードの高さを一定に */
+    }
+
+    /* 5. ヒーローセクションの高さを制限（画面からはみ出さない程度） */
+    .hero {
+        height: 80vh; /* 画面の8割に抑える */
+        max-height: 800px;
+    }
+}
+
+/* ==========================================
+   共通：画像が歪まないようにする設定
+   ========================================== */
+img {
+    object
+
+
 
 
 
