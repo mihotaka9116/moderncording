@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* ==========================================
-   1. リセット & 根本的な横揺れ防止
+   1. 変数・基本設定
    ========================================== */
 :root {
     --bg-color: #fdfcf9;
@@ -12,39 +12,31 @@
     --white: #ffffff;
 }
 
-*, *::before, *::after {
-    box-sizing: border-box; /* パディングによるサイズ肥大を防止 */
-}
-
-html, body {
+body {
     margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden; /* ★重要：これが横揺れを物理的に止めます */
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: "Montserrat", "Noto Serif JP", serif;
+    font-weight: 400;
     line-height: 2;
+    letter-spacing: 0.1em;
     -webkit-font-smoothing: antialiased;
 }
 
-/* ==========================================
-   2. レイアウトの要（コンテナ幅）
-   ========================================== */
+html { scroll-behavior: smooth; }
+h1, h2, h3, p, figure, ul { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; transition: 0.3s; }
+img { display: block; max-width: 100%; height: auto; }
+
 .w-container {
-    width: 92%;
-    max-width: 1100px; /* PCで広がりすぎない */
-    margin: 0 auto;
+    width: min(92%, 1100px);
+    margin: auto;
 }
 
-img {
-    max-width: 100%; /* 親要素を絶対に突き破らない */
-    height: auto;
-    display: block;
-}
+h2, h3 { font-weight: 500 !important; letter-spacing: 0.25em; color: var(--main-color); }
 
 /* ==========================================
-   3. ヘッダー（ロゴ・ナビ）
+   2. ヘッダー & ナビゲーション
    ========================================== */
 .header {
     height: 80px;
@@ -53,94 +45,1470 @@ img {
     position: sticky;
     top: 0;
     z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.site a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.nav ul { display: flex; gap: 35px; }
+.nav ul li a { font-size: 0.85rem; }
+.nav ul li a:hover { color: var(--accent-color); }
+.navbtn { display: none; }
+
+/* ==========================================
+   3. ヒーローセクション（メインコピー拡大版）
+   ========================================== */
+.hero {
+    position: relative;
     width: 100%;
+    height: 75vh;
+    min-height: 550px;
+    background-color: #eee; /* 読み込み中も真っ白にしない */
+    overflow: hidden;
+}
+
+.hero-slider, .slide { width: 100%; height: 100%; }
+
+.slide {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ★画像ファイル名を実際のフォルダ内にある名前に合わせてください★ */
+.slide1 { background-image: url('kominka.jpg'); }
+.slide2 { background-image: url('hosizora.jpg'); }
+.slide3 { background-image: url('sifa.jpg'); }
+
+.hero-content {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    z-index: 10;
+    width: 100%;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem); /* コピーを大きく */
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    letter-spacing: 0.3em;
+}
+
+/* 予約バー */
+.booking-bar {
+    background-color: var(--white);
+    padding: 25px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 20;
+    margin-top: -50px;
+    border-radius: 8px;
+}
+
+.booking-form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+/* ==========================================
+   4. コンテンツ・グリッド
+   ========================================== */
+
+/* こだわり (Feature) */
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+.feature-item.reverse { flex-direction: row-reverse; }
+.feature-image, .feature-text { flex: 1; }
+.feature-image img { 
+    width: 100%; height: 400px; 
+    object-fit: cover; border-radius: 8px; 
+}
+
+/* ニュース (News) */
+.posts-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+.post img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; }
+
+/* ギャラリー (Gallery) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 40px;
+}
+.gallery-item { aspect-ratio: 3 / 2; overflow: hidden; border-radius: 4px; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.gallery-item:hover img { transform: scale(1.1); }
+
+/* ==========================================
+   5. スマホ対応
+   ========================================== */
+@media (max-width: 767px) {
+    .navbtn { display: block; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; z-index: 1001; }
+    .nav { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: var(--main-color); transition: 0.5s ease; z-index: 999; padding-top: 100px; }
+    html.open .nav { right: 0; }
+    .nav ul { flex-direction: column; align-items: center; gap: 40px; }
+
+    .booking-form, .feature-item, .feature-item.reverse { flex-direction: column; align-items: stretch; gap: 20px; }
+    .posts-container { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    
+    .hero { height: 60vh; }
+    .booking-bar { margin-top: 20px; width: 95%; }
+}
+
+/* ==========================================
+   6. フッター
+   ========================================== */
+.footer { background: var(--main-color); padding: 60px 0; color: #fff; text-align: center; }
+.footer-menu { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
+
+/* ==========================================
+   お問い合わせページ専用の調整
+   ========================================== */
+
+/* フォームを中央に寄せ、幅を制限する */
+.contact-form-styled {
+    max-width: 800px; /* 横幅が広がりすぎないように制限 */
+    margin: 60px auto; /* 上下に余白を作り、中央に配置 */
+    background: #fff;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05); /* 柔らかな影で浮き立たせる */
+}
+
+/* 入力項目ごとの間隔 */
+.form-group {
+    margin-bottom: 30px;
+    text-align: left; /* 文字は左寄せ */
+}
+
+/* ラベル（お名前、メールアドレスなど） */
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--main-color);
+}
+
+/* 入力ボックスとテキストエリア */
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box; /* 幅100%からはみ出さないようにする */
+    background-color: #fafafa;
+    transition: 0.3s;
+}
+
+/* 入力中の色 */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(154, 128, 83, 0.1);
+}
+
+/* 送信ボタンを旅館らしいデザインに */
+.btn-submit {
+    display: block;
+    width: 250px; /* ボタンが巨大化しないように幅を指定 */
+    margin: 40px auto 0; /* ボタンを中央寄せ */
+    padding: 18px;
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 50px; /* 丸みをつけてモダンに */
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 0.2em;
+}
+
+.btn-submit:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* スマホ用の調整 */
+@media (max-width: 767px) {
+    .contact-form-styled {
+        padding: 30px 20px;
+        margin: 40px 15px; /* 左右に少し余白を作る */
+    }
+    
+    .btn-submit {
+        width: 100%; /* スマホでは押しやすいように全幅 */
+    }
+}
+
+/* ==========================================
+   特定商取引法・規約ページ共通
+   ========================================== */
+.legal-page {
+    padding: 80px 0;
+    background-color: var(--bg-color);
+}
+
+/* 見出しの装飾（中央寄せ＋下線） */
+.heading-decoration {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.heading-decoration::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+/* テーブルの整頓 */
+.policy-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-top: 2px solid var(--main-color);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+}
+
+.policy-table th {
+    width: 30%;
+    background-color: #f9f8f4;
+    color: var(--main-color);
+    text-align: left;
+    padding: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+.policy-table td {
+    padding: 25px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    border-bottom: 1px solid #eee;
+}
+
+/* スマホ対応：テーブルを縦に並べる */
+@media (max-width: 767px) {
+    .legal-page {
+        padding: 50px 0;
+    }
+    .heading-decoration {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+    }
+    .policy-table th, 
+    .policy-table td {
+        display: block; /* 横並びを解除 */
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .policy-table th {
+        padding: 15px 20px 5px;
+        background-color: #f9f8f4;
+        border-bottom: none;
+    }
+    .policy-table td {
+        padding: 5px 20px 20px;
+    }
+}
+
+/* ボタン（共通パーツとして存在しない場合用） */
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: var(--main-color);
+    color: #fff !important;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* ==========================================
+   お部屋・プランページ専用の調整
+   ========================================== */
+
+/* ページ上部の見出しエリア */
+.legal-page h1 {
+    text-align: center;
+    padding: 60px 0 20px;
+    font-size: 2.5rem;
+}
+
+.legal-page p {
+    text-align: center;
+    margin-bottom: 60px;
+    color: #666;
+}
+
+/* カードを横並びにする（グリッド設定） */
+.rooms-flex-container, 
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* PCで2列に並べる */
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+/* カード全体のデザイン */
+.room-card, 
+.plan-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* 高さを揃える */
+    transition: 0.3s;
+}
+
+.room-card:hover, 
+.plan-card:hover {
+    transform: translateY(-10px);
+}
+
+/* 画像の巨大化を抑え、比率を固定する */
+.room-card-image, 
+.plan-image {
+    width: 100%;
+    height: 300px; /* PCでの高さを固定 */
+    overflow: hidden;
+}
+
+.room-card-image img, 
+.plan-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像を歪ませず切り抜く */
+}
+
+/* カード内のテキストエリア */
+.room-card-content, 
+.plan-content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.room-card-content h3, 
+.plan-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--main-color);
+}
+
+/* プラン価格とボタンの装飾 */
+.plan-footer {
+    margin-top: auto; /* 下に固定 */
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plan-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* スマホ対応：1列にする */
+@media (max-width: 767px) {
+    .rooms-flex-container, 
+    .plans-grid {
+        grid-template-columns: 1fr; /* スマホでは1列 */
+        gap: 25px;
+    }
+    
+    .room-card-image, 
+    .plan-image {
+        height: 220px; /* スマホでは高さを少し低く */
+    }
+}
+
+/* ==========================================
+   宿の紹介（About）ページ専用の調整
+   ========================================== */
+
+/* ページ全体の余白 */
+.about-page {
+    padding: 100px 0;
+}
+
+/* メインコンセプト部分（画像と文字の2カラム） */
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 120px;
+}
+
+/* 交互に左右を入れ替える設定（HTMLにreverseクラスがある場合） */
+.about-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-section-image, 
+.about-section-text {
+    flex: 1;
+}
+
+/* 画像の巨大化を防ぎ、情緒あるサイズに */
+.about-section-image img {
+    width: 100%;
+    height: 550px; /* PCでの高さをしっかり確保しつつ制限 */
+    object-fit: cover;
+    border-radius: 4px; /* わずかに角を丸めて柔らかく */
+    box-shadow: 20px 20px 0px var(--sub-accent); /* デザインのアクセント */
+}
+
+/* 文章の装飾 */
+.about-section-text h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.about-section-text p {
+    font-size: 1rem;
+    line-height: 2.2;
+    color: #555;
+}
+
+/* スマホ対応：縦並びにして、画像の影を調整 */
+@media (max-width: 767px) {
+    .about-section, 
+    .about-section.reverse {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+
+    .about-section-image img {
+        height: 350px; /* スマホではコンパクトに */
+        box-shadow: 10px 10px 0px var(--sub-accent);
+    }
+
+    .about-section-text h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================
+   宿の紹介（About）ページ専用の調整
+   ========================================== */
+
+/* ページ全体の余白 */
+.about-page {
+    padding: 100px 0;
+}
+
+/* メインコンセプト部分（画像と文字の2カラム） */
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 120px;
+}
+
+/* 交互に左右を入れ替える設定（HTMLにreverseクラスがある場合） */
+.about-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-section-image, 
+.about-section-text {
+    flex: 1;
+}
+
+/* 画像の巨大化を防ぎ、情緒あるサイズに */
+.about-section-image img {
+    width: 100%;
+    height: 550px; /* PCでの高さをしっかり確保しつつ制限 */
+    object-fit: cover;
+    border-radius: 4px; /* わずかに角を丸めて柔らかく */
+    box-shadow: 20px 20px 0px var(--sub-accent); /* デザインのアクセント */
+}
+
+/* 文章の装飾 */
+.about-section-text h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.about-section-text p {
+    font-size: 1rem;
+    line-height: 2.2;
+    color: #555;
+}
+
+/* スマホ対応：縦並びにして、画像の影を調整 */
+@media (max-width: 767px) {
+    .about-section, 
+    .about-section.reverse {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+
+    .about-section-image img {
+        height: 350px; /* スマホではコンパクトに */
+        box-shadow: 10px 10px 0px var(--sub-accent);
+    }
+
+    .about-section-text h2 {
+        font-size: 1.5rem;
+    }
+}/* ==========================================
+   宿の紹介（About）ページ専用の調整
+   ========================================== */
+
+/* ページ全体の余白 */
+.about-page {
+    padding: 100px 0;
+}
+
+/* メインコンセプト部分（画像と文字の2カラム） */
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 120px;
+}
+
+/* 交互に左右を入れ替える設定（HTMLにreverseクラスがある場合） */
+.about-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-section-image, 
+.about-section-text {
+    flex: 1;
+}
+
+/* 画像の巨大化を防ぎ、情緒あるサイズに */
+.about-section-image img {
+    width: 100%;
+    height: 550px; /* PCでの高さをしっかり確保しつつ制限 */
+    object-fit: cover;
+    border-radius: 4px; /* わずかに角を丸めて柔らかく */
+    box-shadow: 20px 20px 0px var(--sub-accent); /* デザインのアクセント */
+}
+
+/* 文章の装飾 */
+.about-section-text h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.about-section-text p {
+    font-size: 1rem;
+    line-height: 2.2;
+    color: #555;
+}
+
+/* スマホ対応：縦並びにして、画像の影を調整 */
+@media (max-width: 767px) {
+    .about-section, 
+    .about-section.reverse {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+
+    .about-section-image img {
+        height: 350px; /* スマホではコンパクトに */
+        box-shadow: 10px 10px 0px var(--sub-accent);
+    }
+
+    .about-section-text h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================
+   宿の紹介（about.html）専用の調整
+   ========================================== */
+
+/* メインの紹介セクション（写真と文章を整える） */
+.about-page section:first-of-type {
+    padding: 80px 0;
+}
+
+.about-page img[alt="古民家の外観"] {
+    width: 100%;
+    max-width: 900px; /* 広がりすぎ防止 */
+    height: 500px;
+    margin: 0 auto 40px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.about-page h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.about-page p {
+    max-width: 700px;
+    margin: 0 auto 60px;
+    line-height: 2.2;
+    text-align: justify; /* 文章の端を揃えて美しく */
+}
+
+/* 体験（EXPERIENCE）セクションを横並びにする */
+.about-page section[style*="background-color"] {
+    padding: 80px 0 !important;
+}
+
+.about-page section[style*="background-color"] .w-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列に並べる */
+    gap: 40px;
+}
+
+/* 体験セクション内の各項目 */
+.about-page section[style*="background-color"] div {
+    background: rgba(255,255,255,0.05); /* ほんのり背景を明るく */
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.about-page h3 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: var(--accent-color) !important; /* アクセントカラーにする */
+}
+
+/* スマホ対応 */
+@media (max-width: 767px) {
+    .about-page section[style*="background-color"] .w-container {
+        grid-template-columns: 1fr; /* スマホでは1列 */
+        gap: 20px;
+    }
+    
+    .about-page img[alt="古民家の外観"] {
+        height: 300px;
+    }
+    
+    .about-page h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================
+   3. ヒーローセクション（ループアニメーション復元）
+   ========================================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    min-height: 550px;
+    background-color: #333; /* 背景を暗くして文字を見やすく */
+    overflow: hidden;
+}
+
+.hero-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0; /* 最初は消しておく */
+    animation: sliderFade 15s infinite; /* 15秒かけてループ */
+}
+
+/* 各スライドの画像指定（実際のファイル名に合わせて調整してください） */
+.slide1 { background-image: url('kominka.jpg'); animation-delay: 0s; }
+.slide2 { background-image: url('hosizora.jpg'); animation-delay: 5s; }
+.slide3 { background-image: url('irori.jpg'); animation-delay: 10s; }
+
+/* フェードアニメーションの設定（1→2→3と切り替わる） */
+@keyframes sliderFade {
+    0% { opacity: 0; }
+    10% { opacity: 1; }  /* じわっと表示 */
+    33% { opacity: 1; }  /* 表示を維持 */
+    43% { opacity: 0; }  /* 次へ消える */
+    100% { opacity: 0; }
+}
+
+/* 写真の上の文字（常に最前面に配置） */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.6); /* 文字の影を強くして視認性アップ */
+    z-index: 50; /* 写真(z-index: 1)より上に */
+    width: 100%;
+    pointer-events: none; /* 文字がボタンの邪魔をしないように */
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    letter-spacing: 0.3em;
+}
+
+/* ボタンなどはクリックできるようにpointer-eventsを戻す */
+.hero-content .btn {
+    pointer-events: auto;
+}
+
+/* ナビゲーションやメニューの点を強制的に消す */
+.nav ul, 
+.footer-menu, 
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav ul li, 
+.footer-menu li {
+    list-style: none;
+}
+
+/* ==========================================
+   about.html ページ全体の調整
+   ========================================== */
+
+/* メインの紹介エリア（古民家写真とテキスト） */
+.about-page {
+    padding-bottom: 80px;
+}
+
+/* 巨大すぎる画像を適切なサイズに制限 */
+.about-page img[alt="古民家の外観"] {
+    width: 100%;
+    max-width: 1000px; /* 画面いっぱいに広がらないよう制限 */
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    margin: 40px auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* 「EXPERIENCE 体験」セクションを横並びに整える */
+.experience-section {
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 100px 0;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* PCで3列に並べる */
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.experience-item {
+    text-align: left;
+}
+
+.experience-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.experience-item p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* スマホ対応：1列に戻す */
+@media (max-width: 767px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* ==========================================
+   全ページ共通：ナビゲーションの「点」を消す
+   ========================================== */
+.nav ul, 
+.footer-menu, 
+.footer-menu ul {
+    list-style: none !important; /* 強制的に点を消す */
+    padding: 0;
+    margin: 0;
+    display: flex; /* 横並びを維持 */
+}
+
+.nav ul li, 
+.footer-menu li {
+    list-style: none !important;
+}
+
+/* ==========================================
+   about.html（宿の紹介）専用の調整
+   ========================================== */
+
+/* メイン画像（縁側の写真など）のサイズを適正にする */
+.about-page img[alt="古民家の外観"] {
+    width: 100%;
+    max-width: 900px; /* 巨大化を防ぐ */
+    height: 500px;    /* 高さを固定 */
+    object-fit: cover;
+    margin: 40px auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* 紹介文の調整 */
+.about-page h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 40px 0 20px;
+}
+
+.about-page p {
+    max-width: 750px;
+    margin: 0 auto 60px;
+    line-height: 2.2;
+    text-align: center; /* 中央寄せ */
+}
+
+/* 体験（EXPERIENCE）セクションの横並び */
+/* HTML内のstyle属性より強く当てるための記述 */
+section[style*="background-color"] {
+    padding: 100px 0 !important;
+}
+
+section[style*="background-color"] .w-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 項目に合わせて2列または3列 */
+    gap: 40px;
+    max-width: 1000px;
+}
+
+/* 各体験項目の見出しとテキスト */
+section[style*="background-color"] h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+section[style*="background-color"] p {
+    font-size: 0.95rem;
+    color: #eee;
+    text-align: left; /* 説明文は左寄せ */
+}
+
+/* スマホ対応 */
+@media (max-width: 767px) {
+    .nav ul {
+        flex-direction: column; /* スマホでは縦 */
+    }
+    .about-page img[alt="古民家の外観"] {
+        height: 300px;
+    }
+    section[style*="background-color"] .w-container {
+        grid-template-columns: 1fr; /* スマホでは1列 */
+    }
+}
+
+/* ==========================================
+   ヒーローセクションの視認性向上
+   ========================================== */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* 画像の上に薄い黒を重ねて文字を読みやすく */
+    z-index: 5;
+}
+
+.hero-content {
+    z-index: 10; /* 背景（5）より上に配置 */
+}
+
+/* ==========================================
+   予約バー（Booking Bar）の入力欄デザイン
+   ========================================== */
+.form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-item input, 
+.form-item select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 0.9rem;
+}
+
+.btn-search {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.btn-search:hover {
+    background: var(--accent-color);
+}
+
+/* ==========================================
+   About / Experience ページのグリッド調整
+   ========================================== */
+/* セクションが複数ある場合、交互に背景色を変える */
+.about-page section:nth-of-type(even) {
+    background-color: #f4f1ea;
+}
+
+/* 体験グリッド（3列を維持しつつスマホで1列） */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+/* ==========================================
+   全ページ共通：フェードイン（js-fade）の挙動
+   ========================================== */
+.js-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.js-fade.is-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ブラウザ独自の余白を完全にリセット */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 横揺れ防止 */
+}
+
+/* ヘッダー自体の余白を確認 */
+.header {
+    margin-top: 0; /* 上の隙間を消す */
+    width: 100%;
+}
+
+/* フッターの下の隙間を消す */
+.footer {
+    margin-bottom: 0;
+    padding: 60px 0; /* paddingで中の余白を調整 */
+}
+
+/* about-page全体のパディング設定を調整 */
+/* 現在 100px 0 になっているため、ヘッダー直下に大きな隙間が空いています */
+.about-page main {
+    padding-top: 0; 
+}
+
+/* セクション間の余白も調整 */
+.about-section {
+    margin-top: 0;
+    padding: 80px 0; /* marginではなくpaddingで余白を作る */
+}
+
+/* 強制リセット用 */
+body.about-page {
+    padding-top: 0;
+}
+
+.header {
+    top: 0;
+}
+
+/* フッターの下を詰める */
+footer.footer {
+    margin-bottom: 0;
+    display: block;
+}
+
+/* 1. bodyの余計な余白をリセット */
+body.about-page {
+    margin: 0;
+    padding: 0; /* ここが100pxになっているのが隙間の正体です */
+}
+
+/* 2. ヘッダーを一番上に密着させる */
+.header {
+    margin-top: 0;
+    top: 0;
+}
+
+/* 3. フッターの下の隙間（もしあれば）を消す */
+.footer {
+    margin-bottom: 0;
+}
+
+/* 4. 代わりにコンテンツの上側に余白を作る（ヘッダーに被らないように） */
+main {
+    padding-top: 0; /* stickyヘッダーの場合は0でOK */
+}
+
+/* 体験セクション全体の文字を白く、読みやすくする */
+.experience-section {
+    background-color: var(--main-color); /* 背景をしっかり濃い色に */
+    color: #ffffff; /* 全体の文字を白に */
+    padding: 100px 0;
+}
+
+/* タイトル（EXPERIENCE 体験）の色 */
+.experience-section .heading-decoration {
+    color: #ffffff;
+}
+
+/* 各項目の説明文（pタグ）の色と透明度 */
+.experience-item p {
+    color: rgba(255, 255, 255, 0.9); /* 純白より少しだけ落とすと目に優しいです */
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+/* 見出し（h3）はアクセントカラーで見やすく */
+.experience-item h3 {
+    color: var(--accent-color);
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* アイコンの色も調整 */
+.experience-item i {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* ロゴのテキストをそのままの表記（大文字・小文字混じり）にする */
+.site a {
+    text-transform: none; /* すべて大文字にする指定を解除 */
+    display: flex;
+    align-items: center;
+    gap: 12px; /* 家のマークと文字の間隔を調整 */
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em; /* ロゴらしく少し文字間を整える */
+}
+
+/* 家のアイコンの大きさを微調整 */
+.logo-icon {
+    font-size: 1.4rem;
+    color: var(--accent-color); /* アイコンだけアクセントカラーにしてもお洒落です */
 }
 
 .site a {
     display: flex;
     align-items: center;
     gap: 12px;
+    /* フォントをMontserratに固定し、太さを700（Bold）に指定 */
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #ffffff;
-    text-transform: none; /* そのままの表記 */
-    letter-spacing: 0.1em;
-    white-space: nowrap;
+    text-transform:;
+    
+    /* 文字の幅（間隔）を微調整：ここを 0 にするか、極端に狭く/広く設定します */
+    letter-spacing: 0em; 
+    
+    /* 文字が横に広がらないように設定 */
+    font-stretch: normal;
+    white-space: nowrap; /* 改行を防ぐ */
 }
 
-/* ==========================================
-   4. 予約結果ページ (reservation.html)
-   ========================================== */
-.reservation-page main {
-    padding-top: 50px;
-    padding-bottom: 80px;
+.site a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Montserrat', sans-serif; /* ここが重要 */
+    font-weight: 700;
+    font-size: 1.1rem; /* 他のページとサイズを合わせる */
+    letter-spacing: 0.1em; /* ギュッとならないように少しゆとりを持たせる */
+    text-transform: none;
+    white-space: nowrap; /* 改行させない */
+}
+
+/* 通常の三本線 */
+.hamburger {
+  position: relative;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+}
+.hamburger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s; /* アニメーション速度 */
+}
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 11px; }
+.hamburger span:nth-child(3) { bottom: 0; }
+
+/* メニューが開いた時（activeクラスがついた時）の「×」の形 */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(11px) rotate(-45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0; /* 真ん中の線を消す */
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-11px) rotate(45deg);
+}
+
+/* --- ハンバーガーボタン内のアイコン制御 --- */
+
+/* 1. 最初は×マークを隠す */
+.navbtn .fa-xmark {
+    display: none;
+}
+
+/* 2. メニューが開いた時（htmlにopenクラスがついた時） */
+html.open .navbtn .fa-bars {
+    display: none;      /* 三本線を消す */
+}
+
+html.open .navbtn .fa-xmark {
+    display: inline-block; /* ×を表示する */
+}
+
+.central-intro {
+    text-align: center;      /* 文字を中央へ */
+    margin: 0 auto;          /* ブロック自体を中央へ */
+    max-width: 800px;        /* 横に広がりすぎないよう制限すると読みやすいです */
+}
+
+.central-intro p {
+    line-height: 2.2;        /* 行間を広げると、よりゆったりした印象になります */
+}
+
+/* style.css の末尾を確認・修正 */
+.central-intro {
+    text-align: center;      /* 文字を中央へ */
+    margin: 0 auto;          /* ブロック自体を中央へ */
+    max-width: 800px;        
+    display: flex;           /* 追加：子要素を整列させる */
+    flex-direction: column;  /* 追加：縦並びに */
+    align-items: center;     /* 追加：h2などの要素を中央へ */
+}
+
+.central-intro p {
+    line-height: 2.2;
+    text-align: center;      /* 文章を中央寄せ */
+}
+
+/* 見出しの下線を中央から広がるように調整 */
+.central-intro .heading-decoration::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* お部屋・プランページの見出しエリア */
+.page-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.page-header h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 20px;
+}
+
+.sub-copy {
+    text-align: center;      /* 文字を中央へ */
+    margin: 0 auto;          /* ブロックを中央へ */
+    font-size: 1.1rem;
+    letter-spacing: 0.3em;   /* 文字間を広げて情緒的に */
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* もし既存の .legal-page p が邪魔をしている場合は以下で上書き */
+.legal-page p.sub-copy {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* 見出しの装飾（中央寄せ＋下線） */
+.heading-decoration {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px; /* 余白を調整 */
+    position: relative;
+    padding-bottom: 15px;
+    display: block;      /* 確実にブロック要素にする */
+    width: 100%;         /* 横幅いっぱいに広げて中央寄せを有効にする */
+}
+
+.heading-decoration::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;           /* 左から50%の位置へ */
+    transform: translateX(-50%); /* 自身の幅の半分戻して真ん中へ */
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+/* --- お部屋・プランページ専用：中央配置の決定版 --- */
+
+.page-header {
+    text-align: center !important;
+    padding: 60px 0 40px !important;
+    width: 100%;
+}
+
+.page-header h1.heading-decoration {
+    color: var(--main-color);
+    margin-bottom: 25px;
+}
+
+/* 「心に触れる、遠野のひととき。」の文字 */
+.sub-copy {
+    display: block !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    font-size: 1.1rem;
+    letter-spacing: 0.3em;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* 以前の .legal-page p が干渉しないように上書き */
+.legal-page p {
+    text-align: center;
+}
+
+/* コンセプトセクションのテキスト中央寄せ */
+.concept-content {
+    text-align: center;
+    max-width: 800px; /* 横に広がりすぎないように制限すると読みやすいです */
+    margin: 0 auto;
+}
+
+.concept-content p {
+    display: inline-block; /* 左寄せのまま全体を中央に置きたい場合はこちら、完全に中央なら不要 */
+    text-align: center;
+    line-height: 2.2;      /* 行間を広めに取ると「静寂」の雰囲気が出ます */
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+}
+
+/* EXPERIENCEセクションの文字色を強制的に濃くする */
+.experience-section {
+    background-color: #f9f9f9; /* ほんの少しグレーの背景にすると高級感が出ます */
+    color: #333; /* 文字を濃いグレーに */
+    padding: 100px 0;
+}
+
+.experience-section .heading-decoration {
+    color: #2c2c2c !important; /* 見出しをはっきり */
+}
+
+/* アイコンと小見出しの色 */
+.experience-item i {
+    color: #a68d5e; /* 金茶色のアクセントカラー */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.experience-item h3 {
+    color: #333;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.experience-item p {
+    color: #555; /* 本文は少しだけ柔らかい色に */
+    line-height: 1.8;
+}
+
+/* --- スマホ表示（768px以下）でのギャラリー調整 --- */
+@media (max-width: 768px) {
+    .gallery-grid {
+        display: flex;
+        flex-direction: column; /* 縦一列に並べる */
+        gap: 20px;              /* 画像同士の上下の隙間 */
+        padding: 0 20px;        /* 画面端に少し余白を作る */
+    }
+
+    .gallery-item {
+        width: 100%;            /* 横幅いっぱい */
+        aspect-ratio: 3 / 2;    /* 画像の比率を揃えて綺麗に見せる */
+        overflow: hidden;
+        border-radius: 8px;     /* 角を少し丸めるとモダンになります */
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;      /* 枠に合わせて画像を切り抜く（歪ませない） */
+    }
+}
+
+.reservation-page {
+    padding-top: 120px;
+    background-color: #fbfaf5;
+}
+
+.result-summary {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--main-color);
 }
 
 .room-item {
     display: flex;
-    flex-wrap: wrap; /* スマホで折り返す */
     background: #fff;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-radius: 12px;
-    overflow: hidden;
-    width: 100%;
 }
 
-.room-item-image {
-    flex: 1 1 400px; /* 400px以下になると縦に落ちる */
-    height: 350px;
-}
-
-.room-item-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.room-item-image { width: 40%; }
+.room-item-image img { width: 100%; height: 100%; object-fit: cover; }
 
 .room-item-info {
-    flex: 1 1 300px;
-    padding: 40px;
+    padding: 30px;
+    width: 60%;
 }
 
-/* ==========================================
-   5. スマホ・レスポンシブ（一括設定）
-   ========================================== */
-@media (max-width: 767px) {
-    .nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--main-color);
-        transition: 0.5s ease;
-        z-index: 999;
-        padding-top: 100px;
-    }
-
-    html.open .nav { right: 0; }
-
-    /* ギャラリーを1列に */
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    /* ヒーローの高さを調整 */
-    .hero { height: 60vh; }
+.total-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #a68d5e;
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* ==========================================
-   6. アニメーション
-   ========================================== */
-.js-fade {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 1s ease;
+.price-label {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0;
 }
-.js-fade.is-show {
-    opacity: 1;
-    transform: translateY(0);
+
+@media (max-width: 768px) {
+    .room-item { flex-direction: column; }
+    .room-item-image, .room-item-info { width: 100%; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
