@@ -1377,6 +1377,22 @@ html.open .navbtn .fa-xmark {
     text-align: center;
 }
 
+/* コンセプトセクションのテキスト中央寄せ */
+.concept-content {
+    text-align: center;
+    max-width: 800px; /* 横に広がりすぎないように制限すると読みやすいです */
+    margin: 0 auto;
+}
+
+.concept-content p {
+    display: inline-block; /* 左寄せのまま全体を中央に置きたい場合はこちら、完全に中央なら不要 */
+    text-align: center;
+    line-height: 2.2;      /* 行間を広めに取ると「静寂」の雰囲気が出ます */
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+}
+
+
 
 
 
