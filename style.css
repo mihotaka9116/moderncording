@@ -1784,21 +1784,19 @@ body.reservation-page {
     }
 }
 
-/* コンセプトセクション（物語の続きを〜）の上の余白を広げる */
-#concept {
-    padding-top: 120px; /* 数値はお好みで調整してください */
-    padding-bottom: 80px;
+/* 「3つのこだわり」セクションの上の余白を広げる */
+.feature-section {
+    padding-top: 120px;    /* 上にゆとりを持たせる */
+    padding-bottom: 80px;  /* 下にも少し余白を */
+    background-color: var(--bg-color); /* 背景色を確実に指定 */
 }
 
-/* スマホでは余白を少し抑える */
+/* スマホでは余白を少し調整 */
 @media (max-width: 767px) {
-    #concept {
+    .feature-section {
         padding-top: 80px;
     }
 }
-
-
-
 
 
 
