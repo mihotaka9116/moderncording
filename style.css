@@ -1658,6 +1658,53 @@ body.reservation-page {
     }
 }
 
+/* --- 見出しの共通装飾（既存のものを調整） --- */
+.heading-decoration {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 25px; /* 下線との距離を少し広げる */
+    display: flex;        /* 縦に並べるためにflexを使用 */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;           /* 英語と日本語の隙間 */
+    border: none;        /* もし意図しない線が出ていればリセット */
+}
+
+/* 英語タイトル（小さく上に配置） */
+.en-title {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;    /* 小さく設定 */
+    color: var(--accent-color); /* 金茶色のアクセントカラー */
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* 日本語タイトル（メインとして配置） */
+.jp-title {
+    display: block;
+    font-size: 1.8rem;    /* 日本語を大きく */
+    color: var(--main-color);
+    font-family: "Noto Serif JP", serif;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+}
+
+/* 中央の下線（既存の擬似要素を微調整） */
+.heading-decoration::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;          /* 少し短めにすると上品です */
+    height: 1px;          /* 細い線にすると静寂な印象に */
+    background-color: var(--accent-color);
+}
+
+
 
 
 
