@@ -1784,6 +1784,20 @@ body.reservation-page {
     }
 }
 
+/* コンセプトセクション（物語の続きを〜）の上の余白を広げる */
+#concept {
+    padding-top: 120px; /* 数値はお好みで調整してください */
+    padding-bottom: 80px;
+}
+
+/* スマホでは余白を少し抑える */
+@media (max-width: 767px) {
+    #concept {
+        padding-top: 80px;
+    }
+}
+
+
 
 
 
