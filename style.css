@@ -1605,6 +1605,59 @@ body.reservation-page * {
     }
 }
 
+/* ==========================================
+   予約結果ページ・ボタンの最終調整
+   ========================================== */
+
+/* 1. 予約結果ページ全体の余白リセット */
+body.reservation-page {
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. 文字の自動折り返し設定（はみ出し防止の決定版） */
+.reservation-page main {
+    padding: 40px 0 80px; /* ヘッダー下の隙間を適切に */
+    overflow-wrap: break-word; /* 長い英単語などを強制改行 */
+    word-break: break-all;
+}
+
+/* 3. ボタン（btn-submit）のブラッシュアップ */
+.btn-submit {
+    display: block;
+    width: min(100%, 300px); /* 基本300px、画面が狭ければ100% */
+    margin: 40px auto 0;
+    padding: 18px;
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 0.2em;
+    text-align: center;
+    box-sizing: border-box; /* パディングを含めた幅計算 */
+}
+
+/* 4. 部屋アイテムのスマホ最適化（再調整） */
+@media (max-width: 768px) {
+    .room-item {
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .room-item-image, 
+    .room-item-info {
+        width: 100%;
+    }
+    .total-price {
+        font-size: 1.5rem; /* スマホでは少し小さくして一行に収める */
+    }
+}
+
 
 
 
