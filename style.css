@@ -1798,6 +1798,47 @@ body.reservation-page {
     }
 }
 
+/* --- セクション見出しの統一設定 --- */
+
+/* 1. 英語のサブタイトル（Access / Contact など） */
+.eng-sub-title {
+    display: block;                /* 改行させる */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;             /* 小さめに統一 */
+    font-weight: 600;
+    color: var(--accent-color);    /* 金茶色などのアクセントカラー */
+    letter-spacing: 0.25em;        /* 文字間を広げて高級感を出す */
+    text-transform: uppercase;     /* 大文字に固定 */
+    margin-bottom: 10px;           /* 下の日本語との間隔 */
+    text-align: center;
+}
+
+/* 2. 日本語のメインタイトル（アクセス / お問い合わせ） */
+.heading-decoration {
+    font-family: "Noto Serif JP", serif;
+    font-size: clamp(1.5rem, 4vw, 2rem); /* 画面幅で調整されるサイズ */
+    font-weight: 500;
+    color: var(--main-color);
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* 共通の下線（中央配置） */
+.heading-decoration::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 1.5px;
+    background-color: var(--accent-color);
+}
+
+
 
 
 
