@@ -1553,6 +1553,59 @@ body.reservation-page * {
     }
 }
 
+/* 体験セクション全体の調整 */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* PCでは3列 */
+    gap: 40px;
+    margin-top: 50px;
+}
+
+/* 各アイテムの配置設定 */
+.experience-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* アイコンとタイトルを中央へ */
+    text-align: center;     /* タイトルまでのテキストを中央へ */
+}
+
+/* アイコンとタイトルの個別設定 */
+.experience-item i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.experience-item h3 {
+    width: 100%;
+    margin-bottom: 20px;
+    /* 念のため中央寄せを再指定 */
+    text-align: center;
+}
+
+/* ★ 説明文：ここがポイント ★ */
+.experience-item p {
+    text-align: left;       /* 文章の左端を揃える */
+    max-width: 280px;       /* 1行が長くなりすぎないよう幅を制限 */
+    margin: 0 auto;         /* 制限した幅のブロックごと中央に寄せる */
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* スマホ対応 */
+@media (max-width: 767px) {
+    .experience-grid {
+        grid-template-columns: 1fr; /* 1列にする */
+        gap: 50px;
+    }
+    
+    .experience-item p {
+        max-width: 100%;    /* スマホでは画面幅に合わせる */
+        padding: 0 10px;    /* 左右に少し余白 */
+    }
+}
+
+
 
 
 
