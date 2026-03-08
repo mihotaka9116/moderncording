@@ -1838,6 +1838,44 @@ body.reservation-page {
     background-color: var(--accent-color);
 }
 
+/* 「3つのこだわり」のテキストエリアの調整 */
+.feature-item .feature-text {
+    /* テキストエリア自体を中央に寄せる（親がflexの場合） */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* 中身を左に寄せる */
+    
+    /* テキストを左揃えに固定 */
+    text-align: left;
+    
+    /* 左右の余白を調整して中央感を出す */
+    padding: 0 5%;
+}
+
+/* 念のため、中の見出しや段落も左揃えを明示 */
+.feature-item .feature-text h2,
+.feature-item .feature-text p,
+.feature-item .feature-text .eng-sub-title {
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* スマホでの表示（中央揃えの方が綺麗に見える場合が多いので切り替え） */
+@media (max-width: 767px) {
+    .feature-item .feature-text {
+        text-align: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+    .feature-item .feature-text h2,
+    .feature-item .feature-text p {
+        text-align: center;
+    }
+}
+
+
 
 
 
