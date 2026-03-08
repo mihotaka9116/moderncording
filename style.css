@@ -1704,6 +1704,54 @@ body.reservation-page {
     background-color: var(--accent-color);
 }
 
+/* ==========================================
+   予約結果ページのレスポンシブ最終調整
+   ========================================== */
+
+/* 1. ボタンのはみ出し防止と中央寄せ */
+.reservation-page .btn-submit {
+    display: block;
+    width: min(100%, 300px); /* 最大300px、画面が狭ければ100%に */
+    margin: 40px auto;       /* 上下に余白、左右中央 */
+    padding: 16px 20px;
+    box-sizing: border-box;  /* パディングを幅に含める */
+    text-align: center;
+    white-space: normal;     /* 文字数が多い場合に折り返しを許可 */
+}
+
+/* 2. 部屋情報エリアのテキスト調整 */
+.room-item-info {
+    overflow: hidden;        /* はみ出し防止 */
+}
+
+.total-price {
+    font-size: clamp(1.5rem, 5vw, 2rem); /* 画面幅に合わせてフォントサイズを可変に */
+    word-break: break-all;
+}
+
+/* 3. スマホ表示（767px以下）での微調整 */
+@media (max-width: 767px) {
+    .reservation-page main {
+        padding: 30px 15px; /* 左右に少し余白を作る */
+    }
+
+    .room-item-info {
+        padding: 20px;     /* スマホではパディングを少し狭く */
+    }
+
+    .result-summary {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* 4. ページ全体の横揺れ（スクロール）を完全に防止 */
+.reservation-page {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+
 
 
 
