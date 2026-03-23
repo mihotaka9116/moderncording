@@ -819,8 +819,8 @@ html.open .navbtn .fa-xmark {
 .experience-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-top: 50px;
+    gap: 30px;
+    margin-top: 30px;
 }
 
 .experience-item {
@@ -957,7 +957,7 @@ html.open .navbtn .fa-xmark {
 }
 
 .copyright {
-    font-size: 13px !important;
+    font-size: 13px;
     color: #fff;
     text-align: center;
     padding-bottom: 40px;
