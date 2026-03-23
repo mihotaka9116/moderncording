@@ -672,15 +672,15 @@ html.open .navbtn .fa-xmark {
    ========================================== */
 .rooms-section,
 #plans {
-    padding: 80px 0;
+    padding: 30px 0;
 }
 
 .rooms-flex-container,
 .plans-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    margin-bottom: 80px;
+    gap: 30px;
+    margin-bottom: 30px;
 }
 
 .room-card,
